@@ -70,6 +70,7 @@
   .c-futura { border-top-color: var(--slate); opacity: 0.85; }
   .c-recurso { border-top-color: var(--amb); }
   .c-recurso-alt { border-top-color: var(--vio); }
+  .c-toolbox { border-top-color: var(--med); }
   
   .clase-num { 
     font-size: 13.5px; 
@@ -83,6 +84,7 @@
   .c-actual .clase-num { color: var(--grn); }
   .c-recurso .clase-num { color: var(--amb); }
   .c-recurso-alt .clase-num { color: var(--vio); }
+  .c-toolbox .clase-num { color: var(--med); }
   
   .card h2 { 
     color: var(--nav); 
@@ -113,6 +115,7 @@
   .c-actual .btn { background: var(--grn); color: white; }
   .c-recurso .btn { background: var(--amb); color: white; }
   .c-recurso-alt .btn { background: var(--vio); color: white; }
+  .c-toolbox .btn { background: var(--med); color: white; }
   
   .card:hover:not(.locked) .btn { background: var(--nav); color: white; }
   .c-actual:hover:not(.locked) .btn { background: #1d4734; }
@@ -186,6 +189,13 @@
   <h2 class="section-title">Recursos del Taller</h2>
   <div class="grid">
 
+    <a href="caja_herramientas.html" class="card c-toolbox">
+      <div class="clase-num">Recursero Dinámico</div>
+      <h2>Caja de Herramientas TIC</h2>
+      <p>Acceso a asistentes de IA, plataformas de gamificación, recursos narrativos y herramientas de accesibilidad curadas para Ed. Especial.</p>
+      <div class="btn">Abrir Caja de Herramientas</div>
+    </a>
+
     <a href="#" class="card c-recurso">
       <div class="clase-num">Biblioteca y Normativa</div>
       <h2>Bibliografía Obligatoria</h2>
@@ -195,8 +205,8 @@
 
     <a href="#" class="card c-recurso-alt">
       <div class="clase-num">Laboratorio Práctico</div>
-      <h2>Recursero TIC Colaborativo</h2>
-      <p>Acceso directo al Padlet del grupo, herramientas de Comunicación Aumentativa Alternativa (CAA) y bancos de pictogramas (Arasaac).</p>
+      <h2>Murales y Producción</h2>
+      <p>Acceso directo al Padlet del grupo "Yo y la tecnología", herramientas de CAA y bancos de pictogramas (Arasaac).</p>
       <div class="btn">Ir al Recursero</div>
     </a>
 
