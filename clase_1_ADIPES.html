@@ -32,15 +32,15 @@
   /* ── TOPBAR ── */
   .top{background:var(--nav);color:#fff;padding:13px 28px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;border-bottom:3px solid var(--med)}
   .top strong{display:block;font-size:15px}.top small{font-size:12px;opacity:.78}
-  .top-r{font-size:11px;opacity:.65;text-align:right}
+  .top-r{font-size:11px;display:flex;align-items:center;gap:15px}
+  .btn-back{color:#fff; text-decoration:none; background:rgba(255,255,255,0.15); padding:6px 14px; border-radius:6px; border:1px solid rgba(255,255,255,0.3); font-weight:600; font-size:12px; transition: 0.2s;}
+  .btn-back:hover{background:rgba(255,255,255,0.25);}
 
   /* ── HERO ── */
   .hero{background:linear-gradient(135deg,var(--nav) 0%,var(--med) 100%);color:#fff;padding:32px 28px 24px}
   .hbadge{display:inline-block;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);border-radius:20px;padding:3px 14px;font-size:12px;letter-spacing:.5px;margin-bottom:10px}
   .hero h1{font-size:22px;font-weight:700;line-height:1.3;margin-bottom:6px}
   .hero-sub{font-size:13px;opacity:.8;margin-bottom:16px}
-  .pills{display:flex;flex-wrap:wrap;gap:7px;margin-top:14px}
-  .pill{background:rgba(255,255,255,.17);border:1px solid rgba(255,255,255,.25);border-radius:20px;padding:3px 12px;font-size:12px;white-space:nowrap}
 
   /* ── ALERTA CELULAR ── */
   .celular-banner{background:#1D3461;border-bottom:3px solid #C07A28;padding:10px 20px;display:flex;align-items:center;gap:12px;color:#fff}
@@ -145,14 +145,6 @@
   .tbl td{padding:7px 11px;border-bottom:1px solid var(--bd);vertical-align:top}
   .tbl tr:nth-child(even) td{background:var(--gris)}
 
-  /* ── FORUM ── */
-  .forum{background:var(--vcl);border:2px solid var(--vio);border-radius:var(--r);padding:20px 22px;margin-bottom:18px}
-  .forum h3{color:var(--nav);font-size:15.5px;margin-bottom:8px}
-  .fq{background:#fff;border-radius:6px;padding:13px 15px;font-size:13.5px;font-style:italic;color:var(--neg);margin-bottom:13px;border-left:3px solid var(--med)}
-  .fcrit{margin-bottom:13px}.fcrit strong{display:block;font-size:13px;color:var(--nav);margin-bottom:5px}
-  .fcrit ul{margin-left:17px}.fcrit li{font-size:13px;margin-bottom:3px}
-  .fdate{display:flex;align-items:center;gap:9px;background:rgba(255,255,255,.7);border-radius:6px;padding:9px 13px;font-size:13px}
-
   /* ── DIMESIONES TABLE (Area Moreira) ── */
   .dim-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:14px 0}
   .dim-card{border-radius:6px;padding:12px 14px;border-left:4px solid var(--med)}
@@ -174,7 +166,7 @@
   @media(max-width:480px){
     body{font-size:14px}
     .top{padding:10px 14px;flex-direction:column;align-items:flex-start;gap:4px}
-    .top-r{display:none}
+    .top-r{font-size:10px; flex-direction: column; align-items: flex-start; gap:8px;}
     .tab-bar{padding:0 10px}
     .tab-btn{font-size:12.5px;padding:10px 11px}
     .wrap{padding:14px 12px 40px}
@@ -187,8 +179,6 @@
     .syn h4{font-size:13px}
     .res-detail{padding:12px 14px}
     .acb{padding:5px 12px 15px 12px}
-    .forum{padding:15px 14px}
-    .fq{font-size:12.5px;padding:10px 12px}
     .btn{font-size:12px;padding:6px 10px}
     .hero{padding:22px 16px 18px}
     .hero h1{font-size:19px}
@@ -217,7 +207,10 @@
 <div class="top">
   <div><strong>Alfabetización Digital</strong>
     <small>Prof. de Educación Especial – Orientación en DI · Campo General · Gustavo Iturriz</small></div>
-  <div class="top-r">IPES "Florentino Ameghino" · 2026</div>
+  <div class="top-r">
+    <a href="index_ADIPES.html" class="btn-back">⬅ Volver al índice</a>
+    <span>IPES "Florentino Ameghino" · 2026</span>
+  </div>
 </div>
 
 <!-- ALERTA MOBILE -->
@@ -231,28 +224,27 @@
   <div class="hbadge">CLASE 1 · EJE 1 · MARTES 28 DE ABRIL DE 2026</div>
   <h1>¿Qué significa ser digitalmente alfabetizado?<br>Más allá del hardware y el software</h1>
   <div class="hero-sub">Diagnóstico inicial · Encuadre del taller · Primeras categorías</div>
-  <div class="pills">
-    <span class="pill">🕐 2 horas reloj</span>
-    <span class="pill">📋 Diagnóstico</span>
-    <span class="pill">📚 Dussel (2010)</span>
-    <span class="pill">📚 Area Moreira (2018)</span>
-    <span class="pill">📱 Funciona en celular</span>
-  </div>
 </div>
 
 <!-- TAB BAR -->
 <div class="tab-bar">
   <button class="tab-btn active" onclick="showTab('inicio',this)">Inicio</button>
-  <button class="tab-btn" onclick="showTab('dussel',this)">Dussel y Quevedo</button>
-  <button class="tab-btn" onclick="showTab('area',this)">Area Moreira</button>
+  <button class="tab-btn" onclick="showTab('marco',this)">Marco Teórico</button>
   <button class="tab-btn" onclick="showTab('actividades',this)">Actividades</button>
-  <button class="tab-btn" onclick="showTab('foro',this)">Foro 1</button>
 </div>
 
 <div class="wrap">
 
 <!-- ══════════════════════ INICIO ══════════════════════ -->
 <div id="pane-inicio" class="pane on">
+
+  <!-- FRASE DISPARADORA -->
+  <div class="card card-v">
+    <div class="ch">💭 Para empezar a pensar</div>
+    <div class="cb">
+      <p style="font-size:16px; font-style:italic; color:var(--vio); font-weight: 500;">"Imaginá que mañana desaparece toda la tecnología del aula en la que vas a enseñar — dispositivos, proyector, plataforma, todo. ¿Qué cambia en tu práctica? ¿Qué no cambia? ¿Qué descubrís que dependía más de la tecnología de lo que creías — y qué descubrís que podría funcionar igual o mejor sin ella?"</p>
+    </div>
+  </div>
 
   <div class="card card-b">
     <div class="ch">🧭 Pregunta que organiza esta clase</div>
@@ -275,7 +267,7 @@
           <tr><td><strong>Diagnóstico</strong></td><td>Encuesta digital de autopercepción tecnológica (Google Forms)</td><td>15 min</td></tr>
           <tr><td><strong>Teoría ancla</strong></td><td>¿Qué es la Alfabetización Digital? Dussel (2010) + Area Moreira (2018)</td><td>30 min</td></tr>
           <tr><td><strong>Laboratorio</strong></td><td>Mural colaborativo en Padlet: "Yo y la tecnología"</td><td>25 min</td></tr>
-          <tr><td><strong>Cierre</strong></td><td>Puesta en común + presentación del Foro 1</td><td>10 min</td></tr>
+          <tr><td><strong>Cierre</strong></td><td>Puesta en común + plenario</td><td>10 min</td></tr>
         </tbody>
       </table>
       <div class="note ng">
@@ -310,9 +302,10 @@
 
 </div><!-- /inicio -->
 
-<!-- ══════════════════════ DUSSEL ══════════════════════ -->
-<div id="pane-dussel" class="pane">
+<!-- ══════════════════════ MARCO TEÓRICO ══════════════════════ -->
+<div id="pane-marco" class="pane">
 
+  <!-- DUSSEL Y QUEVEDO -->
   <div class="res">
     <div class="res-head">
       <div class="ri">📗</div>
@@ -418,11 +411,7 @@
     </div>
   </div>
 
-</div><!-- /dussel -->
-
-<!-- ══════════════════════ AREA MOREIRA ══════════════════════ -->
-<div id="pane-area" class="pane">
-
+  <!-- AREA MOREIRA -->
   <div class="res">
     <div class="res-head">
       <div class="ri">📘</div>
@@ -508,7 +497,7 @@
     </div>
   </div>
 
-</div><!-- /area -->
+</div><!-- /marco -->
 
 <!-- ══════════════════════ ACTIVIDADES ══════════════════════ -->
 <div id="pane-actividades" class="pane">
@@ -524,11 +513,9 @@
       <div class="an">1</div>
       <div class="at">
         <strong>Encuesta diagnóstica: ¿cómo me relaciono con la tecnología?</strong>
-        <small>Individual · Google Forms · 15 min · Se realiza al inicio de la clase</small>
+        <small>Individual · Google Forms · Se realiza al inicio de la clase</small>
         <div class="chips">
-          <span class="ch2 cb2">Obligatoria</span>
           <span class="ch2 cm2">Diagnóstico</span>
-          <span class="ch2 cg2">Sin nota</span>
         </div>
       </div>
       <span class="arr">›</span>
@@ -536,27 +523,12 @@
     <div class="acb">
       <p>Esta encuesta no se evalúa con nota. Es el punto de partida: le permite al docente conocer el punto de partida real del grupo y ajustar la planificación. Respondé con honestidad.</p>
 
-      <div class="step">
-        <strong>¿Qué te va a preguntar?</strong>
-        <ul>
-          <li>¿Qué tecnologías usás habitualmente y para qué?</li>
-          <li>¿Cómo te sentís frente a la tecnología en el aula? (escala)</li>
-          <li>¿Qué herramientas digitales conocés que podrían usarse en Ed. Especial DI?</li>
-          <li>¿Qué te genera más incertidumbre de este taller?</li>
-          <li>¿Usás IA Generativa? ¿Para qué?</li>
-        </ul>
-      </div>
-
       <div class="phone-step">
         <div class="psi">📱</div>
         <p><strong>En celular:</strong> el Form abre directo en el navegador. Usá tu cuenta de Gmail institucional si tenés, o cualquier cuenta de Google. No hace falta app.</p>
       </div>
 
-      <a class="btn" href="#" target="_blank">📋 Abrir encuesta diagnóstica</a>
-      <div class="note na" style="margin-top:10px">
-        <span class="ni">⏰</span>
-        <span>El link al Form lo comparte el docente en clase. Si llegaste tarde o estás leyendo esto desde casa, escribile para que te lo envíe.</span>
-      </div>
+      <a class="btn" href="https://forms.gle/qXwbQmRHUtfiNMD97" target="_blank">📋 Abrir encuesta diagnóstica</a>
     </div>
   </div>
 
@@ -566,9 +538,8 @@
       <div class="an">2</div>
       <div class="at">
         <strong>Mural colaborativo: "Yo y la tecnología"</strong>
-        <small>Grupal · Padlet · 25 min · Actividad central de la clase</small>
+        <small>Grupal · Padlet · Actividad central de la clase</small>
         <div class="chips">
-          <span class="ch2 cb2">Obligatoria</span>
           <span class="ch2 cm2">Laboratorio</span>
           <span class="ch2 ca2">Producción colectiva</span>
         </div>
@@ -583,7 +554,7 @@
         <ul>
           <li><strong>Lo que hago:</strong> ¿qué tecnologías uso habitualmente — para estudiar, para la vida personal, para el trabajo?</li>
           <li><strong>Lo que me preocupa:</strong> ¿qué me genera incertidumbre o incomodidad de la tecnología en el aula? ¿En Ed. Especial en particular?</li>
-          <li><strong>Lo que me falta:</strong> ¿qué necesitaría aprender o incorporar para usar tecnología de manera genuina en mi práctica docente?</li>
+          <li><strong>Lo que me falta:</strong> ¿qué necesitaría aprender o incorporar para usar tecnología de manera genuina mi práctica docente?</li>
         </ul>
       </div>
 
@@ -599,10 +570,6 @@
       </div>
 
       <a class="btn" href="#" target="_blank">🗂️ Abrir Padlet "Yo y la tecnología"</a>
-      <div class="note nb" style="margin-top:10px">
-        <span class="ni">🔗</span>
-        <span>El link al Padlet lo comparte el docente al inicio de la actividad. El mural queda público para el grupo durante todo el cuatrimestre y se usa en la clase de cierre (julio) para la metacognición final.</span>
-      </div>
     </div>
   </div>
 
@@ -612,9 +579,8 @@
       <div class="an">3</div>
       <div class="at">
         <strong>Presentación oral: lo que puse en el Padlet</strong>
-        <small>Parejas / Individual · Plenario · 10 min · Cierre de la actividad</small>
+        <small>Parejas / Individual · Plenario · Cierre de la actividad</small>
         <div class="chips">
-          <span class="ch2 cb2">Obligatoria</span>
           <span class="ch2 cg2">Puesta en común</span>
         </div>
       </div>
@@ -630,6 +596,7 @@
         <span class="ni">♿</span>
         <span>Si hay estudiantes con dificultades para la expresión oral en público, pueden leer directamente desde la tarjeta o pedirle a un compañero/a que la lea.</span>
       </div>
+      <a class="btn" href="https://padlet.com/iturrizeducaciontdf/yo-y-la-tecnologia-f6kjx1f28uo0sr89" target="_blank">🗂️ Ver tarjetas en el Padlet</a>
     </div>
   </div>
 
@@ -665,62 +632,6 @@
   </div>
 
 </div><!-- /actividades -->
-
-<!-- ══════════════════════ FORO ══════════════════════ -->
-<div id="pane-foro" class="pane">
-
-  <div class="forum">
-    <h3>💬 Foro 1 — "¿Qué cambiaría si no tuviéramos tecnología en el aula?"</h3>
-    <p style="font-size:13px;margin-bottom:13px;color:var(--nav)"><strong>Este foro se retoma en la clase de cierre del taller (julio)</strong> para la metacognición final. Lo que escribas hoy es el punto de partida de esa comparación. Escribí con honestidad — no para impresionar, sino para pensarte.</p>
-
-    <div class="fq">"Imaginá que mañana desaparece toda la tecnología del aula en la que vas a enseñar — dispositivos, proyector, plataforma, todo. ¿Qué cambia en tu práctica? ¿Qué no cambia? ¿Qué descubrís que dependía más de la tecnología de lo que creías — y qué descubrís que podría funcionar igual o mejor sin ella?"</div>
-
-    <div class="fcrit">
-      <strong>La publicación debe incluir:</strong>
-      <ul>
-        <li>Una reflexión honesta sobre tu relación actual con la tecnología como futura/o docente de Ed. Especial DI.</li>
-        <li>Al menos una conexión con alguna idea de Dussel y Quevedo (2010) — informal, sin formato académico.</li>
-        <li>Una pregunta que te quede abierta después de pensar en la consigna.</li>
-      </ul>
-    </div>
-
-    <div class="fcrit">
-      <strong>Sobre el uso de IA:</strong>
-      <ul>
-        <li>La reflexión y las ideas deben ser 100% tuyas.</li>
-        <li>Podés usar IA para pulir la redacción. Si lo hacés, declaralo en una línea final.</li>
-        <li>Una publicación auténtica y breve vale infinitamente más que una fabricada para impresionar.</li>
-      </ul>
-    </div>
-
-    <div class="note nv" style="margin-bottom:13px">
-      <span class="ni">♿</span>
-      <span><strong>Clave para Ed. Especial:</strong> si podés, incluí una reflexión breve sobre qué implicaría la ausencia de tecnología para tus futuros estudiantes con DI específicamente. ¿Es igual la respuesta que para cualquier aula?</span>
-    </div>
-
-    <div class="fdate">
-      <span style="font-size:19px">🗓</span>
-      <span><strong>Plazo:</strong> la semana que viene (antes de la Clase 2 del 5 de mayo) &nbsp;·&nbsp; <strong>Extensión:</strong> 150–300 palabras &nbsp;·&nbsp; <strong>Formato:</strong> publicar en el hilo del aula virtual, no adjuntar archivos.</span>
-    </div>
-  </div>
-
-  <div class="card card-b">
-    <div class="ch">📌 ¿Hay que responder a otros?</div>
-    <div class="cb">
-      <p>Esta semana no es obligatorio. El Foro 1 es de construcción individual. Si la reflexión de alguien te resuena o te genera preguntas, podés dejar un comentario — bienvenido, pero no evaluado esta semana.</p>
-      <p style="margin-top:8px">A partir del Foro 2 el intercambio entre pares es parte de la evaluación formativa.</p>
-    </div>
-  </div>
-
-  <div class="card card-v">
-    <div class="ch">💡 ¿Por qué este foro importa al cierre del taller?</div>
-    <div class="cb">
-      <p>En la Clase 11 (7 de julio), el docente va a recuperar fragmentos de este foro y preguntará: <em>"¿Qué docente digital eras en abril y qué docente digital sos hoy?"</em></p>
-      <p style="margin-top:8px">El contraste entre ambas versiones es la evidencia más poderosa del aprendizaje del cuatrimestre. Una publicación honesta sobre una reflexión simple sirve infinitamente más que una reflexión fabricada.</p>
-    </div>
-  </div>
-
-</div><!-- /foro -->
 
 </div><!-- /wrap -->
 
