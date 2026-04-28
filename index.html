@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alfabetización Digital | Inicio</title>
+<style>
+  :root {
+    /* Paleta IPESfa adaptada a Ed. Especial DI */
+    --nav:    #1D3461;   /* azul institucional */
+    --med:    #2E6DA4;   /* azul medio */
+    --grn:    #2A6049;   /* verde bosque (accesibilidad) */
+    --amb:    #C07A28;   /* terracota/ámbar (alerta) */
+    --vio:    #5B3A8C;   /* violeta */
+    --slate:  #3A5570;   /* gris azulado */
+    --gris:   #F2F6FA;   /* fondo gris suave */
+    --bd:     #C5D2DC;   /* borde */
+    --txt:    #4A5E70;   /* texto secundario */
+    --bco:    #FFFFFF;
+    --r: 12px;
+  }
+  
+  * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+  
+  body { 
+    background: #EDF3F9; 
+    color: #1A2C3A; 
+    line-height: 1.65; 
+    padding-bottom: 60px; 
+  }
+  
+  header { 
+    background: var(--nav); 
+    color: var(--bco); 
+    padding: 45px 20px; 
+    text-align: center;
+    border-bottom: 6px solid var(--med); 
+  }
+  header h1 { font-size: 34px; margin-bottom: 12px; font-weight: 800; letter-spacing: 1px; }
+  header p { font-size: 17px; opacity: 0.9; max-width: 650px; margin: 0 auto; line-height: 1.5; }
+  
+  .container { width: 95%; max-width: 1100px; margin: 40px auto; padding: 0 15px; }
+  
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 24px;
+  }
+  
+  .card { 
+    background: var(--bco); 
+    border-radius: var(--r); 
+    padding: 28px; 
+    box-shadow: 0 4px 12px rgba(0,0,0,.06); 
+    border-top: 5px solid var(--bd);
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  .card:hover:not(.locked) {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 24px rgba(0,0,0,.12);
+  }
+  
+  /* Variantes de tarjetas */
+  .c-actual { border-top-color: var(--grn); }
+  .c-futura { border-top-color: var(--slate); opacity: 0.85; }
+  .c-recurso { border-top-color: var(--amb); }
+  .c-recurso-alt { border-top-color: var(--vio); }
+  
+  .clase-num { 
+    font-size: 13.5px; 
+    font-weight: 700; 
+    color: var(--txt); 
+    text-transform: uppercase; 
+    margin-bottom: 8px;
+    letter-spacing: 1px;
+  }
+  
+  .c-actual .clase-num { color: var(--grn); }
+  .c-recurso .clase-num { color: var(--amb); }
+  .c-recurso-alt .clase-num { color: var(--vio); }
+  
+  .card h2 { 
+    color: var(--nav); 
+    font-size: 22px; 
+    margin-bottom: 12px; 
+    line-height: 1.35;
+  }
+  
+  .card p { 
+    font-size: 15px; 
+    color: var(--txt); 
+    flex-grow: 1;
+  }
+  
+  .btn {
+    display: inline-block;
+    margin-top: 22px;
+    padding: 12px 18px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 14px;
+    text-align: center;
+    background: var(--gris);
+    color: var(--nav);
+    transition: background 0.2s;
+  }
+  
+  .c-actual .btn { background: var(--grn); color: white; }
+  .c-recurso .btn { background: var(--amb); color: white; }
+  .c-recurso-alt .btn { background: var(--vio); color: white; }
+  
+  .card:hover:not(.locked) .btn { background: var(--nav); color: white; }
+  .c-actual:hover:not(.locked) .btn { background: #1d4734; }
+  .c-recurso:hover:not(.locked) .btn { background: #9c601c; }
+  .c-recurso-alt:hover:not(.locked) .btn { background: #402666; }
+
+  .section-title {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--nav);
+    margin: 45px 0 24px 0;
+    padding-bottom: 12px;
+    border-bottom: 2px solid var(--bd);
+  }
+
+  /* Estilos para tarjetas bloqueadas */
+  .card.locked { opacity: 0.65; cursor: not-allowed; }
+  .card.locked:hover { transform: none; box-shadow: 0 4px 12px rgba(0,0,0,.06); }
+  .card.locked .btn { background: #E1E8F0; color: #718096; }
+  .card.locked h2 { color: var(--slate); }
+
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Alfabetización Digital</h1>
+  <p>Profesorado de Educación Especial (DI) · 3.° Año · Campo de la Formación General<br>IPESfa "Florentino Ameghino" · Prof. Gustavo Iturriz</p>
+</header>
+
+<div class="container">
+
+  <h2 class="section-title">Módulo en Curso</h2>
+  <div class="grid">
+    
+    <a href="clase_1_ADIPES.html" class="card c-actual">
+      <div class="clase-num">Eje 1 • Clases 1, 2 y 3</div>
+      <h2>Cultura Digital y Alfabetización</h2>
+      <p>Debates conceptuales sobre la tecnología, sociedad de la información, brecha digital y la construcción de la identidad y ciudadanía digital docente.</p>
+      <div class="btn">Ingresar al Eje 1</div>
+    </a>
+
+  </div>
+
+  <h2 class="section-title">Próximos Módulos</h2>
+  <div class="grid">
+
+    <a href="javascript:void(0)" class="card c-futura locked" id="card-eje2">
+      <div class="clase-num">Eje 2 • Clases 4, 5 y 6</div>
+      <h2>TIC y Pedagogía</h2>
+      <p>El modelo TPACK como marco integrador. Estrategias de curaduría, trabajo colaborativo en la Web 2.0 y el aula virtual como continuidad pedagógica.</p>
+      <div class="btn" id="btn-eje2">🔒 Bloqueado</div>
+    </a>
+
+    <a href="javascript:void(0)" class="card c-futura locked" id="card-eje3">
+      <div class="clase-num">Eje 3 • Clases 7, 8 y 9</div>
+      <h2>IA, Inclusión y Diseño Didáctico</h2>
+      <p>La IA Generativa como copiloto docente. Diseño Universal de Aprendizaje (DUA) mediado por TIC y herramientas de accesibilidad para DI.</p>
+      <div class="btn" id="btn-eje3">🔒 Bloqueado</div>
+    </a>
+
+    <a href="javascript:void(0)" class="card c-futura locked" id="card-eje4">
+      <div class="clase-num">Eje 4 • Clases 10 y 11</div>
+      <h2>Proyecto Final Integrador</h2>
+      <p>Diseño, justificación teórica y defensa oral de una propuesta didáctica con integración de tecnología para Educación Especial DI.</p>
+      <div class="btn" id="btn-eje4">🔒 Bloqueado</div>
+    </a>
+
+  </div>
+
+  <h2 class="section-title">Recursos del Taller</h2>
+  <div class="grid">
+
+    <a href="#" class="card c-recurso">
+      <div class="clase-num">Biblioteca y Normativa</div>
+      <h2>Bibliografía Obligatoria</h2>
+      <p>Textos de Inés Dussel, Area Moreira, el Marco de Competencias UNESCO y la Ley Nacional 25.326 de Protección de Datos Personales.</p>
+      <div class="btn">Abrir Repositorio</div>
+    </a>
+
+    <a href="#" class="card c-recurso-alt">
+      <div class="clase-num">Laboratorio Práctico</div>
+      <h2>Recursero TIC Colaborativo</h2>
+      <p>Acceso directo al Padlet del grupo, herramientas de Comunicación Aumentativa Alternativa (CAA) y bancos de pictogramas (Arasaac).</p>
+      <div class="btn">Ir al Recursero</div>
+    </a>
+
+  </div>
+
+</div>
+
+<script>
+  // --- SECRETO DEL PROFE: DESBLOQUEAR EJES (Ctrl + Shift + U) ---
+  document.addEventListener('keydown', (e) => {
+    if (e.ctrlKey && e.shiftKey && e.key.toLowerCase() === 'u') {
+      
+      const ejes = [
+        { card: 'card-eje2', btn: 'btn-eje2', title: 'Abrir Eje 2' },
+        { card: 'card-eje3', btn: 'btn-eje3', title: 'Abrir Eje 3' },
+        { card: 'card-eje4', btn: 'btn-eje4', title: 'Abrir Eje 4' }
+      ];
+
+      let unlocked = false;
+
+      ejes.forEach(eje => {
+        const elCard = document.getElementById(eje.card);
+        const elBtn = document.getElementById(eje.btn);
+        
+        if (elCard && elCard.classList.contains("locked")) {
+          elCard.classList.remove("locked");
+          // Remover la clase c-futura y ponerle un borde neutral activo
+          elCard.style.borderTopColor = "var(--med)";
+          elBtn.innerHTML = "🔓 " + eje.title;
+          unlocked = true;
+        }
+      });
+      
+      if (unlocked) {
+        const toast = document.createElement('div');
+        toast.innerHTML = '🔓 Todos los Ejes desbloqueados';
+        toast.style.cssText = 'position:fixed; bottom:24px; right:24px; background:var(--grn); color:white; padding:14px 28px; border-radius:10px; font-weight:bold; z-index:9999; box-shadow:0 6px 16px rgba(0,0,0,0.2); font-size: 15px;';
+        document.body.appendChild(toast);
+        setTimeout(() => toast.remove(), 3500);
+      }
+    }
+  });
+</script>
+</body>
+</html>
