@@ -6,21 +6,22 @@
 <title>Clase 2 · Sociedad de la Información y Brecha Digital · Alfabetización Digital</title>
 <style>
   :root {
-    --nav:    #1D3461;
-    --med:    #2E6DA4;
-    --cl:     #B8D4EA;
-    --pale:   #E8F2FA;
-    --grn:    #2A6049;
-    --gcl:    #DFF0E9;
-    --amb:    #C07A28;
-    --acl:    #FDF1E3;
-    --vio:    #5B3A8C;
-    --vcl:    #EBE4F7;
-    --slate:  #3A5570;
-    --gris:   #F2F6FA;
-    --bd:     #C5D2DC;
-    --txt:    #4A5E70;
-    --neg:    #1A2C3A;
+    /* Paleta IPESfa adaptada a Ed. Especial DI */
+    --nav:    #1D3461;   /* azul institucional */
+    --med:    #2E6DA4;   /* azul medio */
+    --cl:     #B8D4EA;   /* azul claro */
+    --pale:   #E8F2FA;   /* azul muy pálido */
+    --grn:    #2A6049;   /* verde bosque (accesibilidad / DUA) */
+    --gcl:    #DFF0E9;   /* verde pálido */
+    --amb:    #C07A28;   /* terracota/ámbar (alerta) */
+    --acl:    #FDF1E3;   /* ámbar pálido */
+    --vio:    #5B3A8C;   /* violeta (foro / reflexión) */
+    --vcl:    #EBE4F7;   /* violeta pálido */
+    --slate:  #3A5570;   /* gris azulado (síntesis) */
+    --gris:   #F2F6FA;   /* fondo gris suave */
+    --bd:     #C5D2DC;   /* borde */
+    --txt:    #4A5E70;   /* texto secundario */
+    --neg:    #1A2C3A;   /* texto principal */
     --bco:    #FFFFFF;
     --r: 8px;
     --sh: 0 2px 8px rgba(0,0,0,.08);
@@ -28,30 +29,40 @@
   *{box-sizing:border-box;margin:0;padding:0}
   body{font-family:'Segoe UI',Arial,sans-serif;font-size:15px;color:var(--neg);background:#EDF3F9;line-height:1.65}
 
+  /* ── TOPBAR ── */
   .top{background:var(--nav);color:#fff;padding:13px 28px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;border-bottom:3px solid var(--med)}
   .top strong{display:block;font-size:15px}.top small{font-size:12px;opacity:.78}
   .top-r{font-size:11px;display:flex;align-items:center;gap:15px}
-  .btn-back{color:#fff;text-decoration:none;background:rgba(255,255,255,0.15);padding:6px 14px;border-radius:6px;border:1px solid rgba(255,255,255,0.3);font-weight:600;font-size:12px;transition:0.2s}
-  .btn-back:hover{background:rgba(255,255,255,0.25)}
+  .btn-back{color:#fff; text-decoration:none; background:rgba(255,255,255,0.15); padding:6px 14px; border-radius:6px; border:1px solid rgba(255,255,255,0.3); font-weight:600; font-size:12px; transition: 0.2s;}
+  .btn-back:hover{background:rgba(255,255,255,0.25);}
 
-  .celular-banner{background:#1D3461;border-bottom:3px solid #2A6049;padding:10px 20px;display:flex;align-items:center;gap:12px;color:#fff}
-  .celular-banner span.ico{font-size:20px;flex-shrink:0}
-  .celular-banner p{font-size:12.5px;line-height:1.5;opacity:.9}
-  .celular-banner strong{color:#A8EDCA}
-
+  /* ── HERO ── */
   .hero{background:linear-gradient(135deg,var(--nav) 0%,var(--med) 100%);color:#fff;padding:32px 28px 24px}
   .hbadge{display:inline-block;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);border-radius:20px;padding:3px 14px;font-size:12px;letter-spacing:.5px;margin-bottom:10px}
   .hero h1{font-size:22px;font-weight:700;line-height:1.3;margin-bottom:6px}
   .hero-sub{font-size:13px;opacity:.8;margin-bottom:16px}
 
+  /* ── BANNER ── */
+  .banner{background:#1D3461;border-bottom:3px solid var(--grn);padding:10px 20px;display:flex;align-items:center;gap:12px;color:#fff}
+  .banner span.ico{font-size:20px;flex-shrink:0}
+  .banner p{font-size:12.5px;line-height:1.5;opacity:.9}
+  .banner strong{color:#A8EDCA}
+
+  /* ── TABS ── */
   .tab-bar{background:var(--bco);border-bottom:2px solid var(--bd);display:flex;overflow-x:auto;padding:0 20px}
   .tab-btn{background:none;border:none;border-bottom:3px solid transparent;cursor:pointer;font-size:13.5px;font-weight:600;color:var(--txt);padding:12px 18px;white-space:nowrap;transition:all .15s;margin-bottom:-2px}
   .tab-btn:hover{color:var(--med)}.tab-btn.active{color:var(--nav);border-bottom-color:var(--nav)}
 
+  /* ── LAYOUT ── */
   .wrap{max-width:100%;padding:20px 24px 60px}
-  .pane{display:none}.pane.on{display:block;animation:fadeIn 0.4s ease}
-  @keyframes fadeIn{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}
+  .pane{display:none}.pane.on{display:block; animation: fadeIn 0.4s ease;}
+  
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(5px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
 
+  /* ── CARD ── */
   .card{background:var(--bco);border-radius:var(--r);box-shadow:var(--sh);margin-bottom:18px;overflow:hidden}
   .ch{padding:13px 20px;font-weight:700;font-size:14px;display:flex;align-items:center;gap:9px;border-bottom:1px solid var(--bd)}
   .cb{padding:16px 20px}
@@ -60,6 +71,7 @@
   .card-v .ch{background:var(--vcl);color:var(--vio)}
   .card-a .ch{background:var(--acl);color:#7A4F1A}
 
+  /* ── NOTE ── */
   .note{border-radius:var(--r);padding:9px 13px;font-size:13px;margin:10px 0;display:flex;gap:9px;align-items:flex-start}
   .ni{font-size:16px;flex-shrink:0;margin-top:1px}
   .nb{background:var(--pale);border-left:3px solid var(--med)}
@@ -67,6 +79,7 @@
   .na{background:var(--acl);border-left:3px solid var(--amb)}
   .nv{background:var(--vcl);border-left:3px solid var(--vio)}
 
+  /* ── RESOURCE ── */
   .res{border:1px solid var(--bd);border-radius:var(--r);margin-bottom:22px;overflow:hidden}
   .res-head{display:flex;align-items:flex-start;gap:13px;padding:13px 16px;background:var(--gris)}
   .ri{font-size:24px;flex-shrink:0;margin-top:2px}
@@ -74,9 +87,10 @@
   .rm strong{display:block;font-size:13.5px;color:var(--nav);margin-bottom:2px}
   .rm small{font-size:12px;color:var(--txt)}
   .badge{flex-shrink:0;border-radius:12px;padding:3px 9px;font-size:11px;font-weight:700}
-  .bo{background:#FFE4E4;color:#9B2335}.bc{background:var(--gcl);color:var(--grn)}.bv{background:var(--vcl);color:var(--vio)}.ba{background:var(--acl);color:#7A4F1A}
-  .bprod{background:#DFF0E9;color:#1A4A37}
+  .bo{background:#FFE4E4;color:#9B2335}
+  .bc{background:var(--gcl);color:var(--grn)}
 
+  /* ── SYNTHESIS ── */
   .syn{background:var(--slate);padding:16px 20px;border-bottom:3px solid var(--med)}
   .syn-lbl{font-size:10px;font-weight:700;letter-spacing:1.5px;color:var(--cl);margin-bottom:7px;text-transform:uppercase}
   .syn h4{font-size:14px;color:#fff;margin-bottom:9px}
@@ -85,61 +99,30 @@
   .sc{background:rgba(255,255,255,.15);border-left:3px solid var(--cl);border-radius:4px;padding:10px 12px}
   .sc strong{display:block;font-size:11.5px;color:var(--cl);margin-bottom:4px}
   .sc p{font-size:12px;color:#E6F2F8;line-height:1.5;margin:0}
-  .sq{background:rgba(0,0,0,.2);border-left:3px solid var(--cl);border-radius:4px;padding:10px 14px;font-size:12.5px;font-style:italic;color:#E6F2F8;margin-bottom:11px}
-  .sqs{font-size:10.5px;color:var(--cl);display:block;margin-top:5px;font-style:normal}
-  .sdeb{margin-top:11px;background:rgba(255,255,255,.1);border-radius:4px;padding:10px 14px}
-  .sdeb strong{display:block;font-size:11px;color:var(--cl);margin-bottom:5px;letter-spacing:.4px}
-  .sdeb ul{margin-left:15px}.sdeb li{font-size:12px;color:#E6F2F8;margin-bottom:4px}
 
-  .res-detail{padding:14px 18px 16px}
-  .rp{display:inline-block;background:var(--pale);color:var(--nav);border-radius:6px;padding:4px 10px;font-size:12.5px;font-weight:600;margin-bottom:9px}
-  .res-detail p{font-size:13.5px;margin-bottom:9px}
-
-  .btn{display:inline-flex;align-items:center;gap:6px;background:var(--med);color:#fff;text-decoration:none;border-radius:6px;padding:7px 13px;font-size:13px;font-weight:600;transition:background .15s;margin-right:6px;margin-top:2px}
-  .btn:hover{background:var(--nav)}
-  .btng{background:none;color:var(--med);border:1.5px solid var(--med)}.btng:hover{background:var(--pale)}
-
+  /* ── ACTIVITIES ── */
   .act{border:1px solid var(--bd);border-radius:var(--r);margin-bottom:14px;overflow:hidden}
   .ach{display:flex;align-items:center;gap:11px;padding:12px 16px;cursor:pointer;background:var(--bco)}
   .an{width:33px;height:33px;border-radius:50%;background:var(--med);color:#fff;font-weight:700;font-size:14px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
-  .an.opt{background:var(--txt)}
   .an.prod{background:var(--grn)}
   .at{flex:1}.at strong{display:block;font-size:14px}.at small{font-size:12px;color:var(--txt)}
   .chips{display:flex;gap:5px;flex-wrap:wrap;margin-top:3px}
   .ch2{border-radius:12px;padding:2px 8px;font-size:11px;font-weight:600}
-  .cb2{background:var(--cl);color:var(--nav)}.cg2{background:var(--gcl);color:var(--grn)}
-  .cv2{background:var(--vcl);color:var(--vio)}.ca2{background:var(--acl);color:#7A4F1A}.cm2{background:#E8F0FE;color:#1D3461}
-  .cprod{background:#DFF0E9;color:#1A4A37;font-weight:700}
+  .cb2{background:var(--cl);color:var(--nav)}.cg2{background:var(--gcl);color:var(--grn)}.cm2{background:#E8F0FE;color:#1D3461}
   .arr{font-size:15px;color:var(--txt);transition:transform .2s}
   .act.open .arr{transform:rotate(90deg)}
   .acb{display:none;padding:5px 17px 17px 60px}
   .act.open .acb{display:block}
   .acb p{font-size:13.5px;margin-bottom:9px}
-  .acb ul{margin:5px 0 9px 17px}.acb li{font-size:13.5px;margin-bottom:4px}
   .step{background:var(--gris);border-radius:var(--r);padding:11px 15px;margin-bottom:9px}
   .step strong{display:block;font-size:13px;color:var(--nav);margin-bottom:3px}
-  .step p,.step li{font-size:13px}.step ul{margin:5px 0 0 15px}
 
-  /* ── BRECHA GRID ── */
-  .brecha-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin:16px 0}
-  .bc-card{border-radius:var(--r);padding:13px 15px}
-  .bc-card h5{font-size:13px;font-weight:700;margin-bottom:6px}
-  .bc-card p{font-size:12px;line-height:1.5}
-  .bc-acc{background:#FFE4E4;border-top:3px solid #9B2335}.bc-acc h5{color:#9B2335}
-  .bc-uso{background:var(--acl);border-top:3px solid var(--amb)}.bc-uso h5{color:#7A4F1A}
-  .bc-cal{background:var(--gcl);border-top:3px solid var(--grn)}.bc-cal h5{color:var(--grn)}
-
-  /* ── PROD BOX ── */
-  .prod-box{background:#fff;border:2px solid var(--grn);border-radius:var(--r);padding:18px 20px;margin-bottom:14px}
+  /* ── PRODUCTION BOX ── */
+  .prod-box{background:#fff;border:2px solid var(--grn);border-radius:var(--r);padding:18px 20px;margin-bottom:15px}
   .prod-box h4{color:var(--grn);font-size:15px;margin-bottom:10px;display:flex;align-items:center;gap:8px}
   .prod-box p{font-size:13.5px;margin-bottom:8px}
-  .prod-box ul{margin:6px 0 8px 18px}.prod-box li{font-size:13.5px;margin-bottom:5px}
-  .prod-box .rp{background:var(--gcl);color:var(--grn)}
-
-  /* ── FORUM (para tarea) ── */
-  .tarea-box{background:var(--pale);border:2px solid var(--med);border-radius:var(--r);padding:18px 22px;margin-top:20px}
-  .tarea-box h3{color:var(--nav);font-size:15px;margin-bottom:8px}
-  .tarea-box ul{margin:6px 0 0 17px}.tarea-box li{font-size:13px;margin-bottom:5px}
+  .btn-prod{display:inline-flex;align-items:center;gap:6px;background:var(--grn);color:#fff;text-decoration:none;border-radius:6px;padding:7px 13px;font-size:13px;font-weight:600;transition:background .15s;margin-top:6px}
+  .btn-prod:hover{background:#1d4734}
 
   /* ── TABLE ── */
   .tbl{width:100%;border-collapse:collapse;font-size:13px;margin-bottom:9px}
@@ -147,78 +130,40 @@
   .tbl td{padding:7px 11px;border-bottom:1px solid var(--bd);vertical-align:top}
   .tbl tr:nth-child(even) td{background:var(--gris)}
 
-  /* ── VIDEO ── */
-  .vid-ts{display:inline-block;background:var(--vcl);color:var(--vio);border-radius:6px;padding:4px 10px;font-size:12px;font-weight:700;margin-bottom:8px}
-  .vid-wrap{position:relative;padding-top:56.25%;border-radius:6px;overflow:hidden;margin:10px 0}
-  .vid-wrap iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
-
   /* ── RESPONSIVE ── */
-  @media(min-width:700px){.wrap{padding:24px 32px 60px}}
-  @media(min-width:1100px){.wrap{max-width:1400px;margin:0 auto;padding:28px 40px 60px}}
-  @media(min-width:1000px){.vid-wrap{padding-top:0;height:450px}}
-  @media(max-width:480px){
-    body{font-size:14px}
-    .top{padding:10px 14px;flex-direction:column;align-items:flex-start;gap:4px}
-    .top-r{font-size:10px;flex-direction:column;align-items:flex-start;gap:8px}
-    .tab-bar{padding:0 10px}
-    .tab-btn{font-size:12.5px;padding:10px 11px}
-    .wrap{padding:14px 12px 40px}
-    .ch{font-size:13px;padding:11px 14px}
-    .cb{padding:13px 14px}
-    .res-head{flex-wrap:wrap;gap:8px;padding:11px 12px}
-    .badge{align-self:flex-start}
-    .syn{padding:14px 14px}
+  @media(min-width:1100px){.wrap{max-width:1400px; margin:0 auto; padding:28px 40px 60px}}
+  @media(max-width:600px){
     .syn-grid{grid-template-columns:1fr}
-    .syn h4{font-size:13px}
-    .res-detail{padding:12px 14px}
-    .acb{padding:5px 12px 15px 12px}
-    .btn{font-size:12px;padding:6px 10px}
-    .hero{padding:22px 16px 18px}
-    .hero h1{font-size:19px}
-    .celular-banner{padding:10px 14px}
-    .brecha-grid{grid-template-columns:1fr}
-    .sdeb{padding:9px 12px}
-    .sc{padding:9px 10px}
-    .sc p{font-size:11.5px}
-    .syn-intro{font-size:12px}
-    .sq{font-size:12px;padding:9px 12px}
-    .sdeb li{font-size:11.5px}
   }
-  @media(min-width:481px) and (max-width:699px){
-    .syn-grid{grid-template-columns:1fr}
-    .wrap{padding:16px 16px 50px}
-    .tab-btn{font-size:13px;padding:11px 14px}
-    .acb{padding:5px 14px 16px 14px}
-    .brecha-grid{grid-template-columns:1fr}
-  }
+
+  /* Botones Grales */
+  .btn{display:inline-flex;align-items:center;gap:6px;background:var(--med);color:#fff;text-decoration:none;border-radius:6px;padding:7px 13px;font-size:13px;font-weight:600;transition:background .15s;margin-right:6px;margin-top:2px}
+  .btn:hover{background:var(--nav)}
+  .btng{background:none;color:var(--med);border:1.5px solid var(--med)}.btng:hover{background:var(--pale)}
 </style>
 </head>
 <body>
 
-<!-- TOPBAR -->
 <div class="top">
   <div><strong>Alfabetización Digital</strong>
-    <small>Prof. de Educación Especial – Orientación en DI · Campo General · Gustavo Iturriz</small></div>
+    <small>Prof. de Educación Especial (DI) · Campo General · Gustavo Iturriz</small></div>
   <div class="top-r">
-    <a href="index.html" class="btn-back">⬅ Volver al índice</a>
-    <span>IPES "Florentino Ameghino" · 2026</span>
+    <a href="index_ADIPES.html" class="btn-back">⬅ Volver al índice</a>
+    <span>IPESfa · 2026</span>
   </div>
 </div>
 
-<!-- BANNER -->
-<div class="celular-banner">
+<div class="banner">
   <span class="ico">✍️</span>
-  <p><strong>Clase productiva:</strong> hoy recibís la primera consigna escrita del cuatrimestre. Todo funciona desde el celular. Usá el Wi-Fi del IPES si necesitás acceder a los links.</p>
+  <p><strong>Clase productiva:</strong> hoy damos uso a la Caja de Herramientas. Resolvemos el caso con IA. Todo funciona desde el celular.</p>
 </div>
 
-<!-- HERO -->
 <div class="hero">
   <div class="hbadge">CLASE 2 · EJE 1 · MARTES 5 DE MAYO DE 2026</div>
-  <h1>Sociedad de la Información, Cultura Digital y Brecha Digital<br>¿Qué cambia realmente cuando entra tecnología a la escuela?</h1>
-  <div class="hero-sub">Dussel y Quevedo Cap. II · Brecha digital · Análisis de caso en Ed. Especial TDF · ★ Primera producción</div>
+  <h1>Sociedad de la Información, Cultura Digital y Brecha Digital</h1>
+  <div class="hero-sub">Expectativas vs. Realidad · Coll y Cobo · Análisis de caso en Ed. Especial TDF · ★ IA como Copiloto</div>
 </div>
 
-<!-- TABS -->
 <div class="tab-bar">
   <button class="tab-btn active" onclick="showTab('inicio',this)">Inicio</button>
   <button class="tab-btn" onclick="showTab('marco',this)">Marco Teórico</button>
@@ -227,419 +172,171 @@
 
 <div class="wrap">
 
-<!-- ══════════════════════════ INICIO ══════════════════════════ -->
+<!-- INICIO -->
 <div id="pane-inicio" class="pane on">
-
   <div class="card card-v">
     <div class="ch">💭 Para empezar a pensar</div>
     <div class="cb">
-      <p style="font-size:16px;font-style:italic;color:var(--vio);font-weight:500;">"Una escuela especial de Ushuaia recibe veinte tablets nuevas. Las cajas se abren el primer día, las docentes las usan con entusiasmo dos semanas. Al mes, la mitad están guardadas porque 'los chicos las rompen' o 'se descargan'. Al cuatrimestre, tres docentes las siguen usando; el resto, casi nunca. Al finalizar el año, la directora informa: 'el programa fue un éxito, los chicos aprendieron a usar la tablet'."</p>
-      <div class="note nb" style="margin-top:10px">
-        <span class="ni">🔎</span>
-        <span>Esta situación no es ficticia. Es el patrón más documentado en incorporación de tecnología en escuelas. Hoy buscamos las categorías para entender por qué — y qué implica para tu práctica.</span>
+      <p style="font-size:16px; font-style:italic; color:var(--vio); font-weight: 500;">"Una escuela especial de Ushuaia recibe veinte tablets nuevas. Las cajas se abren con entusiasmo. Al mes, la mitad están guardadas porque 'los chicos las rompen'. Al finalizar el año, la directora informa: 'el programa fue un éxito, los chicos aprendieron a usar la tablet'."</p>
+      <div style="margin-top:10px; background:var(--vcl); padding:10px; border-radius:6px; font-size:13px; color:var(--vio)">
+        <strong>Pregunta disparadora:</strong> ¿Qué cambia realmente —y qué no cambia— cuando la tecnología entra a la escuela de Especial?
       </div>
     </div>
   </div>
 
   <div class="card card-b">
-    <div class="ch">🧭 Pregunta que organiza esta clase</div>
+    <div class="ch">🧭 Brújula de la clase</div>
     <div class="cb">
-      <p style="font-size:15px;font-weight:600;color:var(--nav)">"¿Qué cambia — y qué no cambia — cuando la tecnología entra a la escuela? ¿Qué tendría que pasar para que algo cambie de verdad en las aulas de Educación Especial DI?"</p>
-      <div class="note nb" style="margin-top:10px">
-        <span class="ni">💡</span>
-        <span>Esta pregunta conecta la teoría de hoy con la producción escrita que llevarás como tarea: empezar a responderte <em>desde vos misma</em>, como futura docente.</span>
-      </div>
+      <p style="font-size:15px;font-weight:600;color:var(--nav)">Vamos a entender por qué la escuela suele asimilar las TIC sin transformar sus prácticas. Tomaremos las herramientas teóricas de César Coll y Cristóbal Cobo para analizar nuestro propio territorio.</p>
     </div>
   </div>
 
   <div class="card card-g">
-    <div class="ch">🗂️ ¿Qué hacemos hoy?</div>
+    <div class="ch">🗂️ Agenda del día</div>
     <div class="cb">
       <table class="tbl">
-        <thead><tr><th>Momento</th><th>Actividad</th><th>Tiempo</th></tr></thead>
+        <thead><tr><th>Momento</th><th>Actividad</th></tr></thead>
         <tbody>
-          <tr><td><strong>Recuperación</strong></td><td>Retoma del Foro 1 y del mural — ¿qué resonó esta semana?</td><td>15 min</td></tr>
-          <tr><td><strong>Teoría ancla</strong></td><td>Dussel Cap. II: la gramática escolar, identidades digitales, brecha de uso</td><td>25 min</td></tr>
-          <tr><td><strong>Laboratorio</strong></td><td>Análisis de caso en grupos: las tablets en la escuela especial</td><td>35 min</td></tr>
-          <tr><td><strong>★ Producción</strong></td><td>Presentación de la consigna "Mi identidad digital docente"</td><td>10 min</td></tr>
-          <tr><td><strong>Cierre</strong></td><td>Síntesis colectiva + tareas</td><td>5 min</td></tr>
+          <tr><td><strong>Recuperación</strong></td><td>Retoma del Padlet (Clase 1) desde las categorías de la brecha.</td></tr>
+          <tr><td><strong>Teoría</strong></td><td>César Coll y Cristóbal Cobo: TIC como instrumentos y la innovación pendiente.</td></tr>
+          <tr><td><strong>Laboratorio</strong></td><td>Análisis del caso: "Tablets en la escuela especial de Ushuaia".</td></tr>
+          <tr><td><strong>★ Producción</strong></td><td>Uso de la Caja de Herramientas (IA) para transformar el caso.</td></tr>
         </tbody>
       </table>
-      <div class="note ng">
-        <span class="ni">✍️</span>
-        <span><strong>Primera producción del cuatrimestre:</strong> hoy recibís la consigna. Es breve, individual y el punto de partida del TFI. Encontrala en la pestaña "★ Actividades y Producción".</span>
-      </div>
     </div>
   </div>
+</div>
 
-  <div class="card card-a">
-    <div class="ch">🔄 Recuperación: Foro 1 + tiempo de pantalla</div>
-    <div class="cb">
-      <p>La semana pasada quedaron abiertas dos tareas: el Foro 1 ("Mi biografía tecnológica") y, de forma optativa, revisar el tiempo de pantalla del celular.</p>
-      <div class="step">
-        <strong>📱 Tiempo de pantalla — cómo verlo ahora</strong>
-        <ul>
-          <li><strong>Android:</strong> Configuración → Bienestar Digital → Ver todas las apps</li>
-          <li><strong>iPhone:</strong> Configuración → Tiempo en Pantalla → Ver toda la actividad</li>
-        </ul>
-        <p style="margin-top:6px">Anotá en tu mente: promedio diario + tus 3 apps más usadas. Lo usamos en el debate.</p>
-      </div>
-      <div class="note na">
-        <span class="ni">🤔</span>
-        <span>Pregunta inicial: ¿cuánto de ese tiempo de pantalla fue "pedagógicamente significativo"? ¿Qué implica esa pregunta según Dussel?</span>
-      </div>
-    </div>
-  </div>
-
-</div><!-- /inicio -->
-
-<!-- ══════════════════════════ MARCO TEÓRICO ══════════════════════════ -->
+<!-- MARCO TEÓRICO -->
 <div id="pane-marco" class="pane">
-
-  <!-- DUSSEL CAP II -->
   <div class="res">
     <div class="res-head">
       <div class="ri">📙</div>
       <div class="rm">
-        <strong>Dussel, I. y Quevedo, L. A. — Educación y nuevas tecnologías: los desafíos pedagógicos ante el mundo digital</strong>
-        <small>Fundación Santillana / FLACSO Argentina · 2010 · Capítulo II: "Los cambios en la escuela" · pp. 23–45</small>
+        <strong>Coll, César (2009) — "Aprender y enseñar con las TIC: expectativas, realidad y potencialidades"</strong>
+        <small>En <em>Los desafíos de las TIC para el cambio educativo</em>. Madrid: OEI/Santillana.</small>
       </div>
-      <span class="badge bo">OBLIGATORIO · Cap. II</span>
+      <span class="badge bo">OBLIGATORIO</span>
     </div>
 
     <div class="syn">
-      <div class="syn-lbl">📋 Síntesis</div>
-      <h4>¿Qué cambia — y qué no — cuando entra tecnología a la escuela?</h4>
-      <p class="syn-intro">En el Cap. I (clase pasada) Dussel y Quevedo diagnosticaron el problema: la brecha digital no es solo de acceso. Hoy, en el Cap. II, analizan qué transformaciones concretas produce la tecnología en las instituciones escolares. Su argumento más provocador: la tecnología entra a la escuela, pero en la mayoría de los casos <strong>la escuela no cambia</strong>. Los dispositivos se adaptan a las lógicas institucionales existentes en lugar de transformarlas. Para Ed. Especial DI, esto tiene una implicancia doble: hay que entender tanto las lógicas de la institución como las de los dispositivos.</p>
+      <div class="syn-lbl">📋 Síntesis del Capítulo</div>
+      <h4>La promesa tecnológica frente a la realidad escolar</h4>
+      <p class="syn-intro">Coll analiza por qué las TIC no produjeron la "revolución educativa" esperada. La respuesta no está en los equipos, sino en cómo docentes y estudiantes se apropian de ellos. Para entender esto, distingue dos formas radicalmente distintas de incorporar la tecnología al aula:</p>
 
       <div class="syn-grid">
-        <div class="sc">
-          <strong>I. La "gramática escolar" que resiste (Tyack y Tobin)</strong>
-          <p>Las formas organizacionales de la escuela — horarios, materias, aulas, exámenes — tienden a absorber las innovaciones sin transformarse. La tablet en el aula se usa para hacer lo mismo que el libro de texto. El proyector reemplaza al pizarrón. Cambia el soporte; no cambia la pedagogía.</p>
+        <div class="sc" style="border-left-color: var(--amb)">
+          <strong style="color: var(--amb)">⚠️ 1. Asimilación (Lo frecuente)</strong>
+          <p>La escuela absorbe la tecnología para hacer <strong>lo mismo de siempre</strong>, pero con pantallas. El profesor expone con un PDF en vez del manual; el alumno completa un cuestionario online en vez de papel. La práctica pedagógica no cambia, solo se "moderniza" la estética. En Ed. Especial, es usar la tablet como una simple fotocopia luminosa.</p>
         </div>
-        <div class="sc">
-          <strong>II. Identidades mediadas por tecnología</strong>
-          <p>Los estudiantes construyen su identidad en parte a través de sus prácticas digitales: las redes que usan, los contenidos que consumen y producen, las comunidades en línea. Para estudiantes con DI, esto no es diferente — pero sí requiere andamiajes específicos y una mirada docente atenta a las posibilidades de participación genuina.</p>
-        </div>
-        <div class="sc">
-          <strong>III. Cultura escolar vs. cultura digital</strong>
-          <p>La cultura escolar valoriza el conocimiento secuencial, verificable, lineal y legitimado por autoridades. La cultura digital valoriza la velocidad, la personalización, la participación y la remix. Son dos culturas en tensión — y el docente opera en esa tensión todos los días.</p>
-        </div>
-        <div class="sc">
-          <strong>IV. ¿Qué significa "integrar" genuinamente?</strong>
-          <p>La integración genuina ocurre cuando transforma —aunque sea parcialmente— el <em>tipo de relación con el conocimiento</em> que los estudiantes establecen. No cuando cambia el soporte, sino cuando cambia lo que es posible aprender y cómo. En Ed. Especial: cuando la tecnología amplía — no limita — la participación de estudiantes con DI.</p>
+        <div class="sc" style="border-left-color: var(--grn)">
+          <strong style="color: var(--grn)">✨ 2. Transformación (Lo esperado)</strong>
+          <p>La tecnología altera verdaderamente la relación con el conocimiento. Se hacen cosas que <strong>serían imposibles sin esa herramienta</strong>. El alumno produce, investiga y colabora. En Ed. Especial, la TIC actúa como un andamiaje o "prótesis cognitiva" indispensable (ej. comunicadores dinámicos, organizadores visuales interactivos).</p>
         </div>
       </div>
 
-      <!-- BRECHA GRID — definida correctamente -->
-      <div style="margin:14px 0 8px">
-        <strong style="color:var(--cl);font-size:11px;letter-spacing:1px;text-transform:uppercase">Los 3 tipos de brecha digital — para el análisis del caso</strong>
-      </div>
-      <div class="brecha-grid">
-        <div class="bc-card bc-acc">
-          <h5>🔴 Brecha de ACCESO</h5>
-          <p>No tener dispositivos, conectividad o infraestructura. El problema que los programas de equipamiento intentan resolver. Necesario pero insuficiente.</p>
-        </div>
-        <div class="bc-card bc-uso">
-          <h5>🟡 Brecha de USO</h5>
-          <p>Tener acceso pero usarlo solo para consumo pasivo. La brecha más invisibilizada — y la más relevante para la formación docente en Ed. Especial.</p>
-        </div>
-        <div class="bc-card bc-cal">
-          <h5>🟢 Brecha de CALIDAD</h5>
-          <p>Diferencias en el capital cultural para apropiarse críticamente de la tecnología. Conecta con el mito del "nativo digital" de Dussel Cap. I.</p>
-        </div>
-      </div>
-
-      <div class="sq">
-        "La escuela es una de las instituciones más potentes para garantizar el acceso de todos a los bienes culturales. Pero eso requiere algo más que distribuir máquinas: requiere cambiar las formas de enseñar y de relacionarse con el saber."
-        <span class="sqs">— Dussel y Quevedo (2010, p. 38)</span>
-      </div>
-
-      <div class="sdeb">
-        <strong>PREGUNTAS PARA EL ANÁLISIS DEL CASO</strong>
-        <ul>
-          <li>¿Qué tipo de brecha aparece en el caso de las tablets? ¿De acceso, de uso o de calidad? ¿Cuál es la más relevante?</li>
-          <li>¿Qué elementos de la "gramática escolar" aparecen en el caso? ¿En qué momento la tecnología se adaptó a la institución en lugar de transformarla?</li>
-          <li>¿Qué implica "aprender a usar la tablet" para un estudiante con DI? ¿Es suficiente con eso para hablar de integración genuina?</li>
-        </ul>
+      <div style="background:rgba(255,255,255,.1);border-left:3px solid var(--cl);border-radius:4px;padding:12px;margin-top:10px;">
+        <strong style="display:block;font-size:11.5px;color:var(--cl);margin-bottom:6px;letter-spacing:0.5px">EL TRIÁNGULO DIDÁCTICO (Docente - Alumno - Contenido)</strong>
+        <p style="font-size:12px;color:#E6F2F8;line-height:1.5;margin:0">Para Coll, la verdadera innovación solo ocurre cuando las TIC se insertan en este triángulo como <strong>instrumentos psicológicos mediadores</strong>. El objetivo no es aprender <em>de</em> la máquina, sino aprender <em>con</em> la máquina, redefiniendo qué y cómo se enseña.</p>
       </div>
     </div>
-
     <div class="res-detail">
-      <div class="rp">📑 Lectura obligatoria: Cap. II pp. 23–38 (aula virtual). Para celular: pp. 23–31 es el núcleo.</div>
-      <br>
-      <a class="btn" href="https://www.flacso.org.ar/wp-content/uploads/2015/02/educacion-y-nuevas-tecnologias.-santillana-dussel-quevedo.pdf" target="_blank">📄 PDF completo – FLACSO Argentina</a>
-      <div class="note ng" style="margin-top:10px">
-        <span class="ni">📡</span>
-        <span>PDF de 1.2 MB — descargalo con Wi-Fi para tener acceso offline.</span>
-      </div>
+      <a class="btn" href="https://oei.int/wp-content/uploads/2011/08/desafios-de-las-tic-en-cambio-educativo.pdf" target="_blank" style="background:var(--med);color:#fff">📄 Leer texto (OEI / Santillana)</a>
     </div>
   </div>
 
-  <!-- VIDEO — continuación de la clase 1 -->
-  <div class="res">
-    <div class="res-head">
-      <div class="ri">🎥</div>
-      <div class="rm">
-        <strong>Inés Dussel — "La clase en pantuflas" · Continuación: minutos 20 al 40</strong>
-        <small>ISEP Córdoba · YouTube · 2020 — Hoy vemos la segunda parte del video de la Clase 1</small>
-      </div>
-      <span class="badge bv">VIDEO · Continuación</span>
-    </div>
-
-    <div class="syn">
-      <div class="syn-lbl">📋 Síntesis del segmento</div>
-      <h4>¿Qué dice Dussel sobre lo que la pandemia reveló de la escuela?</h4>
-      <p class="syn-intro">En los minutos 20–40 Dussel desarrolla el argumento más relevante para hoy: la pandemia no creó el problema de la brecha digital en las escuelas — lo volvió visible. Eso que se veía como "normalidad" (un aula con 25 chicos y una pizarra) era ya una forma de exclusión para muchos. Para docentes de Ed. Especial DI: ¿qué exclusiones previas a la tecnología preexistían en las aulas?</p>
-      <div class="syn-grid">
-        <div class="sc">
-          <strong>El aula como contrato pedagógico</strong>
-          <p>El aula presencial es un contrato implícito entre docente y estudiantes: hay un espacio, un tiempo, una presencia compartida. Cuando ese contrato se rompe — en la virtualidad o en la distracción digital — el vínculo pedagógico se debilita. Ninguna app lo reemplaza automáticamente.</p>
-        </div>
-        <div class="sc">
-          <strong>Relevancia para Ed. Especial DI</strong>
-          <p>En muchas familias de estudiantes con DI la carga de acompañamiento ya era alta antes de la pandemia. La virtualidad sumó una demanda tecnológica que muchas familias no podían sostener. El diseño de propuestas digitales en Ed. Especial debe contemplar siempre la realidad del hogar.</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="res-detail">
-      <div class="vid-ts">▶ Ver: minutos 20 al 40</div>
-      <div class="vid-wrap">
-        <iframe src="https://www.youtube.com/embed/6xKvCtBC3Vs?start=1200"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen title="La clase en pantuflas – Inés Dussel – ISEP 2020 (min 20-40)"></iframe>
-      </div>
-      <div class="note nb">
-        <span class="ni">📡</span>
-        <span>Sin conexión estable: el docente proyecta el segmento en clase. En casa: continuá desde el minuto 20 donde lo dejaron la semana pasada.</span>
-      </div>
-    </div>
-  </div>
-
-  <!-- AREA MOREIRA — retoma -->
   <div class="res">
     <div class="res-head">
       <div class="ri">📘</div>
       <div class="rm">
-        <strong>Area Moreira, M. — Las 4 dimensiones: retoma y aplicación al caso</strong>
-        <small>Conexión con la Clase 1 — Dimensión pedagógica en foco hoy</small>
+        <strong>Cobo, Cristóbal (2016) — "La Innovación Pendiente"</strong>
+        <small>Montevideo: Colección Fundación Ceibal/Debate. Capítulo 1.</small>
       </div>
-      <span class="badge bc">RETOMA</span>
+      <span class="badge bc">REFERENCIA</span>
     </div>
-
     <div class="syn">
-      <div class="syn-lbl">📋 Conexión con el caso de hoy</div>
-      <h4>¿Qué dimensión de la AD faltó en el caso de las tablets?</h4>
-      <p class="syn-intro">La semana pasada vimos las 4 dimensiones de Area Moreira (instrumental, axiológica, social, pedagógica). El caso de las tablets de la escuela especial es un ejemplo perfecto de qué pasa cuando la formación se concentra solo en la dimensión instrumental — "cómo usar la tablet" — sin las otras tres. La capacitación de medio día que recibieron las docentes cubría, en el mejor caso, el 25% de lo que necesitaban.</p>
-      <div class="sdeb">
-        <strong>PARA EL ANÁLISIS EN GRUPOS</strong>
-        <ul>
-          <li>¿Qué habría tenido que cambiar si la formación hubiera incluido la dimensión <strong>pedagógica</strong>? ¿Y la <strong>axiológica</strong>?</li>
-          <li>¿Qué habría aportado una formación en la dimensión <strong>social</strong> de la AD en el contexto de Ed. Especial DI?</li>
-          <li>¿La dimensión <strong>instrumental</strong> era realmente el problema en el caso?</li>
-        </ul>
-      </div>
+      <div class="syn-lbl">📋 Síntesis complementaria</div>
+      <p class="syn-intro">Cobo sostiene que el problema no está en la tecnología <em>per se</em>, sino en la pedagogía que la envuelve. La verdadera innovación pendiente no es conectar a las escuelas a internet, sino lograr que esa conexión traduzca el exceso de información en conocimiento significativo.</p>
     </div>
     <div class="res-detail">
-      <div class="note nb">
-        <span class="ni">💡</span>
-        <span>Este análisis es parte del laboratorio de hoy. Llevá estas preguntas a los grupos. El modelo TPACK (que profundizamos en Clase 4) responderá el "cómo" técnico-pedagógico de manera más sistemática.</span>
-      </div>
+      <a class="btn" href="https://www.aprendevirtual.org/centro-documentacion-pdf/La_innovacion_pendiente.pdf" target="_blank" style="background:var(--med);color:#fff">📄 Leer libro completo</a>
     </div>
   </div>
+</div>
 
-</div><!-- /marco -->
-
-<!-- ══════════════════════════ ACTIVIDADES ══════════════════════════ -->
+<!-- ACTIVIDADES -->
 <div id="pane-actividades" class="pane">
-
-  <div class="note nb" style="margin-bottom:18px">
-    <span class="ni">📱</span>
-    <span>Todas las actividades funcionan desde el celular. El análisis de caso puede hacerse en un Google Doc compartido. La producción se entrega en el aula virtual antes del martes 12. Sin computadora, sin problema.</span>
-  </div>
-
-  <!-- ACT 1 — REVISIÓN MURAL -->
+  
   <div class="act open" id="a1">
     <div class="ach" onclick="toggleAct('a1')">
       <div class="an">1</div>
-      <div class="at">
-        <strong>Revisión del mural de la Clase 1 con lente teórica nueva</strong>
-        <small>Plenario · 10 min · Apertura de la clase</small>
-        <div class="chips">
-          <span class="ch2 cm2">Recuperación</span>
-          <span class="ch2 cv2">Articulación teórica</span>
-        </div>
-      </div>
+      <div class="at"><strong>Recuperación: El mural de la Clase 1</strong><small>Plenario</small></div>
       <span class="arr">›</span>
     </div>
     <div class="acb">
-      <p>Volvemos al Padlet "Yo y la tecnología" de la Clase 1. Ahora que tenemos las categorías de Dussel Cap. II, leemos las tarjetas con nuevos ojos.</p>
-      <div class="step">
-        <strong>Tres preguntas para el plenario (10 min):</strong>
-        <ul>
-          <li>¿Qué tarjetas del mural describen situaciones de <strong>brecha de acceso</strong>? ¿De brecha de uso? ¿De calidad?</li>
-          <li>¿Qué tarjetas evidencian la tensión entre "cultura escolar" y "cultura digital"?</li>
-          <li>¿Alguna tarjeta toca específicamente la inclusión digital de estudiantes con DI?</li>
-        </ul>
-      </div>
-      <a class="btn btng" href="https://padlet.com/iturrizeducaciontdf/yo-y-la-tecnologia-f6kjx1f28uo0sr89" target="_blank">🗂️ Abrir Padlet Clase 1</a>
+      <p>Volvemos al Padlet de la semana pasada con las categorías de Dussel que vimos en la <strong>Clase 1</strong> (Acceso, Uso, Calidad). ¿Cuántas de nuestras preocupaciones eran sobre los "fierros" y cuántas sobre la pedagogía?</p>
+      <a class="btn btng" href="https://padlet.com/iturrizeducaciontdf/yo-y-la-tecnologia-f6kjx1f28uo0sr89" target="_blank">🔗 Ir al Padlet del Grupo</a>
     </div>
   </div>
 
-  <!-- ACT 2 — CASO -->
   <div class="act open" id="a2">
     <div class="ach" onclick="toggleAct('a2')">
       <div class="an">2</div>
-      <div class="at">
-        <strong>Laboratorio: análisis del caso "Las tablets de la escuela especial"</strong>
-        <small>Grupos de 2–3 · Google Docs compartido · Actividad central · 35 min</small>
-        <div class="chips">
-          <span class="ch2 cm2">Laboratorio</span>
-          <span class="ch2 ca2">Situado en TDF</span>
-          <span class="ch2 cg2">Ed. Especial DI</span>
-        </div>
-      </div>
+      <div class="at"><strong>Laboratorio: El Caso de las Tablets en Ushuaia</strong><small>Grupal · Análisis Situado</small></div>
       <span class="arr">›</span>
     </div>
     <div class="acb">
-      <p>Trabajamos en grupos de 2–3 personas. Cada grupo analiza el mismo caso desde un ángulo diferente.</p>
-
-      <div class="step" style="background:var(--pale);border-left:3px solid var(--nav)">
-        <strong style="color:var(--nav)">📄 El caso (leerlo antes de analizar)</strong>
-        <p>Una escuela de Educación Especial de Ushuaia con 8 docentes y 45 estudiantes con distintos grados de discapacidad intelectual recibe 20 tablets nuevas. El equipo directivo organiza una capacitación de medio día sobre el uso técnico de los dispositivos. Las primeras dos semanas, las docentes las usan en casi todas las actividades. A las cuatro semanas, la mitad están guardadas porque "los chicos las rompen" o "se descargan durante la clase". A los dos meses, tres docentes las siguen usando regularmente; el resto, ocasionalmente. Al finalizar el año, la directora informa que "el programa fue un éxito porque los chicos aprendieron a usar la tablet".</p>
-      </div>
-
       <div class="step">
-        <strong>Ángulo de análisis por grupo:</strong>
-        <ul>
-          <li><strong>Grupo A — Brecha digital:</strong> ¿Qué tipo de brecha aparece? ¿Cuál es la más relevante? ¿Qué tendría que haberse hecho antes de repartir las tablets?</li>
-          <li><strong>Grupo B — Gramática escolar:</strong> ¿Qué elementos de la "gramática escolar" (Dussel) aparecen? ¿En qué momento la tecnología se adaptó a la institución en lugar de transformarla?</li>
-          <li><strong>Grupo C — Dimensiones de la AD:</strong> ¿Qué dimensiones de Area Moreira están ausentes en la capacitación y en el resultado? ¿Qué habría que haber formado, además del uso técnico?</li>
+        <strong>Situación a debatir:</strong>
+        <p>Recordemos el caso del inicio: <em>"Los docentes usan las tablets solo como 'premio' para que los chicos jueguen cuando terminan la tarea de lengua en el cuaderno."</em></p>
+        <ul style="margin-left: 15px; margin-top: 10px; font-size: 13.5px;">
+          <li>Según Coll (texto de hoy), ¿esto es "asimilación" o "transformación" de la práctica?</li>
+          <li>¿Qué tipo de brecha digital (repasando la Clase 1) se está reforzando ahí?</li>
         </ul>
-      </div>
-
-      <div class="step" style="background:var(--gcl);border-left:3px solid var(--grn)">
-        <strong style="color:var(--grn)">📱 Instrucciones para celular</strong>
-        <ul>
-          <li>El docente comparte un Google Doc por grupo (link proyectado o por el grupo de WhatsApp).</li>
-          <li>Abrilo desde el navegador — no hace falta instalar nada.</li>
-          <li>Pueden escribir en tiempo real desde distintos celulares.</li>
-          <li>Mínimo: 4–5 ideas en 25 minutos. Después 5 min de puesta en común por grupo.</li>
-        </ul>
-      </div>
-
-      <div class="note na">
-        <span class="ni">💡</span>
-        <span>Este caso es el punto de partida de la producción escrita: ¿qué haría <em>vos</em> de manera diferente si fueras docente de esa escuela? La consigna de abajo te pide empezar a responder esa pregunta.</span>
       </div>
     </div>
   </div>
 
-  <!-- ACT 3 — ★ PRODUCCIÓN (central, resaltada) -->
   <div class="act open" id="a3">
     <div class="ach" onclick="toggleAct('a3')">
-      <div class="an prod">★</div>
-      <div class="at">
-        <strong>★ Primera producción — "Mi identidad digital docente"</strong>
-        <small>Individual · 150–250 palabras · Entrega en el aula virtual antes del martes 12 de mayo</small>
-        <div class="chips">
-          <span class="ch2 cprod">★ Primera producción</span>
-          <span class="ch2 cg2">Eje 1</span>
-          <span class="ch2 cm2">Insumo para el TFI</span>
-        </div>
-      </div>
+      <div class="an">3</div>
+      <div class="at"><strong>Laboratorio Exprés: Diseñar la Gamificación</strong><small>Grupal · Creación en Kahoot! / Genial.ly</small></div>
       <span class="arr">›</span>
     </div>
     <div class="acb">
-
-      <div class="prod-box">
-        <h4>📝 Consigna</h4>
-        <p>Escribí un texto de 150 a 250 palabras respondiendo estas tres preguntas. No como un formulario — como un texto corrido, en primera persona:</p>
-        <ul>
-          <li><strong>¿Quién soy digitalmente como futura docente de Ed. Especial?</strong> ¿Qué tecnologías usás, cómo, para qué? ¿Cuál es tu nivel de confort real con las herramientas digitales?</li>
-          <li><strong>¿Qué tipo de docente digital querés ser?</strong> No lo que "deberías" decir. Lo que realmente imaginás: ¿qué rol te ves teniendo en relación a la tecnología en el aula de Ed. Especial DI?</li>
-          <li><strong>¿Qué te falta o te genera incertidumbre?</strong> ¿Cuál de las dimensiones de Area Moreira (instrumental, axiológica, social, pedagógica) sentís menos desarrollada?</li>
-        </ul>
-      </div>
-
-      <div class="prod-box">
-        <h4>📏 Criterios</h4>
-        <ul>
-          <li><strong>Extensión:</strong> 150 a 250 palabras. No más, no menos. Aprender a decir lo importante con economía es una competencia docente.</li>
-          <li><strong>Formato:</strong> texto corrido. No viñetas ni respuestas enumeradas.</li>
-          <li><strong>Entrega:</strong> en el hilo de la tarea del aula virtual. Escribir el texto directamente — no adjuntar archivo.</li>
-          <li><strong>IA:</strong> permitida para revisar la redacción. Si la usás, agregá una línea final: <em>"Usé [nombre de la IA] para revisar la redacción. Las ideas y la reflexión son propias."</em></li>
-        </ul>
-      </div>
-
-      <div class="prod-box">
-        <h4>🔗 ¿Para qué sirve este texto?</h4>
-        <p>Es el punto de partida del TFI. En la Clase 11 (julio) vas a releer lo que escribiste hoy y compararlo con quién sos como docente digital al final del cuatrimestre. Por eso importa que sea honesto: no lo que querés mostrar, sino lo que realmente sos y pensás hoy.</p>
-        <p>Una producción honesta sobre tu punto de partida real vale infinitamente más que una reflexión fabricada para impresionar.</p>
-      </div>
-
-      <div class="note na">
-        <span class="ni">⏰</span>
-        <span><strong>Plazo:</strong> martes 12 de mayo a las 23:59. Las producciones entregadas a tiempo tienen feedback individual antes de la Clase 3.</span>
-      </div>
-      <div class="note nb" style="margin-top:6px">
-        <span class="ni">📱</span>
-        <span>Para celular: podés escribir en el bloc de notas del celular y después pegar el texto en el campo de entrega del aula virtual desde el navegador.</span>
-      </div>
-    </div>
-  </div>
-
-  <!-- ACT OPTATIVA -->
-  <div class="act" id="a4">
-    <div class="ach" onclick="toggleAct('a4')">
-      <div class="an opt">+</div>
-      <div class="at">
-        <strong>Exploración opcional: conectividad en las escuelas especiales de TDF</strong>
-        <small>Individual · Sin entrega · Para quien quiera ir más allá</small>
-        <div class="chips">
-          <span class="ch2 ca2">Optativa</span>
-          <span class="ch2 cm2">Datos situados</span>
-        </div>
-      </div>
-      <span class="arr">›</span>
-    </div>
-    <div class="acb">
-      <p>Si te interesa explorar los datos de conectividad de TDF, podés consultar el Mapa de Conectividad de ENACOM:</p>
-      <a class="btn btng" href="https://mapas.enacom.gob.ar" target="_blank" style="margin-bottom:12px;display:inline-flex">🗺 Mapa ENACOM</a>
       <div class="step">
-        <strong>¿Qué buscar?</strong>
-        <ul>
-          <li>¿Cuál es la cobertura en las zonas donde están las escuelas de Ed. Especial de Ushuaia y Río Grande?</li>
-          <li>¿Qué tipo de conectividad predomina en los barrios periféricos?</li>
-          <li>¿Hay diferencias significativas entre las escuelas del centro y las de la periferia?</li>
-        </ul>
+        <strong>Consigna de Creación:</strong>
+        <p>No estamos en este taller para ser consumidores pasivos, sino para producir. En grupos, elijan una plataforma (Kahoot o Genial.ly) y <strong>armen un desafío muy breve</strong> (ej. 3 preguntas o una imagen interactiva sencilla) donde un docente tenga que diferenciar entre "Asimilación" y "Transformación" tecnológica, inventando ustedes mismos ejemplos reales de Educación Especial.</p>
       </div>
-      <div class="note nb">
-        <span class="ni">💡</span>
-        <span>Este dato puede enriquecer tu producción: si sabés qué conectividad tiene la escuela donde vas a hacer práctica, podés empezar a pensar la tecnología desde esa realidad concreta.</span>
-      </div>
+      <a class="btn" href="https://kahoot.com/es/" target="_blank" style="background:var(--vio)">👾 Crear en Kahoot!</a>
+      <a class="btn" href="https://genial.ly/es/" target="_blank" style="background:var(--amb)">🕹️ Crear en Genial.ly</a>
     </div>
   </div>
 
-  <!-- TAREA -->
-  <div class="tarea-box">
-    <h3>📋 Tareas para la semana (antes del martes 12 de mayo)</h3>
-    <ul>
-      <li><strong>✍️ Producción P1</strong> — "Mi identidad digital docente" (consigna arriba). Entrega en el aula virtual.</li>
-      <li><strong>Lectura:</strong> Dussel y Quevedo, Cap. II pp. 23–38 si no lo leíste todavía. Para celular: pp. 23–31 es el núcleo para la Clase 3.</li>
-      <li><strong>Cerrar el Foro 1</strong> si no lo publicaste — cierra antes de la Clase 3 (12 de mayo).</li>
-      <li><strong>Empezar a pensar:</strong> ¿qué área o contenido de Ed. Especial DI te gustaría abordar en el TFI? No hay que decidirlo todavía. En la Clase 4 arranca el TPACK y vas a necesitar un caso concreto.</li>
-    </ul>
-    <div class="note nv" style="margin-top:12px">
-      <span class="ni">📖</span>
-      <span><strong>Próxima clase (12 de mayo):</strong> Ciudadanía digital, identidad en la red, Ley 25.326 y cuidado de infancias en entornos digitales escolares. Cierre del Eje 1 — traé preguntas.</span>
+  <div class="prod-box">
+    <h4>★ Producción Parcial 1: IA como copiloto para la inclusión</h4>
+    <p><strong>Consigna Práctica:</strong> No sirve de nada diagnosticar que la tablet está mal usada si no proponemos una alternativa. Vamos a usar la Inteligencia Artificial de nuestra Caja de Herramientas para que nos ayude a pensar "fuera de la caja".</p>
+    
+    <div class="step">
+      <strong>Paso a paso:</strong>
+      <ol style="margin-left: 18px; margin-top: 5px; font-size: 13px;">
+        <li>Entrá a nuestra <strong>Caja de Herramientas TIC</strong> y abrí la categoría de "Inteligencia Artificial: Socios Cognitivos". Elegí un asistente (ej: Claude o ChatGPT).</li>
+        <li>Escribile un "prompt" (instrucción) pidiéndole: <em>"Actuá como un experto en educación especial. Tengo estudiantes con Discapacidad Intelectual y disponemos de tablets en el aula. Diseñá una actividad de 20 minutos vinculada a Prácticas del Lenguaje, aplicando Diseño Universal de Aprendizaje (DUA), donde la tablet sea clave para producir conocimiento y no solo para jugar pasivamente."</em></li>
+        <li><strong>Auditoría Docente:</strong> Leé críticamente lo que te responde la IA. ¿Tiene sentido para el contexto de Tierra del Fuego? ¿Qué tomarías y qué descartarías?</li>
+      </ol>
+    </div>
+
+    <div style="margin-top:12px;">
+      <a href="caja_herramientas.html#cat-ia" target="_blank" class="btn-prod">🤖 Ir a la Caja de Herramientas TIC</a>
+    </div>
+
+    <div style="background:var(--gcl); padding:10px; border-radius:6px; font-size:12px; color:var(--grn); margin-top:14px">
+      📅 <strong>Entrega:</strong> Publicá en el foro del aula virtual (1) El prompt que usaste, (2) Un resumen de la propuesta de la IA, y (3) Tu crítica docente.
     </div>
   </div>
+</div>
 
-</div><!-- /actividades -->
-
-</div><!-- /wrap -->
+</div>
 
 <script>
 function showTab(id, btn) {
