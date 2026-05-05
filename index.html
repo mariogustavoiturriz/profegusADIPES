@@ -36,7 +36,7 @@
   header h1 { font-size: 34px; margin-bottom: 12px; font-weight: 800; letter-spacing: 1px; }
   header p { font-size: 17px; opacity: 0.9; max-width: 650px; margin: 0 auto; line-height: 1.5; }
   
-  .container { width: 95%; max-width: 900px; margin: 40px auto; padding: 0 15px; }
+  .container { width: 95%; max-width: 950px; margin: 40px auto; padding: 0 15px; }
   
   .grid {
     display: grid;
@@ -64,6 +64,7 @@
   
   /* Variantes de tarjetas */
   .c-clase { border-top-color: var(--grn); }
+  .c-pasada { border-top-color: #C5D2DC; opacity: 0.85; }
   .c-toolbox { border-top-color: var(--med); }
   
   .clase-num { 
@@ -103,6 +104,7 @@
   }
   
   .c-clase .btn { background: var(--grn); color: white; }
+  .c-pasada .btn { background: var(--gris); color: var(--nav); }
   .c-toolbox .btn { background: var(--med); color: white; }
   
   .card:hover .btn { filter: brightness(1.1); }
@@ -130,11 +132,23 @@
   <h2 class="section-title">Clase de la Semana</h2>
   <div class="grid">
     
-    <a href="clase_1_ADIPES.html" class="card c-clase">
+    <a href="clase_2_ADIPES.html" class="card c-clase">
+      <div class="clase-num">Eje 1 • Clase 2</div>
+      <h2>Sociedad de la Información y Brecha Digital</h2>
+      <p>Debates sobre asimilación vs. transformación (César Coll), la innovación pendiente y laboratorio con Inteligencia Artificial.</p>
+      <div class="btn">Ingresar a la Clase</div>
+    </a>
+
+  </div>
+
+  <h2 class="section-title" style="margin-top: 40px;">Clases Anteriores</h2>
+  <div class="grid">
+
+    <a href="clase_1_ADIPES.html" class="card c-pasada">
       <div class="clase-num">Eje 1 • Clase 1</div>
       <h2>¿Qué es ser digitalmente alfabetizado?</h2>
-      <p>Punto de partida, debates conceptuales sobre la tecnología y las dimensiones de la alfabetización según Dussel y Area Moreira.</p>
-      <div class="btn">Ingresar a la Clase</div>
+      <p>Dimensiones de la alfabetización digital, el mito del nativo digital y encuadre del taller de diseño didáctico.</p>
+      <div class="btn">Repasar Clase</div>
     </a>
 
   </div>
@@ -145,7 +159,7 @@
     <a href="caja_herramientas.html" class="card c-toolbox">
       <div class="clase-num">Recursero Dinámico</div>
       <h2>Caja de Herramientas TIC</h2>
-      <p>Acceso a asistentes de IA, plataformas de gamificación, recursos narrativos y herramientas de accesibilidad curadas para Ed. Especial.</p>
+      <p>Acceso a asistentes de IA, plataformas de gamificación, recursos narrativos y herramientas de accesibilidad curadas.</p>
       <div class="btn">Abrir Caja de Herramientas</div>
     </a>
 
