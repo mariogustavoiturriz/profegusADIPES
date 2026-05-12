@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Clase 3 · Ciudadanía Digital + SAMR + Actividad</title>
+<style>
+  :root{--nav:#1D3461;--med:#2E6DA4;--cl:#B8D4EA;--pale:#E8F2FA;--grn:#2A6049;--gcl:#DFF0E9;--amb:#C07A28;--acl:#FDF1E3;--vio:#5B3A8C;--vcl:#EBE4F7;--slate:#3A5570;--gris:#F2F6FA;--bd:#C5D2DC;--txt:#4A5E70;--neg:#1A2C3A;--bco:#FFFFFF;--r:8px;--sh:0 2px 8px rgba(0,0,0,.08)}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Segoe UI',Arial,sans-serif;font-size:15px;color:var(--neg);background:#EDF3F9;line-height:1.65}
+  .top{background:var(--nav);color:#fff;padding:13px 28px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;border-bottom:3px solid var(--med)}
+  .top strong{display:block;font-size:15px}.top small{font-size:12px;opacity:.78}
+  .top-r{font-size:11px;display:flex;align-items:center;gap:15px}
+  .btn-back{color:#fff;text-decoration:none;background:rgba(255,255,255,.15);padding:6px 14px;border-radius:6px;border:1px solid rgba(255,255,255,.3);font-weight:600;font-size:12px}
+  .celular-banner{background:#5B3A8C;border-bottom:3px solid var(--amb);padding:10px 20px;display:flex;align-items:center;gap:12px;color:#fff}
+  .celular-banner span.ico{font-size:20px;flex-shrink:0}
+  .celular-banner p{font-size:12.5px;line-height:1.5;opacity:.9}.celular-banner strong{color:#FFD580}
+  .hero{background:linear-gradient(135deg,var(--nav) 0%,var(--med) 100%);color:#fff;padding:32px 28px 24px}
+  .hbadge{display:inline-block;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);border-radius:20px;padding:3px 14px;font-size:12px;letter-spacing:.5px;margin-bottom:10px}
+  .hero h1{font-size:22px;font-weight:700;line-height:1.3;margin-bottom:6px}
+  .hero-sub{font-size:13px;opacity:.8}
+  .tab-bar{background:var(--bco);border-bottom:2px solid var(--bd);display:flex;overflow-x:auto;padding:0 20px}
+  .tab-btn{background:none;border:none;border-bottom:3px solid transparent;cursor:pointer;font-size:13.5px;font-weight:600;color:var(--txt);padding:12px 18px;white-space:nowrap;transition:all .15s;margin-bottom:-2px}
+  .tab-btn:hover{color:var(--med)}.tab-btn.active{color:var(--nav);border-bottom-color:var(--nav)}
+  .wrap{max-width:100%;padding:20px 24px 60px}
+  .pane{display:none}.pane.on{display:block;animation:fadeIn .4s ease}
+  @keyframes fadeIn{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}
+  .card{background:var(--bco);border-radius:var(--r);box-shadow:var(--sh);margin-bottom:18px;overflow:hidden}
+  .ch{padding:13px 20px;font-weight:700;font-size:14px;display:flex;align-items:center;gap:9px;border-bottom:1px solid var(--bd)}
+  .cb{padding:16px 20px}
+  .card-b .ch{background:var(--pale);color:var(--nav)}.card-g .ch{background:var(--gcl);color:var(--grn)}
+  .card-v .ch{background:var(--vcl);color:var(--vio)}.card-a .ch{background:var(--acl);color:#7A4F1A}
+  .note{border-radius:var(--r);padding:9px 13px;font-size:13px;margin:10px 0;display:flex;gap:9px;align-items:flex-start}
+  .ni{font-size:16px;flex-shrink:0;margin-top:1px}
+  .nb{background:var(--pale);border-left:3px solid var(--med)}.ng{background:var(--gcl);border-left:3px solid var(--grn)}
+  .na{background:var(--acl);border-left:3px solid var(--amb)}.nv{background:var(--vcl);border-left:3px solid var(--vio)}
+  .res{border:1px solid var(--bd);border-radius:var(--r);margin-bottom:22px;overflow:hidden}
+  .res-head{display:flex;align-items:flex-start;gap:13px;padding:13px 16px;background:var(--gris)}
+  .ri{font-size:24px;flex-shrink:0;margin-top:2px}.rm{flex:1}
+  .rm strong{display:block;font-size:13.5px;color:var(--nav);margin-bottom:2px}.rm small{font-size:12px;color:var(--txt)}
+  .badge{flex-shrink:0;border-radius:12px;padding:3px 9px;font-size:11px;font-weight:700}
+  .bo{background:#FFE4E4;color:#9B2335}.bc{background:var(--gcl);color:var(--grn)}
+  .syn{background:var(--slate);padding:16px 20px;border-bottom:3px solid var(--med)}
+  .syn-lbl{font-size:10px;font-weight:700;letter-spacing:1.5px;color:var(--cl);margin-bottom:7px;text-transform:uppercase}
+  .syn h4{font-size:14px;color:#fff;margin-bottom:9px}
+  .syn-intro{font-size:12.5px;color:#E6F2F8;margin-bottom:13px;line-height:1.55}
+  .syn-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px}
+  .sc{background:rgba(255,255,255,.15);border-left:3px solid var(--cl);border-radius:4px;padding:10px 12px}
+  .sc strong{display:block;font-size:11.5px;color:var(--cl);margin-bottom:4px}
+  .sc p{font-size:12px;color:#E6F2F8;line-height:1.5;margin:0}
+  .sq{background:rgba(0,0,0,.2);border-left:3px solid var(--cl);border-radius:4px;padding:10px 14px;font-size:12.5px;font-style:italic;color:#E6F2F8;margin-bottom:11px}
+  .sqs{font-size:10.5px;color:var(--cl);display:block;margin-top:5px;font-style:normal}
+  .sdeb{margin-top:11px;background:rgba(255,255,255,.1);border-radius:4px;padding:10px 14px}
+  .sdeb strong{display:block;font-size:11px;color:var(--cl);margin-bottom:5px;letter-spacing:.4px}
+  .sdeb ul{margin-left:15px}.sdeb li{font-size:12px;color:#E6F2F8;margin-bottom:4px}
+  .res-detail{padding:14px 18px 16px}.res-detail p{font-size:13.5px;margin-bottom:9px}
+  .btn{display:inline-flex;align-items:center;gap:6px;background:var(--med);color:#fff;text-decoration:none;border-radius:6px;padding:7px 13px;font-size:13px;font-weight:600;transition:background .15s;margin-right:6px;margin-top:2px}
+  .btn:hover{background:var(--nav)}.btng{background:none;color:var(--med);border:1.5px solid var(--med)}.btng:hover{background:var(--pale)}
+  .btn-canva{background:#7D2AE8;color:#fff}.btn-canva:hover{background:#5B3A8C}
+  .btn-caja{background:var(--grn);color:#fff}.btn-caja:hover{background:#1d4734}
+  .act{border:1px solid var(--bd);border-radius:var(--r);margin-bottom:14px;overflow:hidden}
+  .ach{display:flex;align-items:center;gap:11px;padding:12px 16px;cursor:pointer;background:var(--bco)}
+  .an{width:33px;height:33px;border-radius:50%;background:var(--med);color:#fff;font-weight:700;font-size:14px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .an.canva{background:#7D2AE8}.an.tfi{background:var(--amb)}
+  .at{flex:1}.at strong{display:block;font-size:14px}.at small{font-size:12px;color:var(--txt)}
+  .chips{display:flex;gap:5px;flex-wrap:wrap;margin-top:3px}
+  .ch2{border-radius:12px;padding:2px 8px;font-size:11px;font-weight:600}
+  .cm2{background:#E8F0FE;color:#1D3461}.cg2{background:var(--gcl);color:var(--grn)}
+  .cv2{background:var(--vcl);color:var(--vio)}.ca2{background:var(--acl);color:#7A4F1A}
+  .ccanva{background:#EDE0FA;color:#5B3A8C;font-weight:700}.ctfi{background:#FDF1E3;color:#7A4F1A;font-weight:700}
+  .arr{font-size:15px;color:var(--txt);transition:transform .2s}
+  .act.open .arr{transform:rotate(90deg)}
+  .acb{display:none;padding:5px 17px 17px 60px}
+  .act.open .acb{display:block}
+  .acb p{font-size:13.5px;margin-bottom:9px}
+  .acb ul{margin:5px 0 9px 17px}.acb li{font-size:13.5px;margin-bottom:4px}
+  .acb ol{margin:5px 0 9px 18px}.acb ol li{font-size:13.5px;margin-bottom:4px}
+  .step{background:var(--gris);border-radius:var(--r);padding:11px 15px;margin-bottom:9px}
+  .step strong{display:block;font-size:13px;color:var(--nav);margin-bottom:3px}
+  .step p,.step li{font-size:13px}.step ul{margin:5px 0 0 15px}.step ol{margin:5px 0 0 18px}
+  /* SAMR VERTICAL */
+  .samr{display:flex;flex-direction:column;gap:8px;margin:14px 0}
+  .samr-row{display:flex;align-items:flex-start;gap:12px;padding:12px 14px;border-radius:6px;border-left:4px solid transparent;background:rgba(255,255,255,.05)}
+  .samr-badge{width:28px;height:28px;border-radius:4px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:14px;color:#fff;flex-shrink:0;margin-top:1px}
+  .samr-level{font-weight:700;color:#fff;font-size:13px;width:95px;flex-shrink:0;margin-top:4px}
+  .samr-desc{font-size:12px;color:#E6F2F8;line-height:1.45}
+  .samr-desc em{display:block;margin-top:4px;opacity:.8;font-size:11.5px}
+  .samr-r{border-color:var(--grn)}.bg-r{background:var(--grn)}
+  .samr-m{border-color:#1E7ABF}.bg-m{background:#1E7ABF}
+  .samr-a{border-color:var(--amb)}.bg-a{background:var(--amb)}
+  .samr-s{border-color:#9B2335}.bg-s{background:#9B2335}
+  .samr-line{text-align:center;margin:10px 0;border-top:2px dashed rgba(255,255,255,.25)}
+  .samr-line span{font-size:10px;color:var(--cl);text-transform:uppercase;font-weight:800;letter-spacing:1px;background:var(--slate);padding:0 10px;position:relative;top:-8px}
+  /* Canva/TFI */
+  .canva-box{background:#EDE0FA;border:2px solid #7D2AE8;border-radius:var(--r);padding:18px 20px;margin-bottom:14px}
+  .canva-box h4{color:#5B3A8C;font-size:15px;margin-bottom:10px;display:flex;align-items:center;gap:8px}
+  .canva-box ul{margin:6px 0 8px 18px}.canva-box li{font-size:13.5px;margin-bottom:5px}
+  .tfi-box{background:#fff;border:2.5px solid var(--amb);border-radius:var(--r);padding:20px 22px;margin-bottom:14px}
+  .tfi-box h4{color:var(--amb);font-size:15px;margin-bottom:10px;display:flex;align-items:center;gap:8px}
+  .tfi-box p{font-size:13.5px;margin-bottom:8px}
+  .tfi-field{background:var(--gris);border-radius:6px;padding:10px 14px;margin-bottom:9px;border-left:3px solid var(--amb)}
+  .tfi-field strong{display:block;font-size:12px;color:var(--amb);font-weight:700;margin-bottom:2px;text-transform:uppercase;letter-spacing:.4px}
+  .tfi-field p{font-size:12.5px;color:var(--txt)}
+  .tbl{width:100%;border-collapse:collapse;font-size:12.5px;margin-bottom:9px}
+  .tbl th{background:var(--nav);color:#fff;padding:7px 11px;text-align:left}
+  .tbl td{padding:7px 11px;border-bottom:1px solid var(--bd);vertical-align:top}
+  .tbl tr:nth-child(even) td{background:var(--gris)}
+  .tarea-box{background:var(--pale);border:2px solid var(--med);border-radius:var(--r);padding:18px 22px;margin-top:20px}
+  .tarea-box h3{color:var(--nav);font-size:15px;margin-bottom:8px}
+  .tarea-box ul{margin:6px 0 0 17px}.tarea-box li{font-size:13px;margin-bottom:5px}
+  @media(min-width:700px){.wrap{padding:24px 32px 60px}}
+  @media(min-width:1100px){.wrap{max-width:1400px;margin:0 auto;padding:28px 40px 60px}}
+  @media(max-width:480px){
+    body{font-size:14px}.top{padding:10px 14px;flex-direction:column;align-items:flex-start;gap:4px}
+    .tab-bar{padding:0 10px}.tab-btn{font-size:12.5px;padding:10px 11px}
+    .wrap{padding:14px 12px 40px}.ch{font-size:13px;padding:11px 14px}.cb{padding:13px 14px}
+    .res-head{flex-wrap:wrap;gap:8px;padding:11px 12px}.badge{align-self:flex-start}
+    .syn{padding:14px}.syn-grid{grid-template-columns:1fr}.syn h4{font-size:13px}
+    .res-detail{padding:12px 14px}.acb{padding:5px 12px 15px 12px}
+    .btn{font-size:12px;padding:6px 10px}.hero{padding:22px 16px 18px}.hero h1{font-size:19px}
+    .celular-banner{padding:10px 14px}
+  }
+  @media(min-width:481px) and (max-width:699px){
+    .syn-grid{grid-template-columns:1fr}
+    .wrap{padding:16px 16px 50px}.tab-btn{font-size:13px;padding:11px 14px}.acb{padding:5px 14px 16px 14px}
+  }
+</style>
+</head>
+<body>
+<div class="top">
+  <div><strong>Alfabetización Digital</strong><small>Prof. de Educación Especial – Orientación en DI · Campo General · Gustavo Iturriz</small></div>
+  <div class="top-r"><a href="index.html" class="btn-back">⬅ Volver al índice</a><span>IPES "Florentino Ameghino" · 2026</span></div>
+</div>
+<div class="celular-banner"><span class="ico">🛠️</span><p><strong>Clase de producción máxima:</strong> hoy diseñamos con Canva y arrancamos la Actividad. La próxima clase ya presentan. Tené a mano la Caja de Herramientas TIC.</p></div>
+<div class="hero">
+  <div class="hbadge">CLASE 3 · MARTES 12 DE MAYO DE 2026</div>
+  <h1>Ciudadanía Digital + SAMR<br>Derechos en la red y herramienta para la Actividad</h1>
+  <div class="hero-sub">Ley 25.326 · Sharenting · SAMR (Puentedura) conectado con Coll · ★★ Producción Interactiva</div>
+</div>
+<div class="tab-bar">
+  <button class="tab-btn active" onclick="showTab('inicio',this)">Inicio</button>
+  <button class="tab-btn" onclick="showTab('marco',this)">Marco Teórico</button>
+  <button class="tab-btn" onclick="showTab('actividades',this)">★★ Producción</button>
+</div>
+<div class="wrap">
+
+<!-- INICIO -->
+<div id="pane-inicio" class="pane on">
+  <div class="card card-v">
+    <div class="ch">💭 Para empezar a pensar</div>
+    <div class="cb">
+      <p style="font-size:16px;font-style:italic;color:var(--vio);font-weight:500;">"Una docente de Ed. Especial de Río Grande le saca una foto a sus estudiantes durante una actividad y la sube a Instagram con sus nombres y el nombre de la escuela. Un padre de uno de los chicos la ve y se enoja. ¿Tenía razón? ¿Qué ley ampara su reclamo? ¿Qué debería haber hecho la docente?"</p>
+      <div class="note nb" style="margin-top:10px"><span class="ni">⚖️</span><span>Hoy cerramos el Eje 1 con el marco legal para responder esto — y después producimos un recurso interactivo aplicando lo que aprendimos.</span></div>
+    </div>
+  </div>
+  <div class="card card-a">
+    <div class="ch">🗂️ Agenda de hoy — 2 horas reloj</div>
+    <div class="cb">
+      <table class="tbl">
+        <thead><tr><th>Momento</th><th>Actividad</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Recuperación PP1</strong></td><td>Socialización auditoría docente de la IA — debate con Coll</td></tr>
+          <tr><td><strong>Bloque 1</strong></td><td>Ciudadanía digital: Ley 25.326, sharenting, grooming</td></tr>
+          <tr><td><strong>Bloque 2</strong></td><td>SAMR: los 4 niveles con ejemplos de Ed. Especial DI</td></tr>
+          <tr><td><strong>★ Canva + QR</strong></td><td>Diseño de afiche + Capa interactiva (Kahoot/Genial.ly/Suno)</td></tr>
+          <tr><td><strong>Cierre</strong></td><td>Puesta en común SAMR y anuncio del Trabajo Final</td></tr>
+        </tbody>
+      </table>
+      <div class="note ng"><span class="ni">⚠️</span><span><strong>Aviso de agenda:</strong> La semana que viene presentaremos de forma anticipada la consigna del Trabajo de Cierre, para garantizar tiempo suficiente de elaboración.</span></div>
+    </div>
+  </div>
+  <div class="card card-g">
+    <div class="ch">🔄 Recuperación — PP1: IA como copiloto</div>
+    <div class="cb">
+      <p>Socializamos el prompt que usaron, la propuesta de la IA y su auditoría docente.</p>
+      <div class="step"><strong>Preguntas con lente Coll + anticipación SAMR:</strong>
+        <ul>
+          <li>¿La propuesta de la IA fue <strong>asimilación o transformación</strong> según Coll?</li>
+          <li>¿Qué tuvo que corregir o agregar la auditoría docente respecto a los estudiantes con DI?</li>
+          <li>¿Qué dimensión de Area Moreira (Clase 1) trabajaba la propuesta? ¿Cuál faltaba?</li>
+        </ul>
+      </div>
+      <div class="note nv"><span class="ni">💡</span><span>En el Bloque 2 van a aprender el modelo SAMR — que les va a dar un nombre más preciso a lo que ya hicieron en la PP1: evaluar si la propuesta de la IA transformaba o solo sustituía.</span></div>
+      <a class="btn btn-caja" href="caja_herramientas.html#cat-ia" target="_blank">🤖 Caja de Herramientas TIC</a>
+    </div>
+  </div>
+</div>
+
+<!-- MARCO -->
+<div id="pane-marco" class="pane">
+
+  <!-- BLOQUE 1 -->
+  <div class="res">
+    <div class="res-head">
+      <div class="ri">⚖️</div>
+      <div class="rm">
+        <strong>Bloque 1 — Ciudadanía Digital: Ley 25.326 y derechos en la red</strong>
+        <small>Ley 25.326 (2000) · Ley 26.904 (Grooming) · Programa "Con Vos en la Web" – MJyDH</small>
+      </div>
+      <span class="badge bo">MARCO LEGAL</span>
+    </div>
+    <div class="syn">
+      <div class="syn-lbl">📋 La dimensión axiológica de Area Moreira en la práctica legal</div>
+      <h4>Lo mínimo que toda docente de Ed. Especial DI necesita saber</h4>
+      <p class="syn-intro">En Clase 1, Area Moreira nos dijo que la dimensión <strong>axiológica</strong> —valores, ética y derechos digitales— es la que la formación docente más descuidó. Hoy la convertimos en tres reglas concretas y accionables para el contexto de Ed. Especial DI.</p>
+      <div class="syn-grid">
+        <div class="sc">
+          <strong>Dato sensible + consentimiento (Arts. 2 y 5)</strong>
+          <p>Un diagnóstico de DI es dato sensible y tiene protección máxima. Para difundirlo se necesita consentimiento libre, expreso e informado del tutor legal. El permiso de la ficha de inscripción no habilita publicaciones en redes — son actos jurídicos distintos. La variable legal no es la intención: es el consentimiento.</p>
+        </div>
+        <div class="sc">
+          <strong>Regla del sharenting docente</strong>
+          <p>Publicar fotos de estudiantes con DI en redes sociales viola la Ley 25.326 aunque la intención sea positiva. Para menores que no pueden consentir su propia exposición, la responsabilidad docente es total. <strong>Si tenés duda, no publicás.</strong></p>
+        </div>
+        <div class="sc">
+          <strong>Grooming (Ley 26.904)</strong>
+          <p>Acoso sexual de menores a través de medios digitales. Doble obligación docente en Ed. Especial DI: detectar señales de alerta (sus estudiantes pueden ser más vulnerables por su perfil comunicacional) y prevenir enseñando hábitos de protección adaptados a cada estudiante.</p>
+        </div>
+        <div class="sc">
+          <strong>Huella digital docente</strong>
+          <p>Todo lo que publicás en internet es permanente y descontextualizable — incluso en grupos de WhatsApp institucionales. La identidad digital docente se construye o deteriora con cada publicación. ¿Qué huella digital estás construyendo como futura docente de Ed. Especial?</p>
+        </div>
+      </div>
+      <div class="sq">"La información sobre salud y condición psicofísica sólo puede ser recolectada con garantías adecuadas de confidencialidad y con consentimiento del titular o su representante legal."<span class="sqs">— Ley 25.326, Art. 7 (adaptado)</span></div>
+      <div class="sdeb">
+        <strong>LA PREGUNTA QUE VAN A RESPONDER EN LA PRODUCCIÓN DE HOY</strong>
+        <ul>
+          <li>¿En qué nivel SAMR queda nuestro afiche una vez que le agregamos interactividad?</li>
+          <li>¿Hay una razón pedagógica concreta para estar en ese nivel y no en el siguiente?</li>
+          <li>Si estoy en sustitución o aumento: ¿qué cambiaría en la actividad para alcanzar modificación?</li>
+          <li>¿La IA de la PP1 generó propuestas de sustitución, aumento o transformación? ¿Qué cambiaría si mejorás el prompt?</li>
+        </ul>
+      </div>
+    </div>
+    <div class="res-detail">
+      <a class="btn" href="https://www.argentina.gob.ar/normativa/nacional/ley-25326-68731" target="_blank">📄 Ley 25.326</a>
+      <a class="btn btng" href="https://www.argentina.gob.ar/justicia/convosenlaweb" target="_blank">🌐 Con Vos en la Web</a>
+    </div>
+  </div>
+
+  <!-- 2. SAMR EXTENDIDO -->
+  <div class="res" style="border:1px solid var(--bd); border-radius:var(--r); margin-bottom:18px; overflow:hidden;">
+    <div style="background:var(--gris); padding:10px 15px; display:flex; justify-content:space-between; align-items:center;">
+      <strong style="font-size:13px; color:var(--nav);">Puentedura (2010) — SAMR</strong>
+      <span style="font-size:11px; background:var(--vcl); padding:3px 8px; border-radius:10px; color:var(--vio); font-weight:700;">BRÚJULA TÉCNICA</span>
+    </div>
+    <div class="theory" style="background:var(--slate); padding:16px 20px; border-bottom:3px solid var(--med);">
+      <h4 style="color:#fff; font-size:14px; margin-bottom:9px;">Hacia la transformation del aprendizaje</h4>
+      <p class="theory-intro" style="font-size:12.5px; color:#E6F2F8; line-height:1.55; margin-bottom:13px;">El Dr. Rubén Puentedura diseñó este marco para que los docentes puedan autoevaluar el grado de innovación de sus propuestas. El modelo se divide en dos grandes niveles separados por una "línea de corte" pedagógica que define si estamos ante una simple mejora o una verdadera redefinición de la enseñanza.</p>
+      
+      <div class="samr">
+        <div class="samr-row samr-r">
+          <div class="samr-badge bg-r">R</div>
+          <div class="samr-level">Redefinición</div>
+          <div class="samr-desc">La tecnología permite la creación de nuevas tareas, anteriormente inconcebibles. El aprendizaje se vuelve una producción original e imposible sin el medio digital.</div>
+        </div>
+        <div class="samr-row samr-m">
+          <div class="samr-badge bg-m">M</div>
+          <div class="samr-level">Modificación</div>
+          <div class="samr-desc">Se produce un rediseño significativo de la tarea. La TIC permite cambios sustanciales en el flujo de trabajo y la colaboración entre pares.</div>
+        </div>
+        <div style="text-align:center; padding: 5px 0; border-top: 2px dashed rgba(255,255,255,0.4); margin: 5px 0;">
+          <span style="font-size:10px; color:var(--cl); text-transform:uppercase; font-weight:900; letter-spacing:2px; background:var(--slate); padding:0 10px; position:relative; top:-8px;">Línea de Transformación Pedagógica</span>
+        </div>
+        <div class="samr-row samr-a">
+          <div class="samr-badge bg-a">A</div>
+          <div class="samr-level">Aumento</div>
+          <div class="samr-desc">Sustitución con mejora funcional. La tecnología aporta agilidad o elementos multimedia, pero la estructura de la tarea no cambia.</div>
+        </div>
+        <div class="samr-row samr-s">
+          <div class="samr-badge bg-s">S</div>
+          <div class="samr-level">Sustitución</div>
+          <div class="samr-desc">Cambio de soporte físico (papel por pantalla) sin ninguna mejora funcional. Es el nivel del copia directa o lectura pasiva.</div>
+        </div>
+      </div>
+    </div>
+    <div class="theory-detail" style="padding:14px 18px 16px;">
+      <a class="btn" href="https://eduteka.icesi.edu.co/articulos/samr" target="_blank" style="background:var(--amb); border:none; color:#fff">📄 Análisis en Eduteka</a>
+      <a class="btn" href="https://www.hippasus.com/rrpweblog/archives/2013/10/02/SAMR_ABriefIntroduction.pdf" target="_blank" style="background:var(--slate); border:none; color:#fff">📄 PDF Original (Puentedura)</a>
+      <div class="note nb" style="margin-top:10px"><span class="ni">💡</span><span>SAMR no reemplaza la pedagogía — la acompaña. Una propuesta de sustitución puede ser pedagógicamente válida si el docente sabe por qué eligió ese nivel. Lo que SAMR no tolera es la sustitución <em>inconsciente</em>: la tablet que hace exactamente lo mismo que el cuaderno sin que nadie lo haya decidido.</span></div>
+    </div>
+  </div>
+
+</div>
+
+<!-- PRODUCCIÓN -->
+<div id="pane-actividades" class="pane">
+  
+  <div class="note nb" style="margin-bottom:18px"><span class="ni">⏱️</span><span><strong>Bloque de Producción (1h 20m):</strong> A partir de este punto, la clase es 100% taller práctico destinado a producir. Para Canva: creá tu cuenta gratuita en <strong>canva.com</strong> con el mail de Google si no la tenés todavía.</span></div>
+
+  <div class="act open" id="a1">
+    <div class="ach" onclick="toggleAct('a1')">
+      <div class="an">1</div>
+      <div class="at"><strong>Socialización de PP1 — IA copiloto: prompt, propuesta y auditoría</strong><small>2–3 voluntarias · Plenario</small>
+        <div class="chips"><span class="ch2 cm2">Recuperación PP1</span><span class="ch2 cv2">Auditoría + SAMR</span></div>
+      </div><span class="arr">›</span>
+    </div>
+    <div class="acb">
+      <p>Muestran: el prompt, la propuesta de la IA y qué conservaron/modificaron/descartaron en la auditoría.</p>
+      <div class="step"><strong>Con lente SAMR (nueva herramienta de hoy):</strong>
+        <ul>
+          <li>¿En qué nivel SAMR ubicarías la propuesta que generó la IA — sustitución, aumento, modificación o redefinición?</li>
+          <li>¿La auditoría docente subió el nivel SAMR, lo bajó o lo dejó igual? ¿Por qué?</li>
+          <li>¿Qué le faltaba al prompt para que la IA generara una propuesta de mayor nivel SAMR?</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="act open" id="a2">
+    <div class="ach" onclick="toggleAct('a2')">
+      <div class="an canva">C</div>
+      <div class="at"><strong>★ Canva + QR: Afiche interactivo de ciudadanía digital</strong><small>Parejas · Producción en clase</small>
+        <div class="chips"><span class="ch2 ccanva">★ Canva</span><span class="ch2 cg2">Interactividad</span><span class="ch2 cm2">Ed. Especial DI</span></div>
+      </div><span class="arr">›</span>
+    </div>
+    <div class="acb">
+      <p><strong>Consigna de producción:</strong> Asuman el <strong>rol</strong> de una pareja pedagógica (docentes de Educación Especial DI). El <strong>contexto</strong> es la preparación de una jornada institucional o reunión de familias en una escuela de la provincia. Pensando en ese <strong>destinatario</strong> (familias o colegas), la <strong>actividad</strong> consiste en diseñar un afiche en Canva sobre un eje de ciudadanía digital, al cual le sumarán obligatoriamente una <strong>capa interactiva</strong> (código QR). El objetivo es que el recurso deje de ser meramente informativo (Sustitución/Aumento) y logre un salto hacia la Transformación en el modelo SAMR.</p>
+      <div class="canva-box">
+        <h4>🎨 Distribución temática y fuentes de consulta</h4>
+        <p style="font-size:13.5px; margin-bottom:10px;"><strong>Fuentes de información:</strong> El contenido conceptual es el desarrollado durante el <strong>Bloque 1</strong> de la clase. Para citas exactas, terminología técnica o extracción de normativas, deben remitirse obligatoriamente a los enlaces oficiales alojados en la pestaña "Marco Teórico" (Ley Nacional 25.326 y materiales del programa "Con Vos en la Web"). No es necesario recurrir a fuentes externas adicionales.</p>
+        <p style="font-size:13.5px; margin-bottom:10px;"><strong>Herramientas de diseño:</strong> Si bien el paso a paso sugiere <strong>Canva</strong>, pueden optar por herramientas similares como <strong>Genial.ly</strong>, siempre que les permitan generar una pieza gráfica y anexar un código QR.</p>
+        <ul>
+          <li><strong>Pareja A — Dato sensible y derechos:</strong> Elaborar un afiche dirigido a familias que explique la naturaleza de los datos sensibles y los derechos que asisten a los estudiantes con DI. Se requiere traducir los artículos clave de la Ley 25.326 a un lenguaje accesible y desprovisto de jerga legal.</li>
+          <li><strong>Pareja B — Sharenting docente:</strong> Diseñar un material para la sala de profesores estableciendo lineamientos claros sobre publicaciones en redes. Formular tres reglas prácticas justificadas, ilustrándolas con ejemplos hipotéticos situados en el contexto de la Educación Especial DI.</li>
+          <li><strong>Pareja C — Grooming: señales de alerta:</strong> Crear una pieza preventiva orientada a colegas y directivos. La producción debe definir el concepto, establecer pautas de prevención específicas frente a la vulnerabilidad de estudiantes con DI, y destacar los canales oficiales de asistencia (Línea 102 y portal Con Vos en la Web).</li>
+          <li><strong>Pareja D — Huella digital docente:</strong> Desarrollar una guía rápida de netiqueta institucional aplicable a grupos de WhatsApp y redes sociales. Identificar, explicar y proponer soluciones para tres errores frecuentes que comprometen la identidad digital profesional del docente.</li>
+        </ul>
+      </div>
+      <div class="step" style="background:#EDE0FA;border-left:3px solid #7D2AE8">
+        <strong style="color:#5B3A8C">🎨 Paso 1: Diseño base en Canva (o alternativa)</strong>
+        <ol>
+          <li>Ingresen a <strong>canva.com</strong> (o la herramienta elegida) e inicien sesión. Busquen formatos como "infografía educativa" o "cartel escolar".</li>
+          <li>Incluyan un título claro, 3–5 puntos clave accionables y una referencia legal o institucional.</li>
+          <li>Dejen un espacio en blanco en el diseño para colocar posteriormente el código QR interactivo.</li>
+        </ol>
+      </div>
+      <div class="step" style="background:#E8F4FF;border-left:3px solid #1E7ABF">
+        <strong style="color:#1E5F9A">📱 Paso 2: La capa interactiva (El salto SAMR)</strong>
+        <p>Un afiche digital plano es nivel "Aumento". Para intentar llegar a "Modificación", vamos a hacerlo inmersivo:</p>
+        <ul>
+          <li>Aprovechando las herramientas que ya exploramos, vinculen el afiche a un recurso dinámico.</li>
+          <li>Generen un <strong>código QR gratuito</strong> (con la app de Canva o QR Monkey) que dirija a: un juego rápido sobre el tema (Kahoot / Wordwall), una infografía expandida (Genial.ly), o una canción generada con IA (ej. Suno) que resuma las reglas de forma lúdica.</li>
+          <li>Peguen el QR en el diseño final del afiche en Canva.</li>
+        </ul>
+      </div>
+      <div class="step"><strong>Puesta en común:</strong>
+        <p>Escaneremos los QR entre todos. ¿La capa interactiva realmente sube el nivel SAMR de la propuesta? ¿Por qué?</p>
+      </div>
+      <a class="btn btn-canva" href="https://www.canva.com" target="_blank">🎨 Abrir Canva</a>
+      <a class="btn" href="caja_herramientas.html" target="_blank" style="background:var(--slate)">🧰 Abrir Caja de Herramientas</a>
+      <div class="note na" style="margin-top:10px"><span class="ni">⏰</span><span><strong>Entrega:</strong> Peguen el link de Canva o el archivo descargado en el aula virtual. Queda en tu portafolio del taller.</span></div>
+    </div>
+  </div>
+
+  <div class="act open" id="a3">
+    <div class="ach" onclick="toggleAct('a3')">
+      <div class="an">3</div>
+      <div class="at"><strong>Cierre: Evaluación SAMR cruzada y Anuncio de TFI</strong><small>Plenario · 15 minutos finales</small>
+        <div class="chips"><span class="ch2 cm2">Cierre</span><span class="ch2 cg2">Próximos pasos</span></div>
+      </div><span class="arr">›</span>
+    </div>
+    <div class="acb">
+      <p>Proyectamos los afiches terminados y, con los celulares, escaneamos los códigos QR generados por las compañeras.</p>
+      <div class="step"><strong>Análisis rápido:</strong>
+        <ul>
+          <li>¿El recurso vinculado mediante el QR aporta al aprendizaje o es un "adorno" tecnológico?</li>
+          <li>En términos de Puentedura: ¿Logramos salir de la zona de "Mejora" y entramos a la zona de "Transformación" (Modificación / Redefinición)?</li>
+        </ul>
+      </div>
+      <div class="note na" style="margin-top:15px; border-left:4px solid var(--amb); background:#FDF1E3">
+        <span class="ni">📢</span>
+        <span><strong>Aviso importante sobre el Trabajo de Cierre:</strong><br>
+        La semana que viene presentaremos de manera anticipada la consigna del <strong>Trabajo Final Integrador (TFI)</strong>. La idea es entregarla con tiempo suficiente para que tengan varias clases dedicadas exclusivamente a la planificación, diseño guiado y producción del recurso dentro del aula.</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="tarea-box">
+    <h3>📋 Para la semana que viene</h3>
+    <ul>
+      <li><strong>Finalizar y subir el Afiche Interactivo</strong> al aula virtual (si no llegaron a terminar la vinculación del QR hoy).</li>
+      <li><strong>Explorar:</strong> Sigan jugando con las herramientas de la Caja (Kahoot, Wordwall, Suno) para ir pensando qué tipo de dinámicas les gustan más.</li>
+      <li>Vengan preparadas para escuchar y debatir la consigna del Trabajo Final.</li>
+    </ul>
+  </div>
+</div>
+
+</div>
+<script>
+function showTab(id,btn){document.querySelectorAll('.pane').forEach(p=>p.classList.remove('on'));document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));document.getElementById('pane-'+id).classList.add('on');btn.classList.add('active')}
+function toggleAct(id){document.getElementById(id).classList.toggle('open')}
+</script>
+</body>
+</html>
