@@ -1,3 +1,11 @@
+
+clase_4_ADIPES_final.html
+
+Página
+1
+de
+1
+100%
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -46,6 +54,10 @@
   .vid-lbl{font-size:10px;font-weight:700;letter-spacing:1.5px;color:var(--cl);margin-bottom:9px;text-transform:uppercase;display:block;margin-top:18px}
   .vid-wrap{position:relative;padding-top:56.25%;border-radius:6px;overflow:hidden;box-shadow:0 4px 12px rgba(0,0,0,.3)}
   .vid-wrap iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
+  /* TPACK SVG VENN */
+  .venn-box{background:#fff;border-radius:8px;padding:18px 10px 10px;margin:6px 0 4px;text-align:center}
+  .venn-box svg{max-width:100%;height:auto}
+  .venn-cap{font-size:11.5px;color:var(--txt);margin-top:6px;font-style:italic}
   .tool-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
   .tool-card{background:#fff;border:1px solid var(--bd);border-radius:var(--r);padding:12px 14px}
   .tool-card h6{font-size:13px;font-weight:700;color:var(--nav);margin-bottom:4px}
@@ -80,8 +92,15 @@
   .tfi-field{background:var(--gris);border-radius:6px;padding:10px 14px;margin-bottom:9px;border-left:3px solid var(--amb)}
   .tfi-field strong{display:block;font-size:12px;color:var(--amb);font-weight:700;margin-bottom:2px;text-transform:uppercase;letter-spacing:.4px}
   .tfi-field p{font-size:12.5px;color:var(--txt)}
-
-.tbl{width:100%;border-collapse:collapse;font-size:12.5px;margin-bottom:9px}
+  .tfi-announce{background:linear-gradient(135deg,var(--amb) 0%,#9B5A00 100%);border-radius:var(--r);padding:18px 20px;margin-bottom:18px;color:#fff}
+  .tfi-announce h3{font-size:16px;margin-bottom:6px;display:flex;align-items:center;gap:8px}
+  .tfi-announce p{font-size:13px;opacity:.92;line-height:1.55}
+  .marco-chip{display:inline-block;background:rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.4);border-radius:12px;padding:2px 10px;font-size:11.5px;margin:3px 3px 0 0;font-weight:600}
+  .pq{background:#fff;border:1px solid var(--bd);border-radius:var(--r);padding:12px 15px;display:flex;gap:12px;align-items:flex-start;margin-bottom:8px}
+  .pq-num{width:26px;height:26px;border-radius:50%;background:var(--amb);color:#fff;font-weight:800;font-size:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+  .pq p{font-size:13px;color:var(--neg);margin:0;line-height:1.5}
+  .pq small{display:block;font-size:11px;color:var(--txt);margin-top:3px}
+  .tbl{width:100%;border-collapse:collapse;font-size:12.5px;margin-bottom:9px}
   .tbl th{background:var(--nav);color:#fff;padding:7px 11px;text-align:left}
   .tbl td{padding:7px 11px;border-bottom:1px solid var(--bd);vertical-align:top}
   .tbl tr:nth-child(even) td{background:var(--gris)}
@@ -109,19 +128,19 @@
 </div>
 
 <div class="celular-banner"><span class="ico">🚀</span>
-  <p><strong>Clase bisagra:</strong> hoy sumamos TPACK como brújula pedagógica, exploramos herramientas para Ed. Especial DI y lanzamos oficialmente la consigna del Trabajo Final Integrador.</p>
+  <p><strong>Clase bisagra:</strong> hoy sumamos TPACK como brújula pedagógica, exploramos herramientas para Ed. Especial DI y lanzamos el Trabajo Final Integrador.</p>
 </div>
 
 <div class="hero">
-  <div class="hbadge">CLASE 4 · MARTES 9 DE JUNIO DE 2026</div>
+  <div class="hbadge">CLASE 4 · MARTES 16 DE JUNIO DE 2026</div>
   <h1>El puente hacia el Trabajo Final<br>TPACK, Herramientas DI y Lanzamiento del TFI</h1>
-  <div class="hero-sub">Modelo TPACK · Accesibilidad DUA · Exploración Tecnológica · ★★ Consigna oficial del TFI · Ficha de Ideación</div>
+  <div class="hero-sub">Modelo TPACK · Accesibilidad DUA · Exploración Tecnológica · ★★ Consigna del TFI · Ficha de Ideación</div>
 </div>
 
 <div class="tab-bar">
   <button class="tab-btn active" onclick="showTab('inicio',this)">Inicio</button>
   <button class="tab-btn" onclick="showTab('marco',this)">Marco Teórico (TPACK + Herramientas)</button>
-  <button class="tab-btn" onclick="showTab('actividades',this)">★ Laboratorio y cierre</button>
+  <button class="tab-btn" onclick="showTab('actividades',this)">★★ Laboratorio y TFI</button>
 </div>
 
 <div class="wrap">
@@ -129,7 +148,10 @@
 <!-- INICIO -->
 <div id="pane-inicio" class="pane on">
 
-
+  <div class="tfi-announce">
+    <h3>🎯 Hoy se lanza el Trabajo Final Integrador</h3>
+    <p>Esta clase tiene dos momentos. Primero incorporamos el modelo <strong>TPACK</strong> para aprender a tomar decisiones pedagógico-tecnológicas con criterio. Después usamos ese modelo para diseñar el esqueleto del Trabajo Final, que integra todo lo trabajado en el taller. La consigna completa está en la pestaña <strong>"★★ Laboratorio y TFI"</strong>.</p>
+  </div>
 
   <div class="card card-v">
     <div class="ch">💭 Para empezar a pensar</div>
@@ -145,13 +167,14 @@
       <table class="tbl">
         <thead><tr><th>Momento</th><th>Actividad</th><th>Tiempo</th></tr></thead>
         <tbody>
-          <tr><td><strong>Recuperación</strong></td><td>Socializamos los afiches interactivos de la Clase 3 — debate SAMR</td><td><span class="time-chip">10 min</span></td></tr>
-          <tr><td><strong>Teoría ancla</strong></td><td>Modelo TPACK + herramientas para Ed. Especial DI + video</td><td><span class="time-chip">30 min</span></td></tr>
-          <tr><td><strong>★ Laboratorio</strong></td><td>Exploración de herramientas con lente DUA/SAMR + Ficha de Análisis</td><td><span class="time-chip">45 min</span></td></tr>
-          <tr><td><strong>Cierre</strong></td><td>Puesta en común + avance del cuatrimestre</td><td><span class="time-chip">15 min</span></td></tr>
+          <tr><td><strong>Teoría ancla</strong></td><td>Modelo TPACK + video — brújula para decidir con criterio</td><td><span class="time-chip">20 min</span></td></tr>
+          <tr><td><strong>Herramientas</strong></td><td>Las 4 categorías de herramientas para Ed. Especial DI</td><td><span class="time-chip">15 min</span></td></tr>
+          <tr><td><strong>★ Laboratorio</strong></td><td>Exploración de herramientas con lente DUA/SAMR + Ficha de Análisis</td><td><span class="time-chip">30 min</span></td></tr>
+          <tr><td><strong>★★ Lanzamiento TFI</strong></td><td>Consigna del Trabajo Final + Ficha de Ideación TPACK</td><td><span class="time-chip">40 min</span></td></tr>
+          <tr><td><strong>Cierre</strong></td><td>Check-in: ¿qué herramienta elegiste y por qué?</td><td><span class="time-chip">15 min</span></td></tr>
         </tbody>
       </table>
-      <div class="note ng"><span class="ni">🗓️</span><span><strong>Plan del cuatrimestre:</strong> Clase 5 (16/06) = lanzamiento del Trabajo Final + inicio de producción · Clase 6 (23/06) = producción + revisión entre pares · Clase 7 (30/06) = presentaciones · Clase 8 (7/07) = cierre — última clase.</span></div>
+      <div class="note ng"><span class="ni">🗓️</span><span><strong>Plan del cuatrimestre:</strong> Clase 5 (23/06) = producción del recurso + revisión entre pares · Clase 6 (30/06) = presentaciones · Clase 7 (7/07) = cierre — última clase.</span></div>
     </div>
   </div>
 
@@ -169,11 +192,40 @@
       <h4>Integración profunda: el antídoto contra el tecnocentrismo</h4>
       <p class="theory-intro">Basado en el concepto de <em>Conocimiento Didáctico del Contenido (PCK)</em> de Lee Shulman (1986), los investigadores Punya Mishra y Matthew J. Koehler (2006) añadieron la variable "Tecnología" para crear el marco TPACK. Este modelo demuestra que la verdadera integración digital docente no es saber apretar botones, sino comprender la compleja interacción entre tres dimensiones del saber. Integrar TIC exige subordinar la herramienta a la pedagogía y al contenido.</p>
 
-      <div style="text-align:center;margin:20px 0">
-        <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2F2.bp.blogspot.com%2F-s_K3GVM_3yk%2FVV8NJRfh_dI%2FAAAAAAAAAKs%2FvQYqx3RgAR8%2Fs1600%2Ftpack_spanish-1014x1024.jpg&f=1&nofb=1&ipt=1d324fceb56ee99c81fe3bd93b4decfaa841dc3c73f0bd063d13873123868774" alt="Diagrama TPACK" style="max-width:100%;height:auto;border-radius:8px;box-shadow:0 4px 12px rgba(0,0,0,.3)">
+      <!-- SVG VENN TPACK -->
+      <div class="venn-box">
+        <svg viewBox="0 0 420 380" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Diagrama de Venn del modelo TPACK">
+          <!-- Círculos con transparencia -->
+          <circle cx="210" cy="130" r="120" fill="#2E6DA4" fill-opacity="0.55" stroke="#1D3461" stroke-width="2"/>
+          <circle cx="145" cy="245" r="120" fill="#C07A28" fill-opacity="0.55" stroke="#7A4F1A" stroke-width="2"/>
+          <circle cx="275" cy="245" r="120" fill="#2A6049" fill-opacity="0.55" stroke="#1A4A37" stroke-width="2"/>
+          <!-- Etiquetas de los círculos principales -->
+          <text x="210" y="70" text-anchor="middle" fill="#fff" font-family="Segoe UI,Arial" font-size="19" font-weight="800">CK</text>
+          <text x="210" y="90" text-anchor="middle" fill="#fff" font-family="Segoe UI,Arial" font-size="11">Disciplinar</text>
+          <text x="210" y="104" text-anchor="middle" fill="#EAF2FA" font-family="Segoe UI,Arial" font-size="10">el QUÉ</text>
+
+          <text x="80" y="285" text-anchor="middle" fill="#fff" font-family="Segoe UI,Arial" font-size="19" font-weight="800">PK</text>
+          <text x="80" y="305" text-anchor="middle" fill="#fff" font-family="Segoe UI,Arial" font-size="11">Pedagógico</text>
+          <text x="80" y="319" text-anchor="middle" fill="#FDF1E3" font-family="Segoe UI,Arial" font-size="10">el CÓMO</text>
+
+          <text x="340" y="285" text-anchor="middle" fill="#fff" font-family="Segoe UI,Arial" font-size="19" font-weight="800">TK</text>
+          <text x="340" y="305" text-anchor="middle" fill="#fff" font-family="Segoe UI,Arial" font-size="11">Tecnológico</text>
+          <text x="340" y="319" text-anchor="middle" fill="#DFF0E9" font-family="Segoe UI,Arial" font-size="10">el CON QUÉ</text>
+
+          <!-- Intersecciones de a pares -->
+          <text x="135" y="180" text-anchor="middle" fill="#fff" font-family="Segoe UI,Arial" font-size="12" font-weight="700">PCK</text>
+          <text x="285" y="180" text-anchor="middle" fill="#fff" font-family="Segoe UI,Arial" font-size="12" font-weight="700">TCK</text>
+          <text x="210" y="298" text-anchor="middle" fill="#fff" font-family="Segoe UI,Arial" font-size="12" font-weight="700">TPK</text>
+
+          <!-- Centro TPACK -->
+          <circle cx="210" cy="205" r="40" fill="#1D3461" fill-opacity="0.92"/>
+          <text x="210" y="202" text-anchor="middle" fill="#fff" font-family="Segoe UI,Arial" font-size="17" font-weight="900">TPACK</text>
+          <text x="210" y="219" text-anchor="middle" fill="#B8D4EA" font-family="Segoe UI,Arial" font-size="9">el equilibrio</text>
+        </svg>
+        <p class="venn-cap">El TPACK es la zona central, donde los tres conocimientos se integran. Ahí ocurre la verdadera transformación del aprendizaje.</p>
       </div>
 
-      <div style="display:flex;flex-direction:column;gap:10px">
+      <div style="display:flex;flex-direction:column;gap:10px;margin-top:14px">
         <div style="background:rgba(255,255,255,.08);border-left:4px solid #2E6DA4;padding:12px;border-radius:4px">
           <strong style="color:#B8D4EA;font-size:13px;display:block;margin-bottom:4px">1. Conocimiento Disciplinar (CK) — El QUÉ</strong>
           <p style="color:#fff;font-size:12px;margin:0;line-height:1.4">El dominio del cuerpo teórico o la habilidad a enseñar. En Ed. Especial DI, el CK se asienta frecuentemente en el <em>Currículum Ecológico Funcional</em>: habilidades para la vida independiente, higiene personal, manejo de dinero, rutinas de autocuidado, reconocimiento emocional.</p>
@@ -192,7 +244,7 @@
         </div>
       </div>
 
-      <span class="vid-lbl">▶ Video — TPACK explicado en español (ver antes del Taller 1)</span>
+      <span class="vid-lbl">▶ Video — TPACK explicado en español</span>
       <div class="vid-wrap">
         <iframe src="https://www.youtube.com/embed/HDwWg_g0JGE"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -267,33 +319,13 @@
 <!-- ACTIVIDADES Y TFI -->
 <div id="pane-actividades" class="pane">
 
-  <div class="note na" style="margin-bottom:18px"><span class="ni">🎯</span><span><strong>Bloque central de la clase.</strong> Taller 1 (25 min) = explorar herramientas para ampliar el TK. Taller 2 (40 min) = diseñar el esqueleto del TFI con TPACK. La herramienta que explorás hoy puede ser la del TFI.</span></div>
+  <div class="note na" style="margin-bottom:18px"><span class="ni">🎯</span><span><strong>Bloque central de la clase.</strong> Laboratorio (30 min) = explorar herramientas para ampliar el TK. Lanzamiento TFI (40 min) = presentar la consigna y diseñar el esqueleto del Trabajo Final con TPACK. La herramienta que explorás hoy puede ser la del TFI.</span></div>
 
   <div class="act open" id="a1">
     <div class="ach" onclick="toggleAct('a1')">
-      <div class="an">1</div>
-      <div class="at"><strong>Recuperación de Clase 3 — Afiches interactivos + debate SAMR</strong>
-        <small>Plenario · 10 min</small>
-        <div class="chips"><span class="ch2 cm2">Recuperación</span><span class="ch2 cv2">SAMR</span></div>
-      </div><span class="arr">›</span>
-    </div>
-    <div class="acb">
-      <p>Socializamos los afiches interactivos de Ciudadanía Digital (Canva + QR) de la Clase 3. Escaneamos los QR en vivo.</p>
-      <div class="step"><strong>Debate SAMR — 2 preguntas:</strong>
-        <ul>
-          <li>¿La capa interactiva del QR logró llevarnos a la <strong>Modificación</strong>? ¿O quedó en Aumento?</li>
-          <li>¿Qué cambiaría para subir un peldaño?</li>
-        </ul>
-      </div>
-      <div class="note nv"><span class="ni">🔗</span><span>Este debate no es solo retroalimentación — es el calentamiento mental para el TPACK. El mismo criterio que usaron para evaluar el afiche lo van a usar para diseñar el TFI hoy.</span></div>
-    </div>
-  </div>
-
-  <div class="act open" id="a2">
-    <div class="ach" onclick="toggleAct('a2')">
       <div class="an prod">★</div>
-      <div class="at"><strong>★ Taller 1: Laboratorio de Exploración — el TK del TFI</strong>
-        <small>Parejas · 25 min · Ficha de Análisis</small>
+      <div class="at"><strong>★ Laboratorio de Exploración — el TK del TFI</strong>
+        <small>Parejas · 30 min · Ficha de Análisis</small>
         <div class="chips"><span class="ch2 cprod">★ Exploración</span><span class="ch2 cg2">Herramientas DI</span></div>
       </div><span class="arr">›</span>
     </div>
@@ -309,35 +341,82 @@
     </div>
   </div>
 
+  <div class="act open" id="a2">
+    <div class="ach" onclick="toggleAct('a2')">
+      <div class="an tfi">★★</div>
+      <div class="at"><strong>★★ Lanzamiento del TFI — Consigna + Ficha de Ideación TPACK</strong>
+        <small>Individual o dupla · 40 min</small>
+        <div class="chips"><span class="ch2 ctfi">★★ Trabajo Final</span><span class="ch2 cm2">TPACK</span><span class="ch2 cv2">Ed. Especial DI</span></div>
+      </div><span class="arr">›</span>
+    </div>
+    <div class="acb">
+
+      <div class="tfi-box">
+        <h4>🎯 ¿Qué es el Trabajo Final Integrador?</h4>
+        <p style="font-size:13px;margin-bottom:10px">El Trabajo Final es el cierre del taller. Diseñan y construyen un <strong>recurso educativo digital</strong> para estudiantes con Discapacidad Intelectual — no un trabajo escrito, sino algo concreto que funcione — y lo presentan en un coloquio oral de 10 a 12 minutos donde lo muestran funcionar y justifican sus decisiones pedagógicas.</p>
+        <p style="font-size:13px;margin-bottom:6px">La justificación integra <strong>todo lo que trabajamos en el taller:</strong></p>
+        <div>
+          <span class="marco-chip" style="background:var(--pale);color:var(--nav);border-color:var(--bd)">Area Moreira (Clase 1)</span>
+          <span class="marco-chip" style="background:var(--vcl);color:var(--vio);border-color:var(--bd)">Coll — asimilación/transformación (Clase 2)</span>
+          <span class="marco-chip" style="background:#E8F4FF;color:#1E5F9A;border-color:var(--bd)">SAMR (Clase 3)</span>
+          <span class="marco-chip" style="background:#FFE4E4;color:#9B2335;border-color:var(--bd)">Ciudadanía digital (Clase 3)</span>
+          <span class="marco-chip" style="background:var(--acl);color:#7A4F1A;border-color:var(--bd)">TPACK (hoy)</span>
+        </div>
+      </div>
+
+      <div class="tfi-box">
+        <h4>❓ En el coloquio tienen que poder responder</h4>
+        <div class="pq"><div class="pq-num">1</div><p>¿Para qué grupo de estudiantes con DI lo diseñaron? ¿Por qué esa herramienta es adecuada para ese perfil?<small>TPACK — coherencia entre CK, PK y TK</small></p></div>
+        <div class="pq"><div class="pq-num">2</div><p>¿En qué nivel SAMR queda el recurso? ¿El estudiante con DI hace algo que sin la tecnología sería imposible o muy difícil?<small>SAMR — mínimo Modificación</small></p></div>
+        <div class="pq"><div class="pq-num">3</div><p>¿La propuesta transforma la práctica o solo digitaliza lo que ya existía?<small>Coll — asimilación vs. transformación</small></p></div>
+        <div class="pq"><div class="pq-num">4</div><p>¿Qué dimensión de Area Moreira trabaja principalmente?<small>Area Moreira — instrumental, axiológica, social o pedagógica</small></p></div>
+        <div class="pq"><div class="pq-num">5</div><p>¿Hay alguna consideración de privacidad o ciudadanía digital en la propuesta?<small>Ciudadanía digital — Ley 25.326</small></p></div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px">
+          <div style="background:var(--gcl);border-radius:6px;padding:10px 13px;border-left:3px solid var(--grn)"><strong style="font-size:12px;color:var(--grn);display:block;margin-bottom:4px">✅ Alcanza</strong><p style="font-size:12px">El estudiante con DI participa activamente · La herramienta se elige por razones pedagógicas · Se puede justificar con los marcos del taller</p></div>
+          <div style="background:#FFE4E4;border-radius:6px;padding:10px 13px;border-left:3px solid #9B2335"><strong style="font-size:12px;color:#9B2335;display:block;margin-bottom:4px">❌ No alcanza</strong><p style="font-size:12px">Un PDF o imagen en pantalla sin interacción · Elegir la app antes de pensar para quién · El estudiante solo mira sin participar</p></div>
+        </div>
+      </div>
+
+      <div class="tfi-box">
+        <h4>📋 Ficha de Ideación TPACK — el esqueleto de tu TFI</h4>
+        <p style="font-size:13px;margin-bottom:12px">Abran un Google Doc y completen en <strong>orden estricto</strong>. La herramienta viene al final, no al principio. Hoy NO arman el recurso, solo planifican.</p>
+        <div class="tfi-field"><strong>1. El grupo destinatario</strong><p>¿Para qué grupo de estudiantes con DI es el recurso? ¿Qué edad, qué nivel de DI, qué habilidades tienen? Sé específica — no "estudiantes con DI en general".</p></div>
+        <div class="tfi-field"><strong>2. El contenido — el QUÉ (CK)</strong><p>Una habilidad concreta o contenido específico. Ej: identificar monedas de 1, 2 y 5 pesos / reconocer cuándo tengo hambre y pedirlo / los pasos del lavado de manos.</p></div>
+        <div class="tfi-field"><strong>3. La estrategia — el CÓMO (PK)</strong><p>¿Qué hace el estudiante en el recurso? ¿Cómo garantizás que es accesible para ese perfil — anticipación visual, pictogramas, audio, pasos cortos?</p></div>
+        <div class="tfi-field" style="border-left-color:var(--grn)"><strong style="color:var(--grn)">4. La herramienta — el CON QUÉ (TK)</strong><p>Recién acá: ¿qué herramienta digital es la más adecuada para ese contenido y esa estrategia? Nombrala. ¿En qué nivel SAMR queda y por qué?</p></div>
+      </div>
+
+      <div class="note ng"><span class="ni">💡</span><span><strong>¿Podés usar IA?</strong> Sí — con auditoría docente declarada. Prompt → propuesta IA → auditoría docente. Declaralo en la Ficha.</span></div>
+      <div class="note na"><span class="ni">🚀</span><span><strong>Entrega:</strong> Subí el Google Doc al aula virtual antes del domingo. Con la Ficha aprobada, en la próxima clase construimos el recurso.</span></div>
+    </div>
+  </div>
+
   <div class="act open" id="a3">
     <div class="ach" onclick="toggleAct('a3')">
       <div class="an">✓</div>
-      <div class="at"><strong>Cierre — Puesta en común y avance del cuatrimestre</strong>
-        <small>Plenario · 15 min</small>
+      <div class="at"><strong>Cierre — Check-in grupal: ¿qué herramienta elegiste y por qué?</strong>
+        <small>Ronda rápida · 15 min</small>
         <div class="chips"><span class="ch2 cm2">Cierre</span><span class="ch2 cg2">TPACK</span></div>
       </div><span class="arr">›</span>
     </div>
     <div class="acb">
-      <p>Cada pareja comparte la herramienta que le pareció más interesante del laboratorio y en qué nivel SAMR la ubica.</p>
-      <div class="step"><strong>El docente registra y cierra con tres preguntas:</strong>
+      <p>Cada una dice en 1 minuto: herramienta elegida, nivel SAMR que le asigna, y la duda principal.</p>
+      <div class="step"><strong>El docente agrupa:</strong>
         <ul>
-          <li>¿Qué herramientas no conocían antes de hoy?</li>
-          <li>¿Hay alguna que podría cambiar lo que hacen en sus futuros aula?</li>
-          <li>¿Qué perfil de estudiante con DI se beneficiaría más de las herramientas que exploraron?</li>
+          <li>¿Hay varias que eligieron la misma herramienta con distintos niveles SAMR? → ¿por qué?</li>
+          <li>¿Alguna eligió la herramienta antes de pensar el contenido? → revisamos el orden TPACK juntas.</li>
         </ul>
       </div>
-      <div class="note ng"><span class="ni">📅</span><span><strong>La semana que viene (16/06):</strong> lanzamos el Trabajo Final Integrador. Vienen con la pregunta resuelta: ¿con qué grupo de estudiantes con DI van a trabajar y qué quieren enseñarles?</span></div>
     </div>
   </div>
 
   <div class="tarea-box">
-    <h3>📋 Para la semana que viene (16/06)</h3>
+    <h3>📋 Para la semana que viene (23/06)</h3>
     <ul>
-      <li>Venir con una idea clara de <strong>para qué grupo de estudiantes con DI</strong> van a diseñar el recurso — edad, nivel, perfil. No hace falta que sea definitivo, pero sí pensado.</li>
-      <li>Pensar en <strong>qué querían enseñarles</strong>: una habilidad funcional, una rutina, un contenido concreto. No la herramienta todavía — el contenido primero.</li>
-      <li>Releer las notas de las clases anteriores si hace falta recordar los marcos teóricos que van a usar en la justificación.</li>
+      <li><strong>Subir la Ficha de Ideación TPACK</strong> al aula virtual antes del domingo. El docente da feedback antes de la próxima clase.</li>
+      <li>Recolectar insumos: imágenes, pictogramas o audios que van a necesitar para construir el recurso.</li>
+      <li><strong>Próxima clase (23/06):</strong> taller de producción — construimos el recurso con la Ficha aprobada + revisión entre pares.</li>
     </ul>
-    <div class="note nb" style="margin-top:10px"><span class="ni">📅</span><span><strong>Clase 5 (16/06):</strong> lanzamos el Trabajo Final Integrador con la consigna completa y arrancamos la Ficha de Ideación en clase.</span></div>
   </div>
 
 </div>
@@ -349,3 +428,4 @@ function toggleAct(id){document.getElementById(id).classList.toggle('open')}
 </script>
 </body>
 </html>
+Mostrando clase_4_ADIPES_final.html
