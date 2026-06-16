@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Guía TFI · Narrativa Gamificada ESI · La Isla de los Cinco Faros</title>
+<style>
+  :root{--nav:#1D3461;--med:#2E6DA4;--cl:#B8D4EA;--pale:#E8F2FA;--grn:#2A6049;--gcl:#DFF0E9;--amb:#C07A28;--acl:#FDF1E3;--vio:#5B3A8C;--vcl:#EBE4F7;--slate:#3A5570;--gris:#F2F6FA;--bd:#C5D2DC;--txt:#4A5E70;--neg:#1A2C3A;--bco:#FFFFFF;--r:8px;--sh:0 2px 8px rgba(0,0,0,.08);
+    --f1:#2E6DA4;--f2:#2A6049;--f3:#C9A227;--f4:#C0392B;--f5:#5B3A8C}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Segoe UI',Arial,sans-serif;font-size:15px;color:var(--neg);background:#EDF3F9;line-height:1.65}
+  .top{background:var(--nav);color:#fff;padding:13px 28px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;border-bottom:3px solid var(--med)}
+  .top strong{display:block;font-size:15px}.top small{font-size:12px;opacity:.78}
+  .top-r{font-size:11px;display:flex;align-items:center;gap:15px}
+  .btn-back{color:#fff;text-decoration:none;background:rgba(255,255,255,.15);padding:6px 14px;border-radius:6px;border:1px solid rgba(255,255,255,.3);font-weight:600;font-size:12px}
+  .hero{background:linear-gradient(135deg,#0F2942 0%,#2E6DA4 60%,#5B3A8C 100%);color:#fff;padding:34px 28px 28px;text-align:center;position:relative;overflow:hidden}
+  .hero::after{content:"";position:absolute;bottom:0;left:0;right:0;height:60px;background:repeating-linear-gradient(90deg,rgba(255,255,255,.04) 0 18px,transparent 18px 36px)}
+  .hbadge{display:inline-block;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);border-radius:20px;padding:3px 14px;font-size:12px;letter-spacing:.5px;margin-bottom:12px}
+  .hero h1{font-size:27px;font-weight:800;line-height:1.2;margin-bottom:6px}
+  .hero .sub{font-size:14px;opacity:.9;max-width:640px;margin:0 auto}
+  .hero .lighthouse{font-size:34px;margin-bottom:6px;letter-spacing:6px}
+  .wrap{max-width:1000px;margin:0 auto;padding:24px 24px 70px}
+  .intro-card{background:#fff;border-radius:var(--r);box-shadow:var(--sh);padding:20px 24px;margin-bottom:22px;border-left:5px solid var(--med)}
+  .intro-card h2{font-size:17px;color:var(--nav);margin-bottom:8px;display:flex;align-items:center;gap:8px}
+  .intro-card p{font-size:13.5px;margin-bottom:8px}
+  .pill-row{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+  .pill{font-size:11.5px;font-weight:600;border-radius:14px;padding:3px 11px;background:var(--pale);color:var(--nav)}
+  .note{border-radius:var(--r);padding:11px 15px;font-size:13px;margin:12px 0;display:flex;gap:10px;align-items:flex-start}
+  .ni{font-size:17px;flex-shrink:0;margin-top:1px}
+  .nb{background:var(--pale);border-left:3px solid var(--med)}.ng{background:var(--gcl);border-left:3px solid var(--grn)}
+  .na{background:var(--acl);border-left:3px solid var(--amb)}.nv{background:var(--vcl);border-left:3px solid var(--vio)}
+  .section-title{font-size:13px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--slate);margin:30px 0 14px;display:flex;align-items:center;gap:10px}
+  .section-title::after{content:"";flex:1;height:1px;background:var(--bd)}
+  /* LINEA NARRATIVA */
+  .arc-box{background:#fff;border-radius:var(--r);box-shadow:var(--sh);padding:22px 18px 14px;margin-bottom:14px;overflow-x:auto}
+  .arc-box svg{display:block;min-width:760px;margin:0 auto}
+  .arc-legend{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;margin-top:10px;padding-top:12px;border-top:1px solid var(--bd)}
+  .arc-leg{display:flex;align-items:center;gap:6px;font-size:11.5px;color:var(--txt)}
+  .arc-dot{width:11px;height:11px;border-radius:50%;flex-shrink:0}
+  /* FAROS */
+  .faro{background:#fff;border-radius:var(--r);box-shadow:var(--sh);margin-bottom:16px;overflow:hidden;border-top:4px solid var(--med)}
+  .faro-head{display:flex;align-items:center;gap:14px;padding:15px 20px;cursor:pointer}
+  .faro-ico{width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:24px;flex-shrink:0;color:#fff}
+  .faro-tt{flex:1}
+  .faro-tt .fk{font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;opacity:.7}
+  .faro-tt h3{font-size:17px;color:var(--neg);margin:1px 0 2px}
+  .faro-tt .tema{font-size:12.5px;font-weight:600}
+  .faro-body{padding:0 20px 20px 20px}
+  .quote{font-style:italic;font-size:14px;color:var(--slate);background:var(--gris);border-radius:8px;padding:13px 16px;margin:6px 0 14px;border-left:3px solid var(--bd)}
+  .faro-sub{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--txt);margin:12px 0 6px}
+  .faro-body p{font-size:13.5px;margin-bottom:8px}
+  .faro-body ul{margin:6px 0 10px 18px}.faro-body li{font-size:13.5px;margin-bottom:5px}
+  .escena{background:var(--gris);border-radius:8px;padding:12px 15px;margin-bottom:8px;border-left:3px solid var(--med)}
+  .escena strong{font-size:12.5px;color:var(--nav);display:block;margin-bottom:3px}
+  .escena p{font-size:13px;margin:0}
+  /* FaCHADA color helpers */
+  .c1{border-top-color:var(--f1)}.c1 .faro-ico{background:var(--f1)}.c1 .fk,.c1 .tema{color:var(--f1)}
+  .c2{border-top-color:var(--f2)}.c2 .faro-ico{background:var(--f2)}.c2 .fk,.c2 .tema{color:var(--f2)}
+  .c3{border-top-color:var(--f3)}.c3 .faro-ico{background:var(--f3)}.c3 .fk,.c3 .tema{color:#9A7B12}
+  .c4{border-top-color:var(--f4)}.c4 .faro-ico{background:var(--f4)}.c4 .fk,.c4 .tema{color:var(--f4)}
+  .c5{border-top-color:var(--f5)}.c5 .faro-ico{background:var(--f5)}.c5 .fk,.c5 .tema{color:var(--f5)}
+  /* PANTALLAS */
+  .screen{background:linear-gradient(135deg,var(--nav),var(--slate));color:#fff;border-radius:var(--r);padding:20px 24px;margin-bottom:14px}
+  .screen.fin{background:linear-gradient(135deg,#1B5E3F,#2E6DA4)}
+  .screen h3{font-size:16px;margin-bottom:8px;display:flex;align-items:center;gap:8px}
+  .screen p{font-size:13.5px;opacity:.94;font-style:italic;line-height:1.6}
+  /* PRODUCCION 9 ESTUDIANTES */
+  .prod-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:12px 0}
+  .trio{background:#fff;border:1px solid var(--bd);border-radius:var(--r);padding:14px 16px}
+  .trio h4{font-size:13.5px;color:var(--nav);margin-bottom:6px;display:flex;align-items:center;gap:6px}
+  .trio p{font-size:12.5px;color:var(--txt);margin:0}
+  .trio .tnum{background:var(--med);color:#fff;width:22px;height:22px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:11px;font-weight:700}
+  /* CHECKLIST */
+  .check{background:#fff;border:2px solid var(--grn);border-radius:var(--r);padding:18px 20px;margin-top:8px}
+  .check h4{color:var(--grn);font-size:14px;margin-bottom:10px}
+  .cl-row{display:flex;align-items:flex-start;gap:9px;margin-bottom:7px}
+  .cl-box{width:17px;height:17px;border:2px solid var(--grn);border-radius:4px;flex-shrink:0;margin-top:2px}
+  .cl-row p{font-size:13px;margin:0}
+  .tip{background:var(--vcl);border-radius:var(--r);padding:14px 18px;margin-top:14px;border-left:4px solid var(--vio)}
+  .tip h4{color:var(--vio);font-size:13.5px;margin-bottom:6px}
+  .tip p{font-size:13px;margin-bottom:5px}
+  .footer{text-align:center;font-size:12px;color:var(--txt);margin-top:26px;padding-top:16px;border-top:1px solid var(--bd)}
+  @media(max-width:760px){
+    .prod-grid{grid-template-columns:1fr}.hero h1{font-size:22px}.wrap{padding:18px 14px 50px}
+  }
+</style>
+</head>
+<body>
+
+<div class="top">
+  <div><strong>Alfabetización Digital</strong><small>Prof. de Educación Especial – Orientación en DI · Gustavo Iturriz</small></div>
+  <div class="top-r"><a href="index.html" class="btn-back">⬅ Volver al índice</a><span>IPESfa · 2026</span></div>
+</div>
+
+<div class="hero">
+  <div class="hbadge">GUÍA DE TRABAJO · EJEMPLO DE TFI</div>
+  <div class="lighthouse">🗼</div>
+  <h1>La Isla de los Cinco Faros</h1>
+  <div class="sub">Una narrativa gamificada de ESI en Genial.ly — modelo orientativo para diseñar su propio Trabajo Final</div>
+</div>
+
+<div class="wrap">
+
+  <div class="intro-card">
+    <h2>🧭 ¿Para qué sirve esta guía?</h2>
+    <p>Este es un <strong>ejemplo completo</strong> de cómo puede verse una narrativa gamificada en Genial.ly con eje en ESI. No están obligadas a usar esta historia: pueden tomarla tal cual, modificarla, o inventar una propia. Lo que importa es que vean <strong>cómo se estructura una aventura interactiva</strong> que integre los temas y que tenga coherencia pedagógica.</p>
+    <p>La aventura recorre los cinco ejes de ESI que trabajamos, uno por faro:</p>
+    <div class="pill-row">
+      <span class="pill" style="background:var(--pale);color:var(--f1)">💙 Afectividad</span>
+      <span class="pill" style="background:var(--gcl);color:var(--f2)">⚖️ Equidad de género</span>
+      <span class="pill" style="background:#FBF3D5;color:#9A7B12">🌈 Respeto a la diversidad</span>
+      <span class="pill" style="background:#FBE3E0;color:var(--f4)">🌱 Cuidado del cuerpo y la salud</span>
+      <span class="pill" style="background:var(--vcl);color:var(--f5)">📣 Ejercer los derechos</span>
+    </div>
+    <div class="note nb"><span class="ni">🎯</span><span><strong>Destinatarios del recurso:</strong> recuerden que el TFI se diseña para estudiantes con Discapacidad Intelectual. Al adaptar esta historia, piensen siempre en el perfil concreto: nivel de lectoescritura, apoyo visual, audio, pasos cortos.</span></div>
+  </div>
+
+  <!-- PREMISA -->
+  <div class="section-title">La premisa</div>
+  <div class="intro-card" style="border-left-color:var(--vio)">
+    <p style="font-size:14px"><strong>La Isla Clarisol quedó a oscuras.</strong> Sus cinco faros se apagaron y, con cada uno, la isla perdió algo importante de su gente: la forma de quererse, de tratarse con justicia, de respetarse, de cuidarse y de hacerse escuchar.</p>
+    <p style="font-size:14px">Los jugadores son <strong>guardianes y guardianas</strong> que deben recorrer la isla y <strong>reencender los cinco faros</strong>. Cada faro guarda un desafío. Cuando los cinco vuelven a brillar, la isla recupera su luz.</p>
+    <div class="note nv"><span class="ni">💡</span><span><strong>Por qué funciona esta metáfora:</strong> la luz representa el cuidado y los derechos. Es una acción <em>positiva</em> — sumás luz, no escapás de un peligro. Esto evita el tono de miedo que a veces tienen los materiales sobre estos temas, y deja a cada faro como una estación autónoma.</span></div>
+  </div>
+
+  <!-- LINEA NARRATIVA -->
+  <div class="section-title">📈 La línea narrativa de la aventura</div>
+  <div class="arc-box">
+    <svg viewBox="0 0 820 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Gráfico de la línea narrativa de la aventura">
+      <!-- ejes -->
+      <line x1="60" y1="320" x2="800" y2="320" stroke="#C5D2DC" stroke-width="2"/>
+      <line x1="60" y1="40" x2="60" y2="320" stroke="#C5D2DC" stroke-width="2"/>
+      <text x="36" y="46" font-family="Segoe UI,Arial" font-size="10" fill="#4A5E70" transform="rotate(-90 36,46)" text-anchor="end">Intensidad emocional / compromiso</text>
+      <text x="430" y="350" font-family="Segoe UI,Arial" font-size="11" fill="#4A5E70" text-anchor="middle">Avance de la aventura →</text>
+
+      <!-- curva del arco narrativo (asciende con cada faro, clímax en derechos, resolución) -->
+      <path d="M 60 300 C 110 296, 130 250, 175 248 C 215 246, 240 210, 290 208 C 330 206, 350 178, 405 176 C 450 174, 470 150, 525 140 C 575 132, 600 88, 650 78 C 690 70, 705 96, 740 150 C 760 185, 775 215, 790 232"
+        fill="none" stroke="#2E6DA4" stroke-width="3.5" stroke-linecap="round"/>
+
+      <!-- puntos de cada faro -->
+      <!-- inicio -->
+      <circle cx="60" cy="300" r="7" fill="#1D3461"/>
+      <text x="60" y="285" font-family="Segoe UI,Arial" font-size="11" font-weight="700" fill="#1D3461" text-anchor="middle">Inicio</text>
+      <text x="60" y="338" font-family="Segoe UI,Arial" font-size="9.5" fill="#4A5E70" text-anchor="middle">Mapa / misión</text>
+
+      <!-- faro 1 -->
+      <circle cx="175" cy="248" r="9" fill="#2E6DA4"/>
+      <text x="175" y="232" font-family="Segoe UI,Arial" font-size="11" font-weight="700" fill="#2E6DA4" text-anchor="middle">Faro 1</text>
+      <text x="175" y="338" font-family="Segoe UI,Arial" font-size="9.5" fill="#4A5E70" text-anchor="middle">Afectividad</text>
+
+      <!-- faro 2 -->
+      <circle cx="290" cy="208" r="9" fill="#2A6049"/>
+      <text x="290" y="192" font-family="Segoe UI,Arial" font-size="11" font-weight="700" fill="#2A6049" text-anchor="middle">Faro 2</text>
+      <text x="290" y="338" font-family="Segoe UI,Arial" font-size="9.5" fill="#4A5E70" text-anchor="middle">Equidad</text>
+
+      <!-- faro 3 -->
+      <circle cx="405" cy="176" r="9" fill="#C9A227"/>
+      <text x="405" y="160" font-family="Segoe UI,Arial" font-size="11" font-weight="700" fill="#9A7B12" text-anchor="middle">Faro 3</text>
+      <text x="405" y="338" font-family="Segoe UI,Arial" font-size="9.5" fill="#4A5E70" text-anchor="middle">Diversidad</text>
+
+      <!-- faro 4 -->
+      <circle cx="525" cy="140" r="9" fill="#C0392B"/>
+      <text x="525" y="124" font-family="Segoe UI,Arial" font-size="11" font-weight="700" fill="#C0392B" text-anchor="middle">Faro 4</text>
+      <text x="525" y="338" font-family="Segoe UI,Arial" font-size="9.5" fill="#4A5E70" text-anchor="middle">Cuerpo y salud</text>
+
+      <!-- faro 5 (climax) -->
+      <circle cx="650" cy="78" r="10" fill="#5B3A8C"/>
+      <text x="650" y="60" font-family="Segoe UI,Arial" font-size="11" font-weight="800" fill="#5B3A8C" text-anchor="middle">Faro 5 ★</text>
+      <text x="650" y="338" font-family="Segoe UI,Arial" font-size="9.5" fill="#4A5E70" text-anchor="middle">Derechos</text>
+
+      <!-- final -->
+      <circle cx="790" cy="232" r="8" fill="#1B5E3F"/>
+      <text x="790" y="216" font-family="Segoe UI,Arial" font-size="11" font-weight="700" fill="#1B5E3F" text-anchor="middle">Final</text>
+      <text x="790" y="338" font-family="Segoe UI,Arial" font-size="9.5" fill="#4A5E70" text-anchor="middle">Isla brilla</text>
+
+      <!-- etiqueta climax -->
+      <text x="650" y="40" font-family="Segoe UI,Arial" font-size="10" font-style="italic" fill="#5B3A8C" text-anchor="middle">Clímax: alzar la voz</text>
+    </svg>
+    <div class="arc-legend">
+      <div class="arc-leg"><span class="arc-dot" style="background:#1D3461"></span>Planteo — la isla a oscuras</div>
+      <div class="arc-leg"><span class="arc-dot" style="background:#2E6DA4"></span>Cada faro suma tensión y aprendizaje</div>
+      <div class="arc-leg"><span class="arc-dot" style="background:#5B3A8C"></span>Clímax en "ejercer derechos"</div>
+      <div class="arc-leg"><span class="arc-dot" style="background:#1B5E3F"></span>Resolución — la luz vuelve</div>
+    </div>
+  </div>
+  <div class="note ng"><span class="ni">📖</span><span><strong>Cómo leer el gráfico:</strong> la aventura no es plana. Cada faro sube un escalón de intensidad y compromiso emocional. El punto más alto es el Faro 5 (ejercer derechos), porque es donde el jugador pasa de <em>cuidarse</em> a <em>actuar por lo justo</em>. Después baja a una resolución cálida: la isla vuelve a brillar. Esa forma de montaña es lo que hace que una narrativa se sienta como una aventura y no como una lista de actividades sueltas.</span></div>
+
+  <!-- PANTALLA INICIO -->
+  <div class="section-title">🗺️ El guion, pantalla por pantalla</div>
+  <div class="screen">
+    <h3>🏝️ Pantalla de inicio — el mapa de la isla</h3>
+    <p>"La Isla Clarisol perdió su luz. Sus cinco faros se apagaron y, con ellos, algo importante de su gente. Vos sos guardián o guardiana. Tu misión: reencender los faros, uno por uno. Tocá un faro para empezar."</p>
+  </div>
+  <div class="note nb"><span class="ni">🎮</span><span><strong>En Genial.ly:</strong> un mapa de fondo con los cinco faros como puntos interactivos (botones). Cada uno lleva a su propia escena. Conviene que los faros apagados se vean grises y, al completarse, "se enciendan" (cambio de imagen). Eso da sensación de progreso.</span></div>
+
+  <!-- FARO 1 -->
+  <div class="faro c1">
+    <div class="faro-head">
+      <div class="faro-ico">💙</div>
+      <div class="faro-tt"><div class="fk">Faro 1</div><h3>El Faro de los Vínculos</h3><div class="tema">Afectividad</div></div>
+    </div>
+    <div class="faro-body">
+      <p style="font-size:12.5px;color:var(--txt)"><strong>Ambientación:</strong> un faro junto a un puente que une dos costas.</p>
+      <div class="quote">"Este faro se encendía cada vez que alguien en la isla cuidaba a otra persona. ¿Sabés reconocer cuándo un vínculo cuida y cuándo lastima?"</div>
+      <div class="faro-sub">Desafío sugerido</div>
+      <p>El guardián ve situaciones de a pares y decide: <strong>¿esto cuida o no cuida?</strong> Arrastra cada tarjeta a la columna correcta.</p>
+      <div class="escena"><strong>Ejemplo de tarjetas</strong><p>"Mi amiga me escucha cuando estoy triste" · "Alguien me dice con quién puedo juntarme y con quién no" · "Pido ayuda cuando algo me incomoda" · "Me guardo lo que siento para no molestar"</p></div>
+      <p style="font-size:12.5px;color:var(--txt)"><strong>Aprendizaje:</strong> reconocer el buen trato, poner límites, expresar emociones y pedir ayuda.</p>
+    </div>
+  </div>
+
+  <!-- FARO 2 -->
+  <div class="faro c2">
+    <div class="faro-head">
+      <div class="faro-ico">⚖️</div>
+      <div class="faro-tt"><div class="fk">Faro 2</div><h3>El Faro de la Balanza</h3><div class="tema">Equidad de género</div></div>
+    </div>
+    <div class="faro-body">
+      <p style="font-size:12.5px;color:var(--txt)"><strong>Ambientación:</strong> un faro con dos platillos que hay que equilibrar.</p>
+      <div class="quote">"Hace mucho, en la isla se creía que ciertas tareas eran 'solo para algunos'. La balanza se rompió. ¿Podés volver a equilibrarla?"</div>
+      <div class="faro-sub">Desafío sugerido</div>
+      <p>Aparecen <strong>frases-mito</strong> y el guardián las desarma: las manda al "cesto de los mitos" o completa una historia repartiendo roles sin estereotipos.</p>
+      <div class="escena"><strong>Ejemplo de frases-mito</strong><p>"Los varones no lloran" · "Cocinar es cosa de mujeres" · "Hay juegos solo para nenas" · "Las nenas no pueden jugar al fútbol"</p></div>
+      <p style="font-size:12.5px;color:var(--txt)"><strong>Aprendizaje:</strong> identificar y cuestionar estereotipos de género; entender que las capacidades no dependen del género.</p>
+    </div>
+  </div>
+
+  <!-- FARO 3 -->
+  <div class="faro c3">
+    <div class="faro-head">
+      <div class="faro-ico">🌈</div>
+      <div class="faro-tt"><div class="fk">Faro 3</div><h3>El Faro del Arcoíris</h3><div class="tema">Respeto a la diversidad</div></div>
+    </div>
+    <div class="faro-body">
+      <p style="font-size:12.5px;color:var(--txt)"><strong>Ambientación:</strong> un faro cuya luz tiene muchos colores.</p>
+      <div class="quote">"Cada persona de la isla brilla distinto. Este faro solo se enciende cuando todos los colores caben. ¿Qué hacés cuando alguien es diferente a vos?"</div>
+      <div class="faro-sub">Desafío sugerido</div>
+      <p>Escenarios de convivencia donde el guardián <strong>elige la respuesta respetuosa</strong>; o un juego de "encontrá lo que tenemos en común" entre personajes muy distintos.</p>
+      <div class="escena"><strong>Ejemplo de escena</strong><p>"En la isla llega alguien que habla distinto y le cuesta hacer amigos. ¿Qué hacés?" → opciones: lo invito a jugar / me río con los demás / lo ignoro. El guardián elige y recibe una devolución.</p></div>
+      <p style="font-size:12.5px;color:var(--txt)"><strong>Aprendizaje:</strong> valorar las diferencias, incluir, reconocer lo común entre personas distintas.</p>
+    </div>
+  </div>
+
+  <!-- FARO 4 -->
+  <div class="faro c4">
+    <div class="faro-head">
+      <div class="faro-ico">🌱</div>
+      <div class="faro-tt"><div class="fk">Faro 4</div><h3>El Faro del Cuerpo</h3><div class="tema">Cuidado del cuerpo y la salud</div></div>
+    </div>
+    <div class="faro-body">
+      <p style="font-size:12.5px;color:var(--txt)"><strong>Ambientación:</strong> un faro con un jardín alrededor que hay que cuidar.</p>
+      <div class="quote">"Tu cuerpo es tuyo y tiene quien lo cuide: vos. Este faro guarda los secretos del autocuidado. ¿Sabés cuáles son?"</div>
+      <div class="faro-sub">Desafío sugerido</div>
+      <p>El guardián identifica <strong>hábitos de cuidado</strong>, reconoce el "sí" y el "no" sobre el propio cuerpo, y distingue a quién pedir ayuda.</p>
+      <div class="escena"><strong>Ejemplo de actividad</strong><p>Regar el jardín del faro = elegir acciones de cuidado: descansar, higiene, alimentación, decir "no" a algo que incomoda, avisar a un adulto de confianza. Cada acción correcta hace crecer una flor.</p></div>
+      <p style="font-size:12.5px;color:var(--txt)"><strong>Aprendizaje:</strong> autocuidado, intimidad, consentimiento adaptado a la edad, identificar adultos de confianza.</p>
+    </div>
+  </div>
+
+  <!-- FARO 5 -->
+  <div class="faro c5">
+    <div class="faro-head">
+      <div class="faro-ico">📣</div>
+      <div class="faro-tt"><div class="fk">Faro 5 · el más alto</div><h3>El Faro de las Voces</h3><div class="tema">Ejercer los derechos</div></div>
+    </div>
+    <div class="faro-body">
+      <p style="font-size:12.5px;color:var(--txt)"><strong>Ambientación:</strong> el faro más alto, desde donde se escucha a toda la isla. <em>Es el clímax de la aventura.</em></p>
+      <div class="quote">"Tenés derechos, y conocerlos es tu mayor poder. Este último faro se enciende cuando alzás la voz por lo que es justo. ¿Estás listo para encenderlo?"</div>
+      <div class="faro-sub">Desafío sugerido</div>
+      <p>El guardián <strong>reconoce derechos</strong> en situaciones cotidianas, completa frases "Tengo derecho a..." e identifica a quién acudir cuando un derecho no se respeta.</p>
+      <div class="escena"><strong>Ejemplo de actividad</strong><p>"Tengo derecho a..." → jugar, aprender, ser escuchado, que me cuiden, decir lo que pienso. El guardián arma su propia lista y la "grita" desde el faro para encenderlo.</p></div>
+      <p style="font-size:12.5px;color:var(--txt)"><strong>Aprendizaje:</strong> reconocer los derechos propios, saber que se pueden reclamar, identificar referentes de confianza.</p>
+    </div>
+  </div>
+
+  <!-- PANTALLA FINAL -->
+  <div class="screen fin">
+    <h3>🎉 Pantalla final — la isla recupera su luz</h3>
+    <p>"¡La Isla Clarisol volvió a brillar! Los cinco faros están encendidos gracias a vos. Pero la luz se mantiene solo si los guardianes siguen cuidándola cada día. Ahora la isla es tuya también."</p>
+  </div>
+
+  <!-- PRODUCCION 9 ESTUDIANTES -->
+  <div class="section-title">👥 Cómo repartir el trabajo entre 9</div>
+  <div class="intro-card" style="border-left-color:var(--grn)">
+    <p>Una forma simple de organizar el equipo: <strong>tres tríos</strong>, cada uno responsable de uno o dos faros, manteniendo una estética común del mapa para que la aventura se vea unificada.</p>
+    <div class="prod-grid">
+      <div class="trio"><h4><span class="tnum">1</span> Trío A</h4><p>Pantalla de inicio (mapa) + Faro 1 (Afectividad) + Faro 2 (Equidad). Definen el estilo visual base.</p></div>
+      <div class="trio"><h4><span class="tnum">2</span> Trío B</h4><p>Faro 3 (Diversidad) + Faro 4 (Cuerpo y salud). Cuidan la coherencia de los desafíos interactivos.</p></div>
+      <div class="trio"><h4><span class="tnum">3</span> Trío C</h4><p>Faro 5 (Derechos) + Pantalla final + ensamble general en Genial.ly. Revisan accesibilidad.</p></div>
+    </div>
+    <div class="note na"><span class="ni">🎨</span><span><strong>Antes de dividirse:</strong> acuerden juntos la paleta de colores, la tipografía y el estilo de los personajes. Si no, cada faro va a parecer de un juego distinto.</span></div>
+  </div>
+
+  <!-- CHECKLIST -->
+  <div class="section-title">✅ Antes de presentar — checklist</div>
+  <div class="check">
+    <h4>Revisión final del recurso</h4>
+    <div class="cl-row"><div class="cl-box"></div><p>Los cinco faros funcionan y se "encienden" al completarse.</p></div>
+    <div class="cl-row"><div class="cl-box"></div><p>Cada faro tiene texto <strong>y</strong> apoyo visual o de audio (accesibilidad para DI).</p></div>
+    <div class="cl-row"><div class="cl-box"></div><p>Las instrucciones son cortas y claras; el estudiante sabe qué hacer en cada pantalla.</p></div>
+    <div class="cl-row"><div class="cl-box"></div><p>El estudiante <strong>hace algo</strong> en cada faro (arrastra, elige, completa) — no solo mira.</p></div>
+    <div class="cl-row"><div class="cl-box"></div><p>Pueden justificar el recurso con TPACK, SAMR y las dimensiones de ESI.</p></div>
+    <div class="cl-row"><div class="cl-box"></div><p>El nivel SAMR llega al menos a Modificación.</p></div>
+  </div>
+
+  <div class="tip">
+    <h4>💡 Para que la justificación sea sólida en el coloquio</h4>
+    <p><strong>SAMR:</strong> una narrativa interactiva donde el estudiante decide y recibe respuesta inmediata está en Modificación (o Redefinición si comparten lo que crearon). Un Genial.ly que solo se "pasa como diapositivas" se queda en Sustitución.</p>
+    <p><strong>TPACK:</strong> el contenido (ESI) + la estrategia (gamificación, decisión situada, apoyo visual) + la herramienta (Genial.ly) tienen que justificarse juntos, no por separado.</p>
+    <p><strong>ESI:</strong> nombren qué eje trabaja cada faro y por qué el enfoque es de cuidado y derechos, no de miedo ni de prohibición.</p>
+  </div>
+
+  <div class="footer">
+    Guía de trabajo · Ejemplo orientativo de TFI · Alfabetización Digital — Prof. de Educación Especial (DI) · IPESfa 2026<br>
+    "La Isla de los Cinco Faros" es un modelo libre: tómenlo, modifíquenlo o creen el suyo.
+  </div>
+
+</div>
+
+<script>
+document.querySelectorAll('.faro-head').forEach(h=>{
+  h.addEventListener('click',()=>{
+    const b=h.nextElementSibling;
+    b.style.display = (b.style.display==='none') ? 'block' : 'none';
+  });
+});
+</script>
+</body>
+</html>
