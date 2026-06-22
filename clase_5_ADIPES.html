@@ -3,271 +3,128 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Clase 5 · Taller de Producción TFI + Revisión entre pares · Alfabetización Digital</title>
+<title>Clase 5 · Inicio del Trabajo Final · Alfabetización Digital</title>
 <style>
   :root{--nav:#1D3461;--med:#2E6DA4;--cl:#B8D4EA;--pale:#E8F2FA;--grn:#2A6049;--gcl:#DFF0E9;--amb:#C07A28;--acl:#FDF1E3;--vio:#5B3A8C;--vcl:#EBE4F7;--slate:#3A5570;--gris:#F2F6FA;--bd:#C5D2DC;--txt:#4A5E70;--neg:#1A2C3A;--bco:#FFFFFF;--r:8px;--sh:0 2px 8px rgba(0,0,0,.08)}
   *{box-sizing:border-box;margin:0;padding:0}
-  body{font-family:'Segoe UI',Arial,sans-serif;font-size:15px;color:var(--neg);background:#EDF3F9;line-height:1.65}
+  body{font-family:'Segoe UI',Arial,sans-serif;font-size:15px;color:var(--neg);background:#EDF3F9;line-height:1.6}
   .top{background:var(--nav);color:#fff;padding:13px 28px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;border-bottom:3px solid var(--med)}
   .top strong{display:block;font-size:15px}.top small{font-size:12px;opacity:.78}
-  .top-r{font-size:11px;display:flex;align-items:center;gap:15px}
   .btn-back{color:#fff;text-decoration:none;background:rgba(255,255,255,.15);padding:6px 14px;border-radius:6px;border:1px solid rgba(255,255,255,.3);font-weight:600;font-size:12px}
-  .celular-banner{background:var(--grn);border-bottom:3px solid var(--amb);padding:10px 20px;display:flex;align-items:center;gap:12px;color:#fff}
-  .celular-banner span.ico{font-size:20px;flex-shrink:0}
-  .celular-banner p{font-size:12.5px;line-height:1.5;opacity:.95}.celular-banner strong{color:#FFE4A0}
-  .hero{background:linear-gradient(135deg,var(--grn) 0%,var(--med) 100%);color:#fff;padding:32px 28px 24px}
+  .hero{background:linear-gradient(135deg,var(--amb) 0%,var(--nav) 100%);color:#fff;padding:30px 28px 24px}
   .hbadge{display:inline-block;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);border-radius:20px;padding:3px 14px;font-size:12px;letter-spacing:.5px;margin-bottom:10px}
   .hero h1{font-size:22px;font-weight:700;line-height:1.3;margin-bottom:6px}
-  .hero-sub{font-size:13px;opacity:.8;margin-bottom:16px}
-  .tab-bar{background:var(--bco);border-bottom:2px solid var(--bd);display:flex;overflow-x:auto;padding:0 20px}
-  .tab-btn{background:none;border:none;border-bottom:3px solid transparent;cursor:pointer;font-size:13.5px;font-weight:600;color:var(--txt);padding:12px 18px;white-space:nowrap;transition:all .15s;margin-bottom:-2px}
-  .tab-btn:hover{color:var(--med)}.tab-btn.active{color:var(--nav);border-bottom-color:var(--nav)}
-  .wrap{max-width:100%;padding:20px 24px 60px}
-  .pane{display:none}.pane.on{display:block;animation:fadeIn .4s ease}
-  @keyframes fadeIn{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}
-  .card{background:var(--bco);border-radius:var(--r);box-shadow:var(--sh);margin-bottom:18px;overflow:hidden}
-  .ch{padding:13px 20px;font-weight:700;font-size:14px;display:flex;align-items:center;gap:9px;border-bottom:1px solid var(--bd)}
+  .hero-sub{font-size:13px;opacity:.85}
+  .wrap{max-width:880px;margin:0 auto;padding:24px 24px 60px}
+  .card{background:var(--bco);border-radius:var(--r);box-shadow:var(--sh);margin-bottom:16px;overflow:hidden}
+  .ch{padding:13px 20px;font-weight:700;font-size:14.5px;display:flex;align-items:center;gap:9px;border-bottom:1px solid var(--bd)}
   .cb{padding:16px 20px}
-  .card-b .ch{background:var(--pale);color:var(--nav)}.card-g .ch{background:var(--gcl);color:var(--grn)}
-  .card-v .ch{background:var(--vcl);color:var(--vio)}.card-a .ch{background:var(--acl);color:#7A4F1A}
-  .note{border-radius:var(--r);padding:9px 13px;font-size:13px;margin:10px 0;display:flex;gap:9px;align-items:flex-start}
+  .card-a .ch{background:var(--acl);color:#7A4F1A}.card-g .ch{background:var(--gcl);color:var(--grn)}.card-b .ch{background:var(--pale);color:var(--nav)}
+  .note{border-radius:var(--r);padding:10px 14px;font-size:13.5px;margin:10px 0;display:flex;gap:9px;align-items:flex-start}
   .ni{font-size:16px;flex-shrink:0;margin-top:1px}
-  .nb{background:var(--pale);border-left:3px solid var(--med)}.ng{background:var(--gcl);border-left:3px solid var(--grn)}
-  .na{background:var(--acl);border-left:3px solid var(--amb)}.nv{background:var(--vcl);border-left:3px solid var(--vio)}
-  .prod-steps{display:flex;flex-direction:column;gap:12px;margin:14px 0}
-  .ps{display:flex;gap:14px;align-items:flex-start;background:#fff;border:1px solid var(--bd);border-radius:var(--r);padding:14px 16px}
-  .ps-num{width:36px;height:36px;border-radius:50%;background:var(--grn);color:#fff;font-weight:800;font-size:16px;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
-  .ps-body{flex:1}
-  .ps-body strong{display:block;font-size:13.5px;color:var(--nav);margin-bottom:4px}
-  .ps-body p{font-size:13px;color:var(--txt);margin-bottom:6px}
-  .ps-body ul{margin-left:16px}.ps-body li{font-size:13px;color:var(--txt);margin-bottom:3px}
-  .ps-time{flex-shrink:0;background:var(--gcl);color:var(--grn);font-size:11px;font-weight:700;border-radius:12px;padding:3px 9px;margin-top:3px}
-  .checkpoint{background:var(--slate);border-radius:var(--r);padding:16px 20px;margin:18px 0}
-  .checkpoint h4{color:#fff;font-size:14px;margin-bottom:10px}
-  .chk-row{display:flex;align-items:flex-start;gap:10px;margin-bottom:8px}
-  .chk-icon{font-size:16px;flex-shrink:0;margin-top:1px}
-  .chk-row p{font-size:12.5px;color:#E6F2F8;margin:0;line-height:1.45}
-  .tools-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
-  .tool-link-card{background:#fff;border:1px solid var(--bd);border-radius:var(--r);padding:11px 14px;display:flex;align-items:center;gap:10px;text-decoration:none}
-  .tool-link-card:hover{border-color:var(--med)}
-  .tool-link-card .tl-icon{font-size:22px;flex-shrink:0}
-  .tool-link-card .tl-body strong{display:block;font-size:13px;color:var(--nav)}
-  .tool-link-card .tl-body small{font-size:11.5px;color:var(--txt)}
-  .samr-tag{display:inline-block;font-size:10px;font-weight:700;border-radius:4px;padding:1px 6px;margin-top:3px}
-  .s2t{background:#FDF1E3;color:var(--amb)}.s3t{background:#E8F4FF;color:#1E5F9A}.s4t{background:var(--gcl);color:var(--grn)}
-  .par-box{background:#fff;border:2px solid var(--vio);border-radius:var(--r);padding:18px 20px;margin:10px 0}
-  .par-box h4{color:var(--vio);font-size:14px;margin-bottom:10px}
-  .par-q{background:var(--vcl);border-radius:6px;padding:11px 14px;margin-bottom:8px;border-left:3px solid var(--vio)}
-  .par-q strong{display:block;font-size:12.5px;color:var(--vio);margin-bottom:2px}
-  .par-q p{font-size:12.5px;color:var(--txt);margin:0}
-  .dupla{display:flex;align-items:center;gap:10px;background:var(--gris);border-radius:8px;padding:12px 15px;margin-bottom:10px}
-  .dupla .du-ico{font-size:22px;flex-shrink:0}
-  .dupla p{font-size:13px;margin:0}
-  .checklist{background:var(--gris);border-radius:var(--r);padding:14px 16px;margin:10px 0}
-  .checklist h5{font-size:13px;font-weight:700;color:var(--nav);margin-bottom:8px}
-  .cl-row{display:flex;align-items:flex-start;gap:9px;margin-bottom:6px}
-  .cl-box{width:18px;height:18px;border:2px solid var(--grn);border-radius:4px;flex-shrink:0;margin-top:1px}
-  .cl-row p{font-size:13px;color:var(--neg);margin:0}
-  .tbl{width:100%;border-collapse:collapse;font-size:12.5px;margin-bottom:9px}
-  .tbl th{background:var(--nav);color:#fff;padding:7px 11px;text-align:left}
-  .tbl td{padding:7px 11px;border-bottom:1px solid var(--bd);vertical-align:top}
-  .tbl tr:nth-child(even) td{background:var(--gris)}
-  .time-chip{background:var(--gcl);color:var(--grn);border-radius:10px;padding:2px 8px;font-size:11px;font-weight:700;white-space:nowrap}
-  .tarea-box{background:var(--pale);border:2px solid var(--med);border-radius:var(--r);padding:18px 22px;margin-top:20px}
-  .tarea-box h3{color:var(--nav);font-size:15px;margin-bottom:8px}
-  .tarea-box ul{margin:6px 0 0 17px}.tarea-box li{font-size:13px;margin-bottom:5px}
-  .btn{display:inline-flex;align-items:center;gap:6px;background:var(--med);color:#fff;text-decoration:none;border-radius:6px;padding:7px 13px;font-size:13px;font-weight:600;margin-right:6px;margin-top:2px}
-  .btn:hover{background:var(--nav)}.btn-grn{background:var(--grn)}.btn-grn:hover{background:#1d4734}
-  @media(min-width:700px){.wrap{padding:24px 32px 60px}}
-  @media(min-width:1100px){.wrap{max-width:1400px;margin:0 auto;padding:28px 40px 60px}}
-  @media(max-width:480px){
-    body{font-size:14px}.top{padding:10px 14px;flex-direction:column;align-items:flex-start;gap:4px}
-    .top-r{font-size:10px;flex-direction:column;align-items:flex-start;gap:8px}
-    .tab-bar{padding:0 10px}.tab-btn{font-size:12.5px;padding:10px 8px}
-    .wrap{padding:14px 12px 40px}.hero{padding:22px 16px 18px}.hero h1{font-size:19px}
-    .tools-grid{grid-template-columns:1fr}.ps{flex-direction:column;gap:8px}.ps-time{align-self:flex-start}
-    .celular-banner{padding:10px 14px}
-  }
+  .nb{background:var(--pale);border-left:3px solid var(--med)}.ng{background:var(--gcl);border-left:3px solid var(--grn)}.na{background:var(--acl);border-left:3px solid var(--amb)}
+  .agenda{display:flex;flex-direction:column;gap:8px}
+  .ag-row{display:flex;align-items:center;gap:12px;background:var(--gris);border-radius:8px;padding:11px 15px}
+  .ag-time{background:var(--amb);color:#fff;font-size:12px;font-weight:700;border-radius:20px;padding:3px 11px;flex-shrink:0;min-width:62px;text-align:center}
+  .ag-row p{font-size:13.5px;margin:0}
+  .tpack-row{display:flex;gap:10px;flex-wrap:wrap;margin:6px 0 2px}
+  .tp{flex:1;min-width:130px;border-radius:8px;padding:11px 14px}
+  .tp strong{display:block;font-size:13px;margin-bottom:2px}
+  .tp p{font-size:12px;margin:0;opacity:.9}
+  .tp1{background:var(--pale);border-left:3px solid var(--med)}.tp1 strong{color:var(--nav)}
+  .tp2{background:var(--acl);border-left:3px solid var(--amb)}.tp2 strong{color:#7A4F1A}
+  .tp3{background:var(--gcl);border-left:3px solid var(--grn)}.tp3 strong{color:var(--grn)}
+  .ficha{background:#fff;border:2px solid var(--amb);border-radius:var(--r);padding:6px 0;margin:4px 0}
+  .ff{display:flex;gap:12px;align-items:flex-start;padding:11px 16px;border-bottom:1px solid var(--gris)}
+  .ff:last-child{border-bottom:none}
+  .ff-n{width:28px;height:28px;border-radius:50%;background:var(--amb);color:#fff;font-weight:800;font-size:13px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .ff-n.grn{background:var(--grn)}
+  .ff-b strong{display:block;font-size:13.5px;color:var(--neg)}
+  .ff-b p{font-size:12.5px;color:var(--txt);margin:2px 0 0}
+  .checks{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:6px}
+  .chk{border-radius:8px;padding:11px 14px;font-size:12.5px}
+  .chk-ok{background:var(--gcl);border-left:3px solid var(--grn)}
+  .chk-no{background:#FFE4E4;border-left:3px solid #9B2335}
+  .chk strong{display:block;margin-bottom:3px}
+  .chk-ok strong{color:var(--grn)}.chk-no strong{color:#9B2335}
+  .btn{display:inline-flex;align-items:center;gap:6px;background:var(--grn);color:#fff;text-decoration:none;border-radius:6px;padding:8px 15px;font-size:13.5px;font-weight:600;margin-top:4px}
+  .btn:hover{background:#1d4734}
+  @media(max-width:520px){.checks{grid-template-columns:1fr}.wrap{padding:16px 14px 40px}.hero{padding:22px 16px 18px}.hero h1{font-size:19px}}
 </style>
 </head>
 <body>
 
 <div class="top">
-  <div><strong>Alfabetización Digital</strong><small>Prof. de Educación Especial – Orientación en DI · Gustavo Iturriz</small></div>
-  <div class="top-r"><a href="index.html" class="btn-back">⬅ Volver al índice</a><span>IPESfa · 2026</span></div>
-</div>
-
-<div class="celular-banner"><span class="ico">🏗️</span>
-  <p><strong>Taller de producción:</strong> hoy construimos el Genial.ly del Trabajo Final y a mitad de clase nos revisamos entre pares. Traé la Ficha de Ideación aprobada y los insumos que recolectaste.</p>
+  <div><strong>Alfabetización Digital</strong><small>Prof. de Educación Especial – DI · Gustavo Iturriz</small></div>
+  <a href="index.html" class="btn-back">⬅ Índice</a>
 </div>
 
 <div class="hero">
   <div class="hbadge">CLASE 5 · MARTES 23 DE JUNIO DE 2026</div>
-  <h1>Taller de Producción del TFI<br>Construcción + Revisión entre pares</h1>
-  <div class="hero-sub">Producción guiada en Genial.ly · Revisión entre pares · Checkpoint SAMR · Preparación de la presentación</div>
-</div>
-
-<div class="tab-bar">
-  <button class="tab-btn active" onclick="showTab('inicio',this)">Inicio</button>
-  <button class="tab-btn" onclick="showTab('produccion',this)">🛠️ Guía de Producción</button>
-  <button class="tab-btn" onclick="showTab('pares',this)">👥 Revisión entre pares</button>
+  <h1>Iniciamos el Trabajo Final Integrador</h1>
+  <div class="hero-sub">Consigna · Ficha de Ideación · Primeros pasos en Genial.ly</div>
 </div>
 
 <div class="wrap">
 
-<!-- INICIO -->
-<div id="pane-inicio" class="pane on">
+  <div class="note nb"><span class="ni">🎯</span><span>La clase pasada vimos de qué se trata el TFI. <strong>Hoy lo arrancamos en serio:</strong> definimos la consigna, completamos la Ficha de Ideación y empezamos a producir.</span></div>
 
-  <div class="card card-g">
-    <div class="ch">✅ Antes de arrancar — ¿con qué llegás hoy?</div>
-    <div class="cb">
-      <p style="font-size:13.5px;margin-bottom:10px">La clase pasada lanzamos el Trabajo Final y completaron la Ficha de Ideación. Hoy se construye. Confirmamos el punto de partida de cada una:</p>
-      <div class="note ng"><span class="ni">✅</span><span><strong>Ficha aprobada + insumos:</strong> arrancás directo a producir el Genial.ly. Vas al Paso 1 de la Guía de Producción.</span></div>
-      <div class="note na"><span class="ni">⏳</span><span><strong>Ficha sin aprobar todavía:</strong> el docente la revisa en los primeros 10 minutos y te da el OK en clase. Mientras, abrí Genial.ly y empezá a mirar plantillas.</span></div>
-      <div class="note nv"><span class="ni">💡</span><span><strong>¿Eligieron la narrativa gamificada?</strong> Tienen la guía <em>"La Isla de los Cinco Faros"</em> como modelo. No es obligatorio seguirla — es un ejemplo de cómo estructurar la aventura.</span></div>
-    </div>
-  </div>
-
+  <!-- AGENDA -->
   <div class="card card-a">
-    <div class="ch">🗂️ Agenda de hoy — 2 horas reloj</div>
+    <div class="ch">🗂️ Agenda de hoy</div>
     <div class="cb">
-      <table class="tbl">
-        <thead><tr><th>Momento</th><th>Actividad</th><th>Tiempo</th></tr></thead>
-        <tbody>
-          <tr><td><strong>Check-in</strong></td><td>Confirmación de Fichas + OK pendientes</td><td><span class="time-chip">10 min</span></td></tr>
-          <tr><td><strong>★ Producción 1</strong></td><td>Construcción del recurso en Genial.ly — docente circula</td><td><span class="time-chip">45 min</span></td></tr>
-          <tr><td><strong>👥 Revisión entre pares</strong></td><td>Intercambio de duplas con ficha guiada</td><td><span class="time-chip">25 min</span></td></tr>
-          <tr><td><strong>★ Producción 2</strong></td><td>Ajustes según la devolución del par</td><td><span class="time-chip">25 min</span></td></tr>
-          <tr><td><strong>Cierre</strong></td><td>Checkpoint SAMR + qué falta para presentar</td><td><span class="time-chip">15 min</span></td></tr>
-        </tbody>
-      </table>
-      <div class="note nb"><span class="ni">⚠️</span><span><strong>Esta es la única clase de producción.</strong> Hoy (23/06) se construye. La próxima y última clase, el <strong>30/06, son las presentaciones y el cierre del cuatrimestre</strong>. Lo que no avance hoy hay que terminarlo en casa.</span></div>
+      <div class="agenda">
+        <div class="ag-row"><span class="ag-time">15 min</span><p>Repasamos la consigna del TFI</p></div>
+        <div class="ag-row"><span class="ag-time">35 min</span><p>Completamos la Ficha de Ideación (el docente aprueba en clase)</p></div>
+        <div class="ag-row"><span class="ag-time">55 min</span><p>Empezamos a construir en Genial.ly</p></div>
+        <div class="ag-row"><span class="ag-time">15 min</span><p>Cierre: qué falta y tarea</p></div>
+      </div>
     </div>
   </div>
 
+  <!-- CONSIGNA -->
   <div class="card card-b">
-    <div class="ch">🎯 Recordatorio — qué tiene que lograr el recurso</div>
+    <div class="ch">📋 La consigna, en una línea</div>
     <div class="cb">
-      <div class="note ng"><span class="ni">🪜</span><span><strong>SAMR mínimo: Modificación.</strong> El estudiante con DI <em>hace algo</em> en el recurso (elige, arrastra, completa, recibe respuesta). No es un Genial.ly que solo se pasa como diapositivas.</span></div>
-      <div class="note nb" style="margin-top:6px"><span class="ni">🔑</span><span><strong>Coherencia TPACK.</strong> El eje ESI (contenido) + la gamificación y el apoyo visual (estrategia) + Genial.ly (herramienta) se justifican juntos.</span></div>
-      <div class="note nv" style="margin-top:6px"><span class="ni">♿</span><span><strong>Accesible para DI.</strong> Texto corto, apoyo visual y de audio, instrucciones claras, pasos predecibles.</span></div>
+      <p style="font-size:14.5px;margin-bottom:10px"><strong>Diseñar un recurso educativo digital para estudiantes con DI y presentarlo en un coloquio de 10–12 min.</strong></p>
+      <p style="font-size:13px;color:var(--txt);margin-bottom:6px">En el coloquio van a justificar el recurso con lo que vimos en el taller: <strong>TPACK, SAMR, Area Moreira, Coll y ciudadanía digital.</strong></p>
+      <div class="checks">
+        <div class="chk chk-ok"><strong>✅ Tiene que</strong>El estudiante con DI hace algo (elige, arrastra, completa) · Llega a SAMR Modificación</div>
+        <div class="chk chk-no"><strong>❌ No alcanza</strong>Un PDF en pantalla · El estudiante solo mira sin participar</div>
+      </div>
     </div>
   </div>
 
-</div>
-
-<!-- GUÍA DE PRODUCCIÓN -->
-<div id="pane-produccion" class="pane">
-
-  <div class="note nb" style="margin-bottom:18px"><span class="ni">📌</span><span>Usá esta guía <strong>mientras producís</strong>, en paralelo con Genial.ly. No hace falta leerla toda de golpe.</span></div>
-
-  <div class="prod-steps">
-
-    <div class="ps">
-      <div class="ps-num">1</div>
-      <div class="ps-body">
-        <strong>Armar el esqueleto antes de diseñar</strong>
-        <p>No empieces eligiendo colores. Primero definí la estructura de la aventura en un borrador rápido:</p>
-        <ul>
-          <li>¿Cuántas pantallas/escenas tiene? (mapa inicial, las estaciones, pantalla final)</li>
-          <li>¿Qué hace el estudiante en cada una? ¿toca, arrastra, elige, escucha?</li>
-          <li>¿Dónde está la interactividad que lleva el recurso a Modificación?</li>
-        </ul>
-      </div>
-      <div class="ps-time">0–15 min</div>
-    </div>
-
-    <div class="ps">
-      <div class="ps-num">2</div>
-      <div class="ps-body">
-        <strong>Construir en Genial.ly — contenido primero, diseño después</strong>
-        <p>Cargá todo el contenido real antes de embellecerlo. El error más común es perder media hora eligiendo tipografías sin tener ni una escena cargada.</p>
-        <ul>
-          <li>Primero: cargá textos, imágenes, pictogramas y audios en cada pantalla.</li>
-          <li>Segundo: verificá que la interactividad funciona (botones, arrastrar, respuestas).</li>
-          <li>Tercero: recién al final, ajustá colores y estética común.</li>
-        </ul>
-        <p style="font-size:12px">Para pictogramas: ARASAAC o Pictotraductor. Para imágenes libres: Unsplash o Pixabay. Para audio: Vocaroo.</p>
-      </div>
-      <div class="ps-time">15–45 min</div>
-    </div>
-
-    <div class="ps">
-      <div class="ps-num">3</div>
-      <div class="ps-body">
-        <strong>Verificar accesibilidad antes de la revisión entre pares</strong>
-        <div class="checklist" style="margin-top:6px">
-          <h5>♿ Revisión DUA rápida</h5>
-          <div class="cl-row"><div class="cl-box"></div><p>Texto legible y corto, con buen contraste.</p></div>
-          <div class="cl-row"><div class="cl-box"></div><p>Cada pantalla tiene apoyo visual o de audio además del texto.</p></div>
-          <div class="cl-row"><div class="cl-box"></div><p>El estudiante sabe qué hacer al entrar — hay anticipación clara.</p></div>
-          <div class="cl-row"><div class="cl-box"></div><p>Las consignas son simples y los pasos predecibles.</p></div>
-        </div>
-      </div>
-      <div class="ps-time">antes de 45 min</div>
-    </div>
-
-  </div>
-
-  <div class="card card-g" style="margin-top:18px">
-    <div class="ch">🔗 Herramientas y recursos</div>
+  <!-- FICHA -->
+  <div class="card card-a">
+    <div class="ch">★ Ficha de Ideación — completar en orden</div>
     <div class="cb">
-      <div class="tools-grid">
-        <a class="tool-link-card" href="https://genial.ly/es/" target="_blank"><div class="tl-icon">✨</div><div class="tl-body"><strong>Genial.ly</strong><small>Narrativa interactiva<br><span class="samr-tag s3t">Modificación</span></small></div></a>
-        <a class="tool-link-card" href="https://arasaac.org" target="_blank"><div class="tl-icon">🗂️</div><div class="tl-body"><strong>ARASAAC</strong><small>Pictogramas gratuitos</small></div></a>
-        <a class="tool-link-card" href="https://pictotraductor.com" target="_blank"><div class="tl-icon">🖼️</div><div class="tl-body"><strong>Pictotraductor</strong><small>Texto → pictogramas</small></div></a>
-        <a class="tool-link-card" href="https://vocaroo.com" target="_blank"><div class="tl-icon">🎤</div><div class="tl-body"><strong>Vocaroo</strong><small>Grabar audio rápido</small></div></a>
-        <a class="tool-link-card" href="https://unsplash.com" target="_blank"><div class="tl-icon">📷</div><div class="tl-body"><strong>Unsplash</strong><small>Imágenes libres</small></div></a>
-        <a class="tool-link-card" href="caja_herramientas.html" target="_blank"><div class="tl-icon">🧰</div><div class="tl-body"><strong>Caja de Herramientas</strong><small>Todo el repertorio + IA</small></div></a>
+      <p style="font-size:13px;color:var(--txt);margin-bottom:10px">En un Google Doc, respondé estos cuatro puntos <strong>en este orden</strong>. La herramienta es lo último.</p>
+      <div class="ficha">
+        <div class="ff"><div class="ff-n">1</div><div class="ff-b"><strong>¿Para quién?</strong><p>Grupo de estudiantes con DI: edad, nivel, qué pueden hacer.</p></div></div>
+        <div class="ff"><div class="ff-n">2</div><div class="ff-b"><strong>¿Qué querés enseñar? (el QUÉ)</strong><p>Una habilidad concreta. Ej: lavarse las manos, reconocer emociones.</p></div></div>
+        <div class="ff"><div class="ff-n">3</div><div class="ff-b"><strong>¿Cómo? (la estrategia)</strong><p>Qué hace el estudiante y cómo lo hacés accesible: pictogramas, audio, pasos cortos.</p></div></div>
+        <div class="ff"><div class="ff-n grn">4</div><div class="ff-b"><strong>¿Con qué herramienta?</strong><p>Recién ahora: Genial.ly, Wordwall, Canva… ¿En qué nivel SAMR queda?</p></div></div>
       </div>
-      <div class="note na" style="margin-top:8px"><span class="ni">🤖</span><span><strong>¿Trabada?</strong> Pedile a la IA que te ayude a redactar una consigna accesible o a secuenciar una escena. Prompt → propuesta → auditoría docente. Declaralo en el TFI.</span></div>
+      <div class="note ng"><span class="ni">✅</span><span>Cuando el docente te da el OK a la Ficha, pasás a construir.</span></div>
     </div>
   </div>
 
-</div>
-
-<!-- REVISIÓN ENTRE PARES -->
-<div id="pane-pares" class="pane">
-
-  <div class="note nv" style="margin-bottom:16px"><span class="ni">👥</span><span>A los 55 minutos paramos la producción. Intercambian su recurso con otra dupla y se hacen una devolución guiada. <strong>No es para criticar — es para que cada una vea su recurso con ojos nuevos.</strong></span></div>
-
-  <div class="dupla"><div class="du-ico">🔄</div><p><strong>Cómo se arma:</strong> cada dupla muestra su Genial.ly a otra dupla. Primero lo recorren juntas en silencio, después completan la ficha y conversan. 12 minutos por recurso, y se invierten los roles.</p></div>
-
-  <div class="par-box">
-    <h4>📋 Ficha de Revisión entre Pares</h4>
-    <p style="font-size:13px;margin-bottom:10px">Completá esta ficha sobre el recurso de la otra dupla. Sé concreta — un "está lindo" no ayuda a mejorar.</p>
-    <div class="par-q"><strong>1. ¿Se entiende la aventura sin que te la expliquen?</strong><p>¿Quedó claro qué hay que hacer en cada pantalla? ¿Dónde te perdiste, si te perdiste?</p></div>
-    <div class="par-q"><strong>2. ¿El estudiante con DI HACE algo o solo mira?</strong><p>¿Hay interactividad real (arrastrar, elegir, completar)? ¿En qué momento?</p></div>
-    <div class="par-q"><strong>3. ¿Es accesible?</strong><p>¿El texto es corto y claro? ¿Hay apoyo visual o de audio? ¿Una persona con DI podría usarlo sola o con poco apoyo?</p></div>
-    <div class="par-q"><strong>4. ¿Qué eje de ESI trabaja y se nota?</strong><p>¿Se entiende el tema (afectividad, género, diversidad, cuerpo, derechos)? ¿El enfoque es de cuidado o suena a prohibición?</p></div>
-    <div class="par-q"><strong>5. Una cosa que le cambiarías y una que está muy bien</strong><p>La mejora más importante + lo que mejor logrado está, para que no lo toquen.</p></div>
+  <!-- PRODUCCIÓN -->
+  <div class="card card-g">
+    <div class="ch">🛠️ Empezamos a construir</div>
+    <div class="cb">
+      <p style="font-size:13.5px;margin-bottom:8px">Si eligieron la narrativa gamificada de ESI, tienen el ejemplo <em>"La Isla de los Cinco Faros"</em> como modelo — no es obligatorio seguirlo.</p>
+      <div class="note nb"><span class="ni">💡</span><span><strong>Una sola regla para hoy:</strong> primero el contenido, después el diseño. Cargá los textos e imágenes antes de elegir colores.</span></div>
+      <a class="btn" href="caja_herramientas.html#cat-especial" target="_blank">🧰 Caja de Herramientas TIC</a>
+      <a class="btn" href="https://genial.ly/es/" target="_blank" style="background:var(--med)">✨ Abrir Genial.ly</a>
+    </div>
   </div>
 
-  <div class="checkpoint">
-    <h4>🪜 Checkpoint SAMR — al volver de la revisión</h4>
-    <div class="chk-row"><span class="chk-icon">🔴</span><p><strong style="color:#FFE4E4">Sustitución:</strong> el Genial.ly solo se pasa como diapositivas. → Hay que agregar interacción.</p></div>
-    <div class="chk-row"><span class="chk-icon">🟡</span><p><strong style="color:#FDF1E3">Aumento:</strong> tiene algún clic pero la tarea es la misma que en papel. → ¿Qué hace el estudiante que sin la tecnología no podría?</p></div>
-    <div class="chk-row"><span class="chk-icon">🔵</span><p><strong style="color:#E8F4FF">Modificación ← META:</strong> el estudiante elige, arrastra, recibe respuesta inmediata. → Estás en el nivel del TFI.</p></div>
-    <div class="chk-row"><span class="chk-icon">🟢</span><p><strong style="color:var(--gcl)">Redefinición:</strong> los estudiantes co-crean o comparten lo que produjeron. → Bonus.</p></div>
-  </div>
-
-  <div class="tarea-box">
-    <h3>📋 Para la próxima clase — PRESENTACIONES Y CIERRE (30/06)</h3>
-    <ul>
-      <li><strong>Terminar el recurso en casa.</strong> Hoy fue la única clase de producción — el 30/06 ya se presenta. No hay otra fecha.</li>
-      <li><strong>Incorporar la devolución del par</strong> que recibieron hoy.</li>
-      <li><strong>Preparar el coloquio de 10–12 min:</strong> mostrar el Genial.ly funcionando y justificar con TPACK, SAMR y los ejes de ESI.</li>
-      <li><strong>Dejar el recurso accesible</strong> (link público o compartido con el docente) antes del 30/06.</li>
-    </ul>
-    <div class="note nb" style="margin-top:10px"><span class="ni">📅</span><span><strong>Calendario final:</strong> 30/06 = presentaciones del TFI + cierre del cuatrimestre (última clase). La cursada termina el 3/07 — no hay extensión.</span></div>
-  </div>
+  <!-- TAREA -->
+  <div class="note na"><span class="ni">📅</span><span><strong>Tarea:</strong> terminar el recurso en casa. La próxima clase (<strong>30/06</strong>) son las presentaciones y el cierre — es la última. Dejá el recurso con link compartido antes de esa fecha.</span></div>
 
 </div>
 
-</div>
-
-<script>
-function showTab(id,btn){document.querySelectorAll('.pane').forEach(p=>p.classList.remove('on'));document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));document.getElementById('pane-'+id).classList.add('on');btn.classList.add('active')}
-</script>
 </body>
 </html>
