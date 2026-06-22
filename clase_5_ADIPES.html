@@ -1,130 +1,324 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Clase 5 · Inicio del Trabajo Final · Alfabetización Digital</title>
+<title>Guía TFI · Narrativa Gamificada · Salud y Prevención</title>
 <style>
-  :root{--nav:#1D3461;--med:#2E6DA4;--cl:#B8D4EA;--pale:#E8F2FA;--grn:#2A6049;--gcl:#DFF0E9;--amb:#C07A28;--acl:#FDF1E3;--vio:#5B3A8C;--vcl:#EBE4F7;--slate:#3A5570;--gris:#F2F6FA;--bd:#C5D2DC;--txt:#4A5E70;--neg:#1A2C3A;--bco:#FFFFFF;--r:8px;--sh:0 2px 8px rgba(0,0,0,.08)}
+  :root{--nav:#1D3461;--med:#2E6DA4;--cl:#B8D4EA;--pale:#E8F2FA;--grn:#2A6049;--gcl:#DFF0E9;--amb:#C07A28;--acl:#FDF1E3;--vio:#5B3A8C;--vcl:#EBE4F7;--slate:#3A5570;--gris:#F2F6FA;--bd:#C5D2DC;--txt:#4A5E70;--neg:#1A2C3A;--bco:#FFFFFF;--r:8px;--sh:0 2px 8px rgba(0,0,0,.08);
+    --f1:#D35400;--f2:#2E86C1;--f3:#F39C12;--f4:#C0392B;--f5:#8E44AD}
   *{box-sizing:border-box;margin:0;padding:0}
-  body{font-family:'Segoe UI',Arial,sans-serif;font-size:15px;color:var(--neg);background:#EDF3F9;line-height:1.6}
+  body{font-family:'Segoe UI',Arial,sans-serif;font-size:15px;color:var(--neg);background:#EDF3F9;line-height:1.65}
   .top{background:var(--nav);color:#fff;padding:13px 28px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;border-bottom:3px solid var(--med)}
   .top strong{display:block;font-size:15px}.top small{font-size:12px;opacity:.78}
+  .top-r{font-size:11px;display:flex;align-items:center;gap:15px}
   .btn-back{color:#fff;text-decoration:none;background:rgba(255,255,255,.15);padding:6px 14px;border-radius:6px;border:1px solid rgba(255,255,255,.3);font-weight:600;font-size:12px}
-  .hero{background:linear-gradient(135deg,var(--amb) 0%,var(--nav) 100%);color:#fff;padding:30px 28px 24px}
-  .hbadge{display:inline-block;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);border-radius:20px;padding:3px 14px;font-size:12px;letter-spacing:.5px;margin-bottom:10px}
-  .hero h1{font-size:22px;font-weight:700;line-height:1.3;margin-bottom:6px}
-  .hero-sub{font-size:13px;opacity:.85}
-  .wrap{max-width:880px;margin:0 auto;padding:24px 24px 60px}
-  .card{background:var(--bco);border-radius:var(--r);box-shadow:var(--sh);margin-bottom:16px;overflow:hidden}
-  .ch{padding:13px 20px;font-weight:700;font-size:14.5px;display:flex;align-items:center;gap:9px;border-bottom:1px solid var(--bd)}
-  .cb{padding:16px 20px}
-  .card-a .ch{background:var(--acl);color:#7A4F1A}.card-g .ch{background:var(--gcl);color:var(--grn)}.card-b .ch{background:var(--pale);color:var(--nav)}
-  .note{border-radius:var(--r);padding:10px 14px;font-size:13.5px;margin:10px 0;display:flex;gap:9px;align-items:flex-start}
-  .ni{font-size:16px;flex-shrink:0;margin-top:1px}
-  .nb{background:var(--pale);border-left:3px solid var(--med)}.ng{background:var(--gcl);border-left:3px solid var(--grn)}.na{background:var(--acl);border-left:3px solid var(--amb)}
-  .agenda{display:flex;flex-direction:column;gap:8px}
-  .ag-row{display:flex;align-items:center;gap:12px;background:var(--gris);border-radius:8px;padding:11px 15px}
-  .ag-time{background:var(--amb);color:#fff;font-size:12px;font-weight:700;border-radius:20px;padding:3px 11px;flex-shrink:0;min-width:62px;text-align:center}
-  .ag-row p{font-size:13.5px;margin:0}
-  .tpack-row{display:flex;gap:10px;flex-wrap:wrap;margin:6px 0 2px}
-  .tp{flex:1;min-width:130px;border-radius:8px;padding:11px 14px}
-  .tp strong{display:block;font-size:13px;margin-bottom:2px}
-  .tp p{font-size:12px;margin:0;opacity:.9}
-  .tp1{background:var(--pale);border-left:3px solid var(--med)}.tp1 strong{color:var(--nav)}
-  .tp2{background:var(--acl);border-left:3px solid var(--amb)}.tp2 strong{color:#7A4F1A}
-  .tp3{background:var(--gcl);border-left:3px solid var(--grn)}.tp3 strong{color:var(--grn)}
-  .ficha{background:#fff;border:2px solid var(--amb);border-radius:var(--r);padding:6px 0;margin:4px 0}
-  .ff{display:flex;gap:12px;align-items:flex-start;padding:11px 16px;border-bottom:1px solid var(--gris)}
-  .ff:last-child{border-bottom:none}
-  .ff-n{width:28px;height:28px;border-radius:50%;background:var(--amb);color:#fff;font-weight:800;font-size:13px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
-  .ff-n.grn{background:var(--grn)}
-  .ff-b strong{display:block;font-size:13.5px;color:var(--neg)}
-  .ff-b p{font-size:12.5px;color:var(--txt);margin:2px 0 0}
-  .checks{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:6px}
-  .chk{border-radius:8px;padding:11px 14px;font-size:12.5px}
-  .chk-ok{background:var(--gcl);border-left:3px solid var(--grn)}
-  .chk-no{background:#FFE4E4;border-left:3px solid #9B2335}
-  .chk strong{display:block;margin-bottom:3px}
-  .chk-ok strong{color:var(--grn)}.chk-no strong{color:#9B2335}
-  .btn{display:inline-flex;align-items:center;gap:6px;background:var(--grn);color:#fff;text-decoration:none;border-radius:6px;padding:8px 15px;font-size:13.5px;font-weight:600;margin-top:4px}
-  .btn:hover{background:#1d4734}
-  @media(max-width:520px){.checks{grid-template-columns:1fr}.wrap{padding:16px 14px 40px}.hero{padding:22px 16px 18px}.hero h1{font-size:19px}}
+  
+  .hero{background:linear-gradient(135deg,#0F2942 0%,#2A6049 60%,#1D3461 100%);color:#fff;padding:34px 28px 28px;text-align:center;position:relative;overflow:hidden}
+  .hero::after{content:"";position:absolute;bottom:0;left:0;right:0;height:60px;background:repeating-linear-gradient(90deg,rgba(255,255,255,.04) 0 18px,transparent 18px 36px)}
+  .hbadge{display:inline-block;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);border-radius:20px;padding:3px 14px;font-size:12px;letter-spacing:.5px;margin-bottom:12px}
+  .hero h1{font-size:27px;font-weight:800;line-height:1.2;margin-bottom:6px}
+  .hero .sub{font-size:14px;opacity:.9;max-width:640px;margin:0 auto}
+  .hero .lighthouse{font-size:34px;margin-bottom:6px;letter-spacing:6px}
+  .wrap{max-width:1000px;margin:0 auto;padding:24px 24px 70px}
+  
+  .intro-card{background:#fff;border-radius:var(--r);box-shadow:var(--sh);padding:20px 24px;margin-bottom:22px;border-left:5px solid var(--med)}
+  .intro-card h2{font-size:17px;color:var(--nav);margin-bottom:8px;display:flex;align-items:center;gap:8px}
+  .intro-card p{font-size:13.5px;margin-bottom:8px}
+  .pill-row{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+  .pill{font-size:11.5px;font-weight:600;border-radius:14px;padding:3px 11px;background:var(--pale);color:var(--nav)}
+  .note{border-radius:var(--r);padding:11px 15px;font-size:13px;margin:12px 0;display:flex;gap:10px;align-items:flex-start}
+  .ni{font-size:17px;flex-shrink:0;margin-top:1px}
+  .nb{background:var(--pale);border-left:3px solid var(--med)}.ng{background:var(--gcl);border-left:3px solid var(--grn)}
+  .na{background:var(--acl);border-left:3px solid var(--amb)}.nv{background:var(--vcl);border-left:3px solid var(--vio)}
+  .section-title{font-size:13px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--slate);margin:30px 0 14px;display:flex;align-items:center;gap:10px}
+  .section-title::after{content:"";flex:1;height:1px;background:var(--bd)}
+  
+  .arc-box{background:#fff;border-radius:var(--r);box-shadow:var(--sh);padding:22px 18px 14px;margin-bottom:14px;overflow-x:auto}
+  .arc-box svg{display:block;min-width:760px;margin:0 auto}
+  .arc-legend{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;margin-top:10px;padding-top:12px;border-top:1px solid var(--bd)}
+  .arc-leg{display:flex;align-items:center;gap:6px;font-size:11.5px;color:var(--txt)}
+  .arc-dot{width:11px;height:11px;border-radius:50%;flex-shrink:0}
+  
+  .faro{background:#fff;border-radius:var(--r);box-shadow:var(--sh);margin-bottom:16px;overflow:hidden;border-top:4px solid var(--med)}
+  .faro-head{display:flex;align-items:center;gap:14px;padding:15px 20px;cursor:pointer;transition:background 0.2s}
+  .faro-head:hover{background:var(--gris)}
+  .faro-ico{width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:24px;flex-shrink:0;color:#fff}
+  .faro-tt{flex:1}
+  .faro-tt .fk{font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;opacity:.7}
+  .faro-tt h3{font-size:17px;color:var(--neg);margin:1px 0 2px}
+  .faro-tt .tema{font-size:12.5px;font-weight:600}
+  .faro-body{padding:0 20px 20px 20px;display:none;}
+  .quote{font-style:italic;font-size:14px;color:var(--slate);background:var(--gris);border-radius:8px;padding:13px 16px;margin:6px 0 14px;border-left:3px solid var(--bd)}
+  .faro-sub{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--txt);margin:12px 0 6px}
+  .faro-body p{font-size:13.5px;margin-bottom:8px}
+  .faro-body ul{margin:6px 0 10px 18px}.faro-body li{font-size:13.5px;margin-bottom:5px}
+  .escena{background:var(--gris);border-radius:8px;padding:12px 15px;margin-bottom:8px;border-left:3px solid var(--med)}
+  .escena strong{font-size:12.5px;color:var(--nav);display:block;margin-bottom:3px}
+  .escena p{font-size:13px;margin:0}
+  
+  .c1{border-top-color:var(--f1)}.c1 .faro-ico{background:var(--f1)}.c1 .fk,.c1 .tema{color:var(--f1)}
+  .c2{border-top-color:var(--f2)}.c2 .faro-ico{background:var(--f2)}.c2 .fk,.c2 .tema{color:var(--f2)}
+  .c3{border-top-color:var(--f3)}.c3 .faro-ico{background:var(--f3)}.c3 .fk,.c3 .tema{color:#9A7B12}
+  .c4{border-top-color:var(--f4)}.c4 .faro-ico{background:var(--f4)}.c4 .fk,.c4 .tema{color:var(--f4)}
+  .c5{border-top-color:var(--f5)}.c5 .faro-ico{background:var(--f5)}.c5 .fk,.c5 .tema{color:var(--f5)}
+  
+  .screen{background:linear-gradient(135deg,var(--nav),var(--slate));color:#fff;border-radius:var(--r);padding:20px 24px;margin-bottom:14px}
+  .screen.fin{background:linear-gradient(135deg,#1B5E3F,#2E6DA4)}
+  .screen h3{font-size:16px;margin-bottom:8px;display:flex;align-items:center;gap:8px}
+  .screen p{font-size:13.5px;opacity:.94;font-style:italic;line-height:1.6}
+  
+  .ai-box{background:#F4F1FA;border:2px solid #8E44AD;border-radius:var(--r);padding:20px;margin:20px 0;}
+  .ai-box h3{color:#8E44AD;font-size:16px;margin-bottom:10px;display:flex;align-items:center;gap:8px;}
+  .ai-prompt{background:#fff;border-left:4px solid #8E44AD;padding:15px;font-family:monospace;font-size:13px;color:#333;white-space:pre-wrap;border-radius:4px;}
+  
+  .prod-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:12px 0}
+  .trio{background:#fff;border:1px solid var(--bd);border-radius:var(--r);padding:14px 16px;box-shadow:0 2px 5px rgba(0,0,0,0.05)}
+  .trio h4{font-size:13.5px;color:var(--nav);margin-bottom:6px;display:flex;align-items:center;gap:6px}
+  .trio p{font-size:12.5px;color:var(--txt);margin:0}
+  .trio .tnum{background:var(--med);color:#fff;width:22px;height:22px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:11px;font-weight:700}
+  
+  .check{background:#fff;border:2px solid var(--grn);border-radius:var(--r);padding:18px 20px;margin-top:8px}
+  .check h4{color:var(--grn);font-size:14px;margin-bottom:10px}
+  .cl-row{display:flex;align-items:flex-start;gap:9px;margin-bottom:7px}
+  .cl-box{width:17px;height:17px;border:2px solid var(--grn);border-radius:4px;flex-shrink:0;margin-top:2px}
+  .cl-row p{font-size:13px;margin:0}
+  .tip{background:var(--vcl);border-radius:var(--r);padding:14px 18px;margin-top:14px;border-left:4px solid var(--vio)}
+  .tip h4{color:var(--vio);font-size:13.5px;margin-bottom:6px}
+  .tip p{font-size:13px;margin-bottom:5px}
+  .footer{text-align:center;font-size:12px;color:var(--txt);margin-top:26px;padding-top:16px;border-top:1px solid var(--bd)}
+  
+  @media(max-width:760px){
+    .prod-grid{grid-template-columns:1fr}.hero h1{font-size:22px}.wrap{padding:18px 14px 50px}
+    .arc-box svg{min-width:600px;}
+  }
 </style>
 </head>
 <body>
 
 <div class="top">
-  <div><strong>Alfabetización Digital</strong><small>Prof. de Educación Especial – DI · Gustavo Iturriz</small></div>
-  <a href="index.html" class="btn-back">⬅ Índice</a>
+  <div><strong>Alfabetización Digital</strong><small>Prof. de Educación Especial – Orientación en DI · Gustavo Iturriz</small></div>
+  <div class="top-r"><span>IPESfa · 2026</span></div>
 </div>
 
 <div class="hero">
-  <div class="hbadge">CLASE 5 · MARTES 23 DE JUNIO DE 2026</div>
-  <h1>Iniciamos el Trabajo Final Integrador</h1>
-  <div class="hero-sub">Consigna · Ficha de Ideación · Primeros pasos en Genial.ly</div>
+  <div class="hbadge">PROYECTO GRUPAL (9 ESTUDIANTES)</div>
+  <div class="lighthouse">🛡️</div>
+  <h1>Los Cinco Faros de la Prevención</h1>
+  <div class="sub">Guía de diseño para una Narrativa Gamificada sobre Salud y Prevención adaptada a Discapacidad Intelectual.</div>
 </div>
 
 <div class="wrap">
+  <div class="intro-card">
+    <h2>🧭 ¿Para qué sirve esta guía?</h2>
+    <p>Han decidido asumir el enorme desafío de trabajar las 9 juntas en un único <strong>Gran Trabajo Final Integrador</strong> enfocado en <strong>Salud y Prevención</strong>. Para que el proyecto no naufrague y tenga una narrativa sólida, armamos esta matriz basada en la metáfora de "Los Cinco Faros".</p>
+    <p>La aventura recorrerá los pilares del bienestar y el autocuidado, un faro a la vez:</p>
+    <div class="pill-row">
+      <span class="pill" style="background:#FDEBD0;color:#D35400">🍎 Alimentación Sana</span>
+      <span class="pill" style="background:#D6EAF8;color:#2E86C1">🧼 Higiene y Hábitos</span>
+      <span class="pill" style="background:#FCF3CF;color:#B9770E">🏃 Movimiento</span>
+      <span class="pill" style="background:#F2D7D5;color:#C0392B">🛡️ Prevención en el Hogar</span>
+      <span class="pill" style="background:#E8DAEF;color:#8E44AD">😊 Salud Emocional</span>
+    </div>
+    <div class="note nb"><span class="ni">🎯</span><span><strong>El foco (DUA + TPACK):</strong> Al diseñar cada faro, piensen en el perfil concreto de sus estudiantes con DI. ¿Tienen apoyo de audio? ¿Hay pictogramas? ¿Los pasos son cortos y claros?</span></div>
+  </div>
 
-  <div class="note nb"><span class="ni">🎯</span><span>La clase pasada vimos de qué se trata el TFI. <strong>Hoy lo arrancamos en serio:</strong> definimos la consigna, completamos la Ficha de Ideación y empezamos a producir.</span></div>
+  <div class="section-title">La premisa de la aventura</div>
+  <div class="intro-card" style="border-left-color:var(--grn)">
+    <p style="font-size:14px"><strong>La Isla del Bienestar se ha desequilibrado.</strong> Sus cinco faros de prevención se apagaron y sus habitantes están cansados, se enferman más seguido y ocurren pequeños accidentes. Los jugadores son <strong>Guardianes de la Salud</strong>.</p>
+    <p style="font-size:14px">Su misión es recorrer la isla resolviendo desafíos prácticos para <strong>reencender los cinco faros</strong>. Cada faro iluminará una parte distinta de la vida sana.</p>
+  </div>
 
-  <!-- AGENDA -->
-  <div class="card card-a">
-    <div class="ch">🗂️ Agenda de hoy</div>
-    <div class="cb">
-      <div class="agenda">
-        <div class="ag-row"><span class="ag-time">15 min</span><p>Repasamos la consigna del TFI</p></div>
-        <div class="ag-row"><span class="ag-time">35 min</span><p>Completamos la Ficha de Ideación (el docente aprueba en clase)</p></div>
-        <div class="ag-row"><span class="ag-time">55 min</span><p>Empezamos a construir en Genial.ly</p></div>
-        <div class="ag-row"><span class="ag-time">15 min</span><p>Cierre: qué falta y tarea</p></div>
+  <div class="section-title">📈 La línea narrativa del juego</div>
+  <div class="arc-box">
+    <svg viewBox="0 0 820 360" xmlns="http://www.w3.org/2000/svg">
+      <!-- ejes -->
+      <line x1="60" y1="320" x2="800" y2="320" stroke="#C5D2DC" stroke-width="2"/>
+      <line x1="60" y1="40" x2="60" y2="320" stroke="#C5D2DC" stroke-width="2"/>
+      <text x="36" y="46" font-family="Segoe UI,Arial" font-size="10" fill="#4A5E70" transform="rotate(-90 36,46)" text-anchor="end">Nivel de desafío / Autonomía</text>
+      <text x="430" y="350" font-family="Segoe UI,Arial" font-size="11" fill="#4A5E70" text-anchor="middle">Avance de la aventura →</text>
+
+      <!-- curva -->
+      <path d="M 60 300 C 110 296, 130 250, 175 248 C 215 246, 240 210, 290 208 C 330 206, 350 178, 405 176 C 450 174, 470 150, 525 140 C 575 132, 600 88, 650 78 C 690 70, 705 96, 740 150 C 760 185, 775 215, 790 232" fill="none" stroke="#2A6049" stroke-width="3.5" stroke-linecap="round"/>
+
+      <!-- puntos -->
+      <circle cx="60" cy="300" r="7" fill="#1D3461"/>
+      <text x="60" y="285" font-family="Segoe UI,Arial" font-size="11" font-weight="700" fill="#1D3461" text-anchor="middle">Inicio</text>
+      <text x="60" y="338" font-family="Segoe UI,Arial" font-size="9.5" fill="#4A5E70" text-anchor="middle">El Mapa</text>
+
+      <circle cx="175" cy="248" r="9" fill="#D35400"/>
+      <text x="175" y="232" font-family="Segoe UI,Arial" font-size="11" font-weight="700" fill="#D35400" text-anchor="middle">Faro 1</text>
+      <text x="175" y="338" font-family="Segoe UI,Arial" font-size="9.5" fill="#4A5E70" text-anchor="middle">Nutrición</text>
+
+      <circle cx="290" cy="208" r="9" fill="#2E86C1"/>
+      <text x="290" y="192" font-family="Segoe UI,Arial" font-size="11" font-weight="700" fill="#2E86C1" text-anchor="middle">Faro 2</text>
+      <text x="290" y="338" font-family="Segoe UI,Arial" font-size="9.5" fill="#4A5E70" text-anchor="middle">Higiene</text>
+
+      <circle cx="405" cy="176" r="9" fill="#F39C12"/>
+      <text x="405" y="160" font-family="Segoe UI,Arial" font-size="11" font-weight="700" fill="#B9770E" text-anchor="middle">Faro 3</text>
+      <text x="405" y="338" font-family="Segoe UI,Arial" font-size="9.5" fill="#4A5E70" text-anchor="middle">Movimiento</text>
+
+      <circle cx="525" cy="140" r="9" fill="#C0392B"/>
+      <text x="525" y="124" font-family="Segoe UI,Arial" font-size="11" font-weight="700" fill="#C0392B" text-anchor="middle">Faro 4</text>
+      <text x="525" y="338" font-family="Segoe UI,Arial" font-size="9.5" fill="#4A5E70" text-anchor="middle">Seguridad</text>
+
+      <circle cx="650" cy="78" r="10" fill="#8E44AD"/>
+      <text x="650" y="60" font-family="Segoe UI,Arial" font-size="11" font-weight="800" fill="#8E44AD" text-anchor="middle">Faro 5 ★</text>
+      <text x="650" y="338" font-family="Segoe UI,Arial" font-size="9.5" fill="#4A5E70" text-anchor="middle">Emociones</text>
+
+      <circle cx="790" cy="232" r="8" fill="#1B5E3F"/>
+      <text x="790" y="216" font-family="Segoe UI,Arial" font-size="11" font-weight="700" fill="#1B5E3F" text-anchor="middle">Final</text>
+      <text x="790" y="338" font-family="Segoe UI,Arial" font-size="9.5" fill="#4A5E70" text-anchor="middle">Victoria</text>
+
+      <text x="650" y="40" font-family="Segoe UI,Arial" font-size="10" font-style="italic" fill="#8E44AD" text-anchor="middle">Clímax: Reconocer dolor y pedir ayuda</text>
+    </svg>
+    <div class="arc-legend">
+      <div class="arc-leg"><span class="arc-dot" style="background:#1D3461"></span>Planteo de la misión</div>
+      <div class="arc-leg"><span class="arc-dot" style="background:#2E86C1"></span>Faros 1 al 4: Hábitos concretos</div>
+      <div class="arc-leg"><span class="arc-dot" style="background:#8E44AD"></span>Clímax: Identificar emociones/dolor</div>
+      <div class="arc-leg"><span class="arc-dot" style="background:#1B5E3F"></span>Resolución del juego</div>
+    </div>
+  </div>
+
+  <div class="ai-box">
+    <h3>🤖 El Copiloto de Guion (Uso de Inteligencia Artificial)</h3>
+    <p style="font-size:13.5px; margin-bottom:12px;">Dado que son 9 produciendo, los textos de los faros tienen que sonar iguales. Tienen permiso (y la obligación pedagógica) de usar IA (ChatGPT, Claude o NotebookLM) para que actúe como su <strong>guionista de Educación Especial</strong>. Entréguenle este prompt base y ajústenlo para cada faro:</p>
+    <div class="ai-prompt">"Actúa como un experto en Diseño Universal para el Aprendizaje (DUA) especializado en Discapacidad Intelectual. 
+Estamos creando un juego interactivo llamado 'Los 5 Faros de la Salud'. 
+Necesito que escribas el guion para el Faro N° [1/2/3/4/5] cuyo tema es [Escribir Tema, ej: Higiene Personal].
+
+Requisitos estrictos:
+1. Escribe 1 frase muy corta y motivadora de bienvenida al faro.
+2. Diseña 1 desafío interactivo simple (ejemplo: clasificar imágenes, arrastrar en orden, elegir la correcta).
+3. Usa lenguaje extremadamente sencillo, directo y concreto. Evita metáforas o ironías.
+4. Escribe el mensaje de éxito ('feedback positivo') cuando logran el desafío."</div>
+    <p style="font-size:12px; color:#666; margin-top:10px;"><em>Auditoría Docente: La IA va a proponer, pero ustedes deben auditar. Si la IA sugiere "Redacta un ensayo", ustedes la corrigen: "Mis estudiantes no escriben, dame un juego de arrastrar pictogramas".</em></p>
+  </div>
+
+  <div class="section-title">🗺️ Estructura sugerida para los faros</div>
+  
+  <div class="screen">
+    <h3>🏝️ Pantalla de inicio</h3>
+    <p>"¡Hola Guardián! La Isla está cansada y apagada. Tocá un faro en el mapa para ayudar a los isleños a estar fuertes y sanos de nuevo."</p>
+  </div>
+
+  <div class="faro c1">
+    <div class="faro-head" onclick="this.nextElementSibling.style.display=(this.nextElementSibling.style.display==='none'?'block':'none')">
+      <div class="faro-ico">🍎</div>
+      <div class="faro-tt"><div class="fk">Faro 1</div><h3>El Faro de la Energía</h3><div class="tema">Alimentación Saludable</div></div>
+    </div>
+    <div class="faro-body">
+      <p style="font-size:12.5px;color:var(--txt)"><strong>Ambientación:</strong> Una cocina isleña gigante o una huerta.</p>
+      <div class="quote">"Los isleños están sin fuerzas. ¿Qué alimentos les dan energía de la buena para jugar todo el día?"</div>
+      <div class="faro-sub">Desafío sugerido (Modificación SAMR)</div>
+      <p>Clasificar en un juego de Wordwall insertado en Genial.ly: arrastrar <strong>alimentos saludables</strong> a la canasta verde y los <strong>ultraprocesados</strong> a la canasta de "para comer poquito".</p>
+    </div>
+  </div>
+
+  <div class="faro c2">
+    <div class="faro-head" onclick="this.nextElementSibling.style.display=(this.nextElementSibling.style.display==='none'?'block':'none')">
+      <div class="faro-ico">🧼</div>
+      <div class="faro-tt"><div class="fk">Faro 2</div><h3>El Faro del Escudo Invisible</h3><div class="tema">Higiene y Autocuidado</div></div>
+    </div>
+    <div class="faro-body">
+      <p style="font-size:12.5px;color:var(--txt)"><strong>Ambientación:</strong> Un baño luminoso con burbujas.</p>
+      <div class="quote">"Los bichitos invisibles que enferman andan sueltos. ¡Armemos nuestro escudo de jabón!"</div>
+      <div class="faro-sub">Desafío sugerido (Modificación SAMR)</div>
+      <p>Ordenar la secuencia temporal: Arrastrar los pictogramas del lavado de manos o cepillado de dientes en el orden correcto (1. Abrir canilla, 2. Poner jabón, 3. Frotar...).</p>
+    </div>
+  </div>
+
+  <div class="faro c3">
+    <div class="faro-head" onclick="this.nextElementSibling.style.display=(this.nextElementSibling.style.display==='none'?'block':'none')">
+      <div class="faro-ico">🏃</div>
+      <div class="faro-tt"><div class="fk">Faro 3</div><h3>El Faro del Movimiento</h3><div class="tema">Actividad Física</div></div>
+    </div>
+    <div class="faro-body">
+      <p style="font-size:12.5px;color:var(--txt)"><strong>Ambientación:</strong> Una plaza o cancha deportiva.</p>
+      <div class="quote">"El cuerpo necesita moverse para estar feliz. ¿Nos ayudás a despertar a la isla?"</div>
+      <div class="faro-sub">Desafío sugerido (Modificación SAMR)</div>
+      <p>Juego de decisiones: Aparecen dos opciones (ej. subir por escalera vs ascensor / jugar a la pelota vs estar en la tablet). El estudiante debe clickear la opción que "mueve el cuerpo".</p>
+    </div>
+  </div>
+
+  <div class="faro c4">
+    <div class="faro-head" onclick="this.nextElementSibling.style.display=(this.nextElementSibling.style.display==='none'?'block':'none')">
+      <div class="faro-ico">🛡️</div>
+      <div class="faro-tt"><div class="fk">Faro 4</div><h3>El Faro de los Cuidados</h3><div class="tema">Prevención de Accidentes en el Hogar</div></div>
+    </div>
+    <div class="faro-body">
+      <p style="font-size:12.5px;color:var(--txt)"><strong>Ambientación:</strong> Una casa interactiva (cocina, living).</p>
+      <div class="quote">"En esta casa hay cosas peligrosas que pueden lastimarnos. ¡Encontralas antes de que haya un accidente!"</div>
+      <div class="faro-sub">Desafío sugerido (Redefinición SAMR)</div>
+      <p>Un escenario "Point and Click" (Imagen interactiva en Genial.ly). El estudiante debe encontrar y clickear los peligros: una olla hirviendo, enchufes rotos, productos de limpieza en el piso.</p>
+    </div>
+  </div>
+
+  <div class="faro c5">
+    <div class="faro-head" onclick="this.nextElementSibling.style.display=(this.nextElementSibling.style.display==='none'?'block':'none')">
+      <div class="faro-ico">🚑</div>
+      <div class="faro-tt"><div class="fk">Faro 5 · El más importante</div><h3>El Faro de las Emociones y el Auxilio</h3><div class="tema">Identificar dolor y pedir ayuda</div></div>
+    </div>
+    <div class="faro-body">
+      <p style="font-size:12.5px;color:var(--txt)"><strong>Ambientación:</strong> Un centro de salud o sala de enfermería comunitaria (El clímax).</p>
+      <div class="quote">"Si algo te duele, te asusta o te hace sentir mal... ¡Tenés que avisar! ¿A quién le pedimos ayuda?"</div>
+      <div class="faro-sub">Desafío sugerido (Modificación SAMR)</div>
+      <p>Situaciones problema: Aparece un personaje agarrándose la panza o triste. El estudiante debe seleccionar de un menú de pictogramas <strong>a quién acudir</strong> (médico, mamá/papá, docente) o seleccionar en un cuerpo humano interactivo <strong>dónde le duele</strong>.</p>
+    </div>
+  </div>
+
+  <div class="screen fin">
+    <h3>🎉 Pantalla final — La prevención triunfó</h3>
+    <p>"¡La Isla está llena de luz y energía! Los cinco faros están encendidos gracias a vos. Ya sabés comer sano, lavarte, moverte, cuidarte de los accidentes y pedir ayuda cuando duele. ¡Sos un Guardián Oficial!"</p>
+  </div>
+
+  <div class="section-title">👥 Organización del Trabajo para 9 Estudiantes</div>
+  <div class="intro-card" style="border-left-color:var(--med)">
+    <p>Trabajar 9 personas en un mismo Genial.ly es caótico. Para que la aplicación no se trabe y el trabajo fluya como en un <strong>estudio de videojuegos real</strong>, divídanse en tres "Departamentos" especializados (Tríos):</p>
+    
+    <div class="prod-grid">
+      <div class="trio">
+        <h4><span class="tnum">1</span> Dpto. de Diseño Visual</h4>
+        <p><strong>Responsables de Genial.ly.</strong> Arman el Mapa Inicial, buscan los fondos, eligen la paleta de colores y la tipografía para que <em>toda</em> la isla se vea igual. Integran el trabajo de los demás.</p>
+      </div>
+      <div class="trio">
+        <h4><span class="tnum">2</span> Dpto. de Guion e IA</h4>
+        <p><strong>Responsables de la Narrativa.</strong> Usan la IA con el prompt de arriba. Redactan las frases, los mensajes de error y de éxito de los 5 faros. Garantizan que el lenguaje sea accesible (Lectura Fácil).</p>
+      </div>
+      <div class="trio">
+        <h4><span class="tnum">3</span> Dpto. de Mecánicas (DUA)</h4>
+        <p><strong>Responsables de Wordwall/Audio.</strong> Mientras el grupo 1 diseña, este grupo construye los 5 minijuegos (sopas, unir con flechas) en Wordwall. Además graban los audios leyendo el guion del grupo 2.</p>
       </div>
     </div>
+    
+    <div class="note na"><span class="ni">⚙️</span><span><strong>Flujo de trabajo:</strong> El Grupo 2 (Guion) escribe el texto en un Google Doc. El Grupo 3 (DUA) lo lee, arma el juego y graba el audio. Finalmente, le pasan el link y el audio al Grupo 1 (Diseño) para que lo incruste en la pantalla del Faro correspondiente en Genial.ly.</span></div>
   </div>
 
-  <!-- CONSIGNA -->
-  <div class="card card-b">
-    <div class="ch">📋 La consigna, en una línea</div>
-    <div class="cb">
-      <p style="font-size:14.5px;margin-bottom:10px"><strong>Diseñar un recurso educativo digital para estudiantes con DI y presentarlo en un coloquio de 10–12 min.</strong></p>
-      <p style="font-size:13px;color:var(--txt);margin-bottom:6px">En el coloquio van a justificar el recurso con lo que vimos en el taller: <strong>TPACK, SAMR, Area Moreira, Coll y ciudadanía digital.</strong></p>
-      <div class="checks">
-        <div class="chk chk-ok"><strong>✅ Tiene que</strong>El estudiante con DI hace algo (elige, arrastra, completa) · Llega a SAMR Modificación</div>
-        <div class="chk chk-no"><strong>❌ No alcanza</strong>Un PDF en pantalla · El estudiante solo mira sin participar</div>
-      </div>
-    </div>
+  <div class="section-title">✅ Check-list para el Coloquio</div>
+  <div class="check">
+    <h4>Auditoría TPACK / SAMR antes de entregar</h4>
+    <div class="cl-row"><div class="cl-box"></div><p><strong>CK (Disciplinar):</strong> ¿El contenido médico/preventivo es correcto y real?</p></div>
+    <div class="cl-row"><div class="cl-box"></div><p><strong>PK (Pedagógico):</strong> ¿La letra es grande? ¿Hay audios en cada pantalla apoyando el texto? ¿Las instrucciones son literales?</p></div>
+    <div class="cl-row"><div class="cl-box"></div><p><strong>TK (Tecnológico):</strong> ¿Los botones del mapa funcionan? ¿Los juegos de Wordwall están bien insertados?</p></div>
+    <div class="cl-row"><div class="cl-box"></div><p><strong>SAMR:</strong> ¿El estudiante hace clics con propósito, arrastra o decide? (Modificación). Eviten que sea solo darle a "Siguiente" (Sustitución).</p></div>
   </div>
 
-  <!-- FICHA -->
-  <div class="card card-a">
-    <div class="ch">★ Ficha de Ideación — completar en orden</div>
-    <div class="cb">
-      <p style="font-size:13px;color:var(--txt);margin-bottom:10px">En un Google Doc, respondé estos cuatro puntos <strong>en este orden</strong>. La herramienta es lo último.</p>
-      <div class="ficha">
-        <div class="ff"><div class="ff-n">1</div><div class="ff-b"><strong>¿Para quién?</strong><p>Grupo de estudiantes con DI: edad, nivel, qué pueden hacer.</p></div></div>
-        <div class="ff"><div class="ff-n">2</div><div class="ff-b"><strong>¿Qué querés enseñar? (el QUÉ)</strong><p>Una habilidad concreta. Ej: lavarse las manos, reconocer emociones.</p></div></div>
-        <div class="ff"><div class="ff-n">3</div><div class="ff-b"><strong>¿Cómo? (la estrategia)</strong><p>Qué hace el estudiante y cómo lo hacés accesible: pictogramas, audio, pasos cortos.</p></div></div>
-        <div class="ff"><div class="ff-n grn">4</div><div class="ff-b"><strong>¿Con qué herramienta?</strong><p>Recién ahora: Genial.ly, Wordwall, Canva… ¿En qué nivel SAMR queda?</p></div></div>
-      </div>
-      <div class="note ng"><span class="ni">✅</span><span>Cuando el docente te da el OK a la Ficha, pasás a construir.</span></div>
-    </div>
+  <div class="footer">
+    Guía de Diseño Colaborativo (9 Estudiantes) · Salud y Prevención en DI<br>
+    Alfabetización Digital — Prof. de Educación Especial · IPESfa 2026
   </div>
-
-  <!-- PRODUCCIÓN -->
-  <div class="card card-g">
-    <div class="ch">🛠️ Empezamos a construir</div>
-    <div class="cb">
-      <p style="font-size:13.5px;margin-bottom:8px">Si eligieron la narrativa gamificada de ESI, tienen el ejemplo <em>"La Isla de los Cinco Faros"</em> como modelo — no es obligatorio seguirlo.</p>
-      <div class="note nb"><span class="ni">💡</span><span><strong>Una sola regla para hoy:</strong> primero el contenido, después el diseño. Cargá los textos e imágenes antes de elegir colores.</span></div>
-      <a class="btn" href="caja_herramientas.html#cat-especial" target="_blank">🧰 Caja de Herramientas TIC</a>
-      <a class="btn" href="https://genial.ly/es/" target="_blank" style="background:var(--med)">✨ Abrir Genial.ly</a>
-    </div>
-  </div>
-
-  <!-- TAREA -->
-  <div class="note na"><span class="ni">📅</span><span><strong>Tarea:</strong> terminar el recurso en casa. La próxima clase (<strong>30/06</strong>) son las presentaciones y el cierre — es la última. Dejá el recurso con link compartido antes de esa fecha.</span></div>
 
 </div>
 
+<script>
+  // Script para expandir/colapsar la info de los faros al clickear
+  document.querySelectorAll('.faro-head').forEach(h=>{
+    h.addEventListener('click',()=>{
+      const b=h.nextElementSibling;
+      b.style.display = (b.style.display==='none' || b.style.display==='') ? 'block' : 'none';
+    });
+  });
+</script>
 </body>
 </html>
